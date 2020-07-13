@@ -1,0 +1,6 @@
+framework module SSMaterialCalendarPicker {
+  umbrella header "SSMaterialCalendarPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

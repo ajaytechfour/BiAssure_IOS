@@ -7,7 +7,11 @@
 //
 
 import UIKit
+import IQKeyboardManager
+import Firebase
 
+let Base_Url = "http://bi.servassure.net/api/"
+let kMainViewController = (UIApplication.shared.delegate?.window as? UIWindow)?.rootViewController as! MainViewController
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        IQKeyboardManager.shared().isEnabled = true
+        FirebaseApp.configure()
+
         return true
     }
 
@@ -41,6 +48,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func storeSessionId(session_id:String)
+    {
+        UserDefaults.standard .set(session_id, forKey: "session_id")
+        UserDefaults.standard.synchronize()
+    }
+    func getSessionId() -> String
+    {
+        return UserDefaults.standard.value(forKey: "session_id") as? String ?? ""
+        
+    }
+    func storeUserName(user_name:String)
+    {
+        UserDefaults.standard .set(user_name, forKey: "username")
+        UserDefaults.standard.synchronize()
+    }
+    func getUserName() -> String
+    {
+        return UserDefaults.standard.value(forKey: "username") as? String ?? ""
+        
+    }
+    func storebuttonName(button:String)
+    {
+        UserDefaults.standard .set(button, forKey: "buttontap")
+        UserDefaults.standard.synchronize()
+    }
+    func getbuttonName() -> String
+    {
+        return UserDefaults.standard.value(forKey: "buttontap") as? String ?? ""
+        
+    }
 }
 
