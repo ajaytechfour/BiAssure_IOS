@@ -935,6 +935,7 @@
 			baseConfigurationReference = 46753957F9DC293477C6CC82 /* Pods-BiAssure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MR2GEYTM6Y;
@@ -963,6 +964,7 @@
 			baseConfigurationReference = DDEDE15E99C5ABBF48A2B02A /* Pods-BiAssure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MR2GEYTM6Y;
