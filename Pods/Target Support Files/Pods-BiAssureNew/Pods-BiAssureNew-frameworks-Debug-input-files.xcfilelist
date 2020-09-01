@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-BiAssureNew/Pods-BiAssureNew-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/Colours/Colours.framework
+${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/TAKUUID/TAKUUID.framework
