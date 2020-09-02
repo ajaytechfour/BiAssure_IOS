@@ -10,6 +10,7 @@ import UIKit
 import AFNetworking
 import SVProgressHUD
 import SCLAlertView
+import KSToastView
 
 
 class LoginViewController: UIViewController {
@@ -69,7 +70,6 @@ class LoginViewController: UIViewController {
         if userName.count == 0
         {
             SCLAlertView().showEdit("", subTitle: "Enter the username.")
-            
         }
         else if password.count > 6 || password.count < 4
         {
@@ -143,6 +143,7 @@ class LoginViewController: UIViewController {
                         "password" : password,
             ]
             as [String : Any]
+        //SVProgressHUD.show()
         
         var strurl = "http://bi.servassure.net/api/login"
         
@@ -175,15 +176,11 @@ class LoginViewController: UIViewController {
         })
         { (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-            
+           // SVProgressHUD.dismiss()
             
         }
     }
-    
-    
-    
-    
-    
+ 
     
 }
 

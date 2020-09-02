@@ -10,7 +10,7 @@ target 'BiAssureNew' do
   pod 'TAKUUID'
   pod 'Colours'
   pod 'SCLAlertView'  
-
+  pod 'KSToastView'
 
   # Pods for BiAssureNew
 

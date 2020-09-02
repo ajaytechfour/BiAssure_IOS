@@ -19,6 +19,7 @@
 		15270BE224FE3E3F00564D26 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15270BE124FE3E3F00564D26 /* Utilities.swift */; };
 		15270BE424FE42C600564D26 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15270BE324FE42C600564D26 /* ForgetPasswordViewController.swift */; };
 		15270BE624FE4EAC00564D26 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15270BE524FE4EAC00564D26 /* SignUpViewController.swift */; };
+		157DF1AC24FFA895000B3DA2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157DF1AB24FFA895000B3DA2 /* SalesViewController.swift */; };
 		5382AB7EBC0EDE7410E87B48 /* Pods_BiAssureNew_BiAssureNewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8419A75ECC3051DF31EF128E /* Pods_BiAssureNew_BiAssureNewUITests.framework */; };
 		A71758EBBEB0DDFFBD58AB0C /* Pods_BiAssureNewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 859054F0CE873E7A24C33824 /* Pods_BiAssureNewTests.framework */; };
 		F5FAD54B39BB1677EAF1ADD2 /* Pods_BiAssureNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0157A7B1105D5D16AD3CC7 /* Pods_BiAssureNew.framework */; };
@@ -60,6 +61,7 @@
 		15270BE124FE3E3F00564D26 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		15270BE324FE42C600564D26 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		15270BE524FE4EAC00564D26 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		157DF1AB24FFA895000B3DA2 /* SalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
 		29E24729DB02A3EC5BEA23C7 /* Pods-BiAssureNew-BiAssureNewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureNew-BiAssureNewUITests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureNew-BiAssureNewUITests/Pods-BiAssureNew-BiAssureNewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8419A75ECC3051DF31EF128E /* Pods_BiAssureNew_BiAssureNewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssureNew_BiAssureNewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		859054F0CE873E7A24C33824 /* Pods_BiAssureNewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssureNewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 		15270BAC24FE161B00564D26 /* BiAssureNew */ = {
 			isa = PBXGroup;
 			children = (
+				157DF1AA24FFA876000B3DA2 /* View Controllers */,
 				15270BAD24FE161B00564D26 /* AppDelegate.swift */,
 				15270BAF24FE161B00564D26 /* SceneDelegate.swift */,
 				15270BB324FE161B00564D26 /* Main.storyboard */,
@@ -165,6 +168,14 @@
 				15270BD124FE162000564D26 /* Info.plist */,
 			);
 			path = BiAssureNewUITests;
+			sourceTree = "<group>";
+		};
+		157DF1AA24FFA876000B3DA2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				157DF1AB24FFA895000B3DA2 /* SalesViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		CD283EC4F56F50AACC167BB0 /* Pods */ = {
@@ -422,6 +433,7 @@
 				15270BDE24FE19BF00564D26 /* LoginViewController.swift in Sources */,
 				15270BE624FE4EAC00564D26 /* SignUpViewController.swift in Sources */,
 				15270BAE24FE161B00564D26 /* AppDelegate.swift in Sources */,
+				157DF1AC24FFA895000B3DA2 /* SalesViewController.swift in Sources */,
 				15270BB024FE161B00564D26 /* SceneDelegate.swift in Sources */,
 				15270BE224FE3E3F00564D26 /* Utilities.swift in Sources */,
 				15270BE424FE42C600564D26 /* ForgetPasswordViewController.swift in Sources */,
@@ -599,15 +611,17 @@
 			baseConfigurationReference = B5691E67CC59F10761C9B07D /* Pods-BiAssureNew.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 78CTD9XZSU;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
 				INFOPLIST_FILE = BiAssureNew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TaskManagement.BiAssureNew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techfour.hrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -618,15 +632,17 @@
 			baseConfigurationReference = C4A49C716C56629629D41F5A /* Pods-BiAssureNew.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 78CTD9XZSU;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
 				INFOPLIST_FILE = BiAssureNew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TaskManagement.BiAssureNew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techfour.hrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

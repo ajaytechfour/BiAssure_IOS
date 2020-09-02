@@ -17,6 +17,7 @@ PODS:
   - Colours (5.13.0):
     - Colours/ObjC (= 5.13.0)
   - Colours/ObjC (5.13.0)
+  - KSToastView (0.5.7)
   - SCLAlertView (0.8)
   - SVProgressHUD (2.2.5)
   - TAKUUID (1.5.0)
@@ -24,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Colours
+  - KSToastView
   - SCLAlertView
   - SVProgressHUD
   - TAKUUID
@@ -32,6 +34,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - Colours
+    - KSToastView
     - SCLAlertView
     - SVProgressHUD
     - TAKUUID
@@ -39,10 +42,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Colours: f24220c38f13deac88612667e9b4a7fb96b871d4
+  KSToastView: aeb0ca50b44e9568b6f95b2d1ec53a3f016b50fc
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TAKUUID: 48d7c690d85a27e7beb79b099349f1cf0d60c928
 
-PODFILE CHECKSUM: a33c750e28e39b1c4ccafb891af9ce23432c1db7
+PODFILE CHECKSUM: ea8f56cfe5efc67ab49e66f3153b930dd2525597
 
 COCOAPODS: 1.9.3
