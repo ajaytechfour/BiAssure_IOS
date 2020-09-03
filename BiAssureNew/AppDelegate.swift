@@ -10,7 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,6 +29,37 @@ var window: UIWindow?
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+
+    func storeSessionId(session_id:String)
+        {
+            UserDefaults.standard .set(session_id, forKey: "session_id")
+            UserDefaults.standard.synchronize()
+        }
+        func getSessionId() -> String
+        {
+            return UserDefaults.standard.value(forKey: "session_id") as? String ?? ""
+            
+        }
+        func storeUserName(user_name:String)
+        {
+            UserDefaults.standard .set(user_name, forKey: "username")
+            UserDefaults.standard.synchronize()
+        }
+        func getUserName() -> String
+        {
+            return UserDefaults.standard.value(forKey: "username") as? String ?? ""
+            
+        }
+        func storebuttonName(button:String)
+        {
+            UserDefaults.standard .set(button, forKey: "buttontap")
+            UserDefaults.standard.synchronize()
+        }
+        func getbuttonName() -> String
+        {
+            return UserDefaults.standard.value(forKey: "buttontap") as? String ?? ""
+            
     }
 
 

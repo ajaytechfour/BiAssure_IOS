@@ -11,6 +11,10 @@ target 'BiAssureNew' do
   pod 'Colours'
   pod 'SCLAlertView'  
   pod 'KSToastView'
+  pod 'Charts'
+  pod 'RMPickerViewController'
+
+
 
   # Pods for BiAssureNew
 

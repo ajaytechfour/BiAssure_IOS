@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         
         
-        if  validteField(){
+        if  self.validteField(){
             
             loginApi()
             
@@ -61,27 +61,26 @@ class LoginViewController: UIViewController {
         
         
         
+        
     }
     
     
     func validteField() -> Bool {
-        userName =  userNameTextField.text!
-        password =  passwordTextField.text!
-        if userName.count == 0
+        if userNameTextField.text!.count > 1
         {
-            SCLAlertView().showEdit("", subTitle: "Enter the username.")
+            if passwordTextField.text!.count >= 4
+            {
+            return true
+            }
+        else{
+         SCLAlertView().showEdit("Enter valid password", subTitle: "")
+            }
         }
-        else if password.count > 6 || password.count < 4
+        else
         {
-            
-            
-            SCLAlertView().showEdit("", subTitle: "Enter the valid password.")
-            
+            SCLAlertView().showEdit("Enter user name", subTitle: "")
         }
-        else if password.count == 0 {
-            SCLAlertView().showEdit("", subTitle: "Enter the password.")
-        }
-        return true
+        return false
         
     }
     
@@ -130,7 +129,7 @@ class LoginViewController: UIViewController {
         manager.requestSerializer = serializerRequest
         manager.requestSerializer.timeoutInterval = 90.0
         
-        let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: userName) as NSString
+        let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: userNameTextField.text!) as NSString
         serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
         
         
@@ -139,8 +138,8 @@ class LoginViewController: UIViewController {
         manager.responseSerializer = serializerResponse
         
         
-        let dictdata = ["username": userName,
-                        "password" : password,
+        let dictdata = ["username": userNameTextField.text!,
+                        "password" : passwordTextField.text!,
             ]
             as [String : Any]
         //SVProgressHUD.show()
@@ -168,6 +167,10 @@ class LoginViewController: UIViewController {
                 else if info["success"]as? Int == 0
                 {
                     print("\(info)")
+                    SCLAlertView().showEdit(info["message"]as! String, subTitle: "")
+                    
+                    
+                    
                 }
                 
             }

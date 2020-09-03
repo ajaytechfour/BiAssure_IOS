@@ -198,16 +198,22 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Colours/Colours.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/KSToastView/KSToastView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RMActionController/RMActionController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RMPickerViewController/RMPickerViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TAKUUID/TAKUUID.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Charts/Charts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Colours/Colours.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/KSToastView/KSToastView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RMActionController/RMActionController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RMPickerViewController/RMPickerViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TAKUUID/TAKUUID.framework"

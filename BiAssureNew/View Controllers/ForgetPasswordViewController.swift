@@ -58,20 +58,24 @@ class ForgetPasswordViewController: UIViewController {
     }
     
     func validteField () -> Bool  {
-        userName =  userNameTextField.text!
-        email =  emailIdTextField.text!
-        if userName.count == 0
-        {
-            SCLAlertView().showEdit("", subTitle: "Enter the user name.")
-            
-            
-        }
-            
-        else if email.count == 0 {
-            SCLAlertView().showEdit("", subTitle: "Enter the  emailid.")
-        }
         
-        return true
+        if userNameTextField.text!.count > 1
+        {
+            if emailIdTextField.text!.count >= 4
+            {
+            return true
+            }
+        else{
+         SCLAlertView().showEdit("", subTitle: "Enter the  emailid.")
+            }
+        }
+        else
+        {
+            SCLAlertView().showEdit("Enter valid username", subTitle: "")
+        }
+        return false
+        
+    
     }
     
     
@@ -111,7 +115,7 @@ class ForgetPasswordViewController: UIViewController {
         manager.requestSerializer = serializerRequest
         manager.requestSerializer.timeoutInterval = 90.0
         
-        let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: userName) as NSString
+        let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: userNameTextField.text!) as NSString
         serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
         
         
@@ -120,8 +124,8 @@ class ForgetPasswordViewController: UIViewController {
         manager.responseSerializer = serializerResponse
         
         
-        let dictdata = ["user_name": userName,
-                        "email" : email,
+        let dictdata = ["user_name": userNameTextField.text!,
+                        "email" : emailIdTextField.text!,
             ]
             as [String : Any]
        
@@ -151,6 +155,7 @@ class ForgetPasswordViewController: UIViewController {
                 else if info["success"]as? Int == 0
                 {
                     print("\(info)")
+                    SCLAlertView().showEdit(info["message"]as! String, subTitle: "")
                 }
                 
             }

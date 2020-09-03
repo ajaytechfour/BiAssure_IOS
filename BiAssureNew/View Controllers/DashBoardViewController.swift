@@ -35,7 +35,7 @@ class DashBoardViewController: UIViewController {
     
     @IBAction func salesBtnTappe(_ sender: UIButton) {
         
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SalesViewController") as? SalesViewController
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OEMWiseViewController") as? OEMWiseViewController
         self.navigationController?.pushViewController(vc!, animated: true)
         
     }
