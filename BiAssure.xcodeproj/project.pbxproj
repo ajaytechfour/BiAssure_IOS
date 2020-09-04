@@ -1,0 +1,1005 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05E400D1E6408EF683774B82 /* Pods_BiAssure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */; };
+		3935348422FBFE1D001F3EDB /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = 3935347C22FBFE1C001F3EDB /* ntc.js */; };
+		3935348522FBFE1D001F3EDB /* Luminosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347E22FBFE1D001F3EDB /* Luminosity.swift */; };
+		3935348622FBFE1D001F3EDB /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347F22FBFE1D001F3EDB /* RandomColor.swift */; };
+		3935348722FBFE1D001F3EDB /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935348022FBFE1D001F3EDB /* ColorDefinition.swift */; };
+		3935348822FBFE1D001F3EDB /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935348122FBFE1D001F3EDB /* Hue.swift */; };
+		39FD31DA22F0166E00A13836 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD31D922F0166E00A13836 /* ViewController.swift */; };
+		39FD558322E9C6C5004FA8A1 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD558222E9C6C5004FA8A1 /* DashBoardViewController.swift */; };
+		39FD558622E9D1B4004FA8A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FD558522E9D1B4004FA8A1 /* LoginViewController.swift */; };
+		39FE1B0922EACB7B000357B0 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE1B0822EACB7B000357B0 /* PaddingTextField.swift */; };
+		39FE1B0B22EACB95000357B0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE1B0A22EACB95000357B0 /* ChangePasswordViewController.swift */; };
+		39FE1B1122EB0060000357B0 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FE1B1022EB0060000357B0 /* ForgetPasswordViewController.swift */; };
+		5A2ACF8022F5676F00D4678F /* ToyotaEWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACF7F22F5676F00D4678F /* ToyotaEWViewController.swift */; };
+		5A2ACF8522F5677700D4678F /* RegionShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACF8222F5677700D4678F /* RegionShowViewController.swift */; };
+		5A2ACF8622F5677700D4678F /* ModelShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACF8422F5677700D4678F /* ModelShowViewController.swift */; };
+		5A31109B22F4109700477AB0 /* RegionDetailViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31109A22F4109700477AB0 /* RegionDetailViewControllerViewController.swift */; };
+		5A34285222F056BF00FC6A53 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34285022F056BF00FC6A53 /* CustomPicker.swift */; };
+		5A34285322F056BF00FC6A53 /* CustomPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A34285122F056BF00FC6A53 /* CustomPicker.xib */; };
+		5A34285722F0582000FC6A53 /* OEMWiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34285622F0582000FC6A53 /* OEMWiseViewController.swift */; };
+		5A349BD72327D17E0067AD34 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A349BD62327D17E0067AD34 /* SignupViewController.swift */; };
+		5A6F3DC522F2DF3900043F12 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6F3DC422F2DF3900043F12 /* SalesViewController.swift */; };
+		5A8E6EA122E98979001613DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6EA022E98979001613DA /* AppDelegate.swift */; };
+		5A8E6EA622E98979001613DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E6EA422E98979001613DA /* Main.storyboard */; };
+		5A8E6EA822E98986001613DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E6EA722E98986001613DA /* Assets.xcassets */; };
+		5A8E6EAB22E98986001613DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E6EA922E98986001613DA /* LaunchScreen.storyboard */; };
+		5A8E6EB622E98987001613DA /* BiAssureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6EB522E98987001613DA /* BiAssureTests.swift */; };
+		5A8E6EC122E98987001613DA /* BiAssureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6EC022E98987001613DA /* BiAssureUITests.swift */; };
+		5A8E6ED122E9A3BF001613DA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6ECF22E9A3BF001613DA /* NavigationViewController.swift */; };
+		5A8E6ED222E9A3BF001613DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6ED022E9A3BF001613DA /* MainViewController.swift */; };
+		5A8E6ED422E9A455001613DA /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6ED322E9A455001613DA /* RightViewController.swift */; };
+		5A8E6ED722E9C31A001613DA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E6ED622E9C31A001613DA /* Utilities.swift */; };
+		7D19A79DB8E6C70554545ADE /* Pods_BiAssureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B98671213D564C55E012554 /* Pods_BiAssureTests.framework */; };
+		BC036605A69AB2FA78E0C605 /* Pods_BiAssureUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A35AF19D3E5D3BC72BC0 /* Pods_BiAssureUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A8E6EB222E98987001613DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A8E6E9522E98979001613DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A8E6E9C22E98979001613DA;
+			remoteInfo = BiAssure;
+		};
+		5A8E6EBD22E98987001613DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A8E6E9522E98979001613DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A8E6E9C22E98979001613DA;
+			remoteInfo = BiAssure;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B64FB3A623FEB2060035C7C7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		079710D0F45BC74A64793426 /* Pods-BiAssureUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureUITests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureUITests/Pods-BiAssureUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		220AA5DB70666AFE8C71409A /* Pods-BiAssureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureTests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureTests/Pods-BiAssureTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3935347C22FBFE1C001F3EDB /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
+		3935347E22FBFE1D001F3EDB /* Luminosity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Luminosity.swift; sourceTree = "<group>"; };
+		3935347F22FBFE1D001F3EDB /* RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
+		3935348022FBFE1D001F3EDB /* ColorDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
+		3935348122FBFE1D001F3EDB /* Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hue.swift; sourceTree = "<group>"; };
+		3935348222FBFE1D001F3EDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3935348322FBFE1D001F3EDB /* RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomColor.h; sourceTree = "<group>"; };
+		39FD31D922F0166E00A13836 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39FD558222E9C6C5004FA8A1 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
+		39FD558522E9D1B4004FA8A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		39FE1B0822EACB7B000357B0 /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
+		39FE1B0A22EACB95000357B0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		39FE1B1022EB0060000357B0 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		4379033D3EBCC23D452E09A5 /* Pods-BiAssureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureTests.release.xcconfig"; path = "Target Support Files/Pods-BiAssureTests/Pods-BiAssureTests.release.xcconfig"; sourceTree = "<group>"; };
+		46753957F9DC293477C6CC82 /* Pods-BiAssure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssure.debug.xcconfig"; path = "Target Support Files/Pods-BiAssure/Pods-BiAssure.debug.xcconfig"; sourceTree = "<group>"; };
+		4B98671213D564C55E012554 /* Pods_BiAssureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2ACF7F22F5676F00D4678F /* ToyotaEWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToyotaEWViewController.swift; sourceTree = "<group>"; };
+		5A2ACF8222F5677700D4678F /* RegionShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionShowViewController.swift; sourceTree = "<group>"; };
+		5A2ACF8422F5677700D4678F /* ModelShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelShowViewController.swift; sourceTree = "<group>"; };
+		5A31109A22F4109700477AB0 /* RegionDetailViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetailViewControllerViewController.swift; sourceTree = "<group>"; };
+		5A34285022F056BF00FC6A53 /* CustomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		5A34285122F056BF00FC6A53 /* CustomPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPicker.xib; sourceTree = "<group>"; };
+		5A34285622F0582000FC6A53 /* OEMWiseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OEMWiseViewController.swift; sourceTree = "<group>"; };
+		5A349BD62327D17E0067AD34 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		5A6F3DC422F2DF3900043F12 /* SalesViewController.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
+		5A8E6E9D22E98979001613DA /* BiAssure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiAssure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A8E6EA022E98979001613DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5A8E6EA522E98979001613DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A8E6EA722E98986001613DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A8E6EAA22E98986001613DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5A8E6EAC22E98986001613DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A8E6EB122E98987001613DA /* BiAssureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiAssureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A8E6EB522E98987001613DA /* BiAssureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiAssureTests.swift; sourceTree = "<group>"; };
+		5A8E6EB722E98987001613DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A8E6EBC22E98987001613DA /* BiAssureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiAssureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A8E6EC022E98987001613DA /* BiAssureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiAssureUITests.swift; sourceTree = "<group>"; };
+		5A8E6EC222E98987001613DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A8E6ECF22E9A3BF001613DA /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		5A8E6ED022E9A3BF001613DA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5A8E6ED322E9A455001613DA /* RightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
+		5A8E6ED622E9C31A001613DA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		9AB0A35AF19D3E5D3BC72BC0 /* Pods_BiAssureUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssureUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA793EBB3D18391D8383EBEA /* Pods-BiAssureUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureUITests.release.xcconfig"; path = "Target Support Files/Pods-BiAssureUITests/Pods-BiAssureUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DDEDE15E99C5ABBF48A2B02A /* Pods-BiAssure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssure.release.xcconfig"; path = "Target Support Files/Pods-BiAssure/Pods-BiAssure.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A8E6E9A22E98979001613DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05E400D1E6408EF683774B82 /* Pods_BiAssure.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A8E6EAE22E98987001613DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D19A79DB8E6C70554545ADE /* Pods_BiAssureTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A8E6EB922E98987001613DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC036605A69AB2FA78E0C605 /* Pods_BiAssureUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08EA0687CD5849CCDF9901DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46753957F9DC293477C6CC82 /* Pods-BiAssure.debug.xcconfig */,
+				DDEDE15E99C5ABBF48A2B02A /* Pods-BiAssure.release.xcconfig */,
+				220AA5DB70666AFE8C71409A /* Pods-BiAssureTests.debug.xcconfig */,
+				4379033D3EBCC23D452E09A5 /* Pods-BiAssureTests.release.xcconfig */,
+				079710D0F45BC74A64793426 /* Pods-BiAssureUITests.debug.xcconfig */,
+				BA793EBB3D18391D8383EBEA /* Pods-BiAssureUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3935347B22FBFE1C001F3EDB /* third-party */ = {
+			isa = PBXGroup;
+			children = (
+				3935347C22FBFE1C001F3EDB /* ntc.js */,
+			);
+			path = "third-party";
+			sourceTree = "<group>";
+		};
+		3935347D22FBFE1D001F3EDB /* RandomColor */ = {
+			isa = PBXGroup;
+			children = (
+				3935347E22FBFE1D001F3EDB /* Luminosity.swift */,
+				3935347F22FBFE1D001F3EDB /* RandomColor.swift */,
+				3935348022FBFE1D001F3EDB /* ColorDefinition.swift */,
+				3935348122FBFE1D001F3EDB /* Hue.swift */,
+				3935348222FBFE1D001F3EDB /* Info.plist */,
+				3935348322FBFE1D001F3EDB /* RandomColor.h */,
+			);
+			path = RandomColor;
+			sourceTree = "<group>";
+		};
+		39FD558122E9C6B0004FA8A1 /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				39FD558222E9C6C5004FA8A1 /* DashBoardViewController.swift */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		39FD558422E9D19F004FA8A1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				39FD558522E9D1B4004FA8A1 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		39FE1B0622EACB11000357B0 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				39FE1B0A22EACB95000357B0 /* ChangePasswordViewController.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		39FE1B0722EACB11000357B0 /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				39FE1B0822EACB7B000357B0 /* PaddingTextField.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		39FE1B0F22EB0052000357B0 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				39FE1B1022EB0060000357B0 /* ForgetPasswordViewController.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		5A2ACF7E22F5676F00D4678F /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ACF7F22F5676F00D4678F /* ToyotaEWViewController.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		5A2ACF8122F5677700D4678F /* RegionWise */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ACF8222F5677700D4678F /* RegionShowViewController.swift */,
+			);
+			path = RegionWise;
+			sourceTree = "<group>";
+		};
+		5A2ACF8322F5677700D4678F /* ModelWise */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ACF8422F5677700D4678F /* ModelShowViewController.swift */,
+			);
+			path = ModelWise;
+			sourceTree = "<group>";
+		};
+		5A31109922F4104C00477AB0 /* RegionDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				5A31109A22F4109700477AB0 /* RegionDetailViewControllerViewController.swift */,
+			);
+			path = RegionDetailView;
+			sourceTree = "<group>";
+		};
+		5A34284F22F056BF00FC6A53 /* CustomerPicker */ = {
+			isa = PBXGroup;
+			children = (
+				5A34285022F056BF00FC6A53 /* CustomPicker.swift */,
+				5A34285122F056BF00FC6A53 /* CustomPicker.xib */,
+			);
+			path = CustomerPicker;
+			sourceTree = "<group>";
+		};
+		5A34285422F0582000FC6A53 /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ACF8322F5677700D4678F /* ModelWise */,
+				5A2ACF8122F5677700D4678F /* RegionWise */,
+				5A2ACF7E22F5676F00D4678F /* Product */,
+				5A31109922F4104C00477AB0 /* RegionDetailView */,
+				5A6F3DC322F2DF0900043F12 /* Sales */,
+				5A34285522F0582000FC6A53 /* OEMWise */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
+		5A34285522F0582000FC6A53 /* OEMWise */ = {
+			isa = PBXGroup;
+			children = (
+				5A34285622F0582000FC6A53 /* OEMWiseViewController.swift */,
+			);
+			path = OEMWise;
+			sourceTree = "<group>";
+		};
+		5A349BD52327D1240067AD34 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				5A349BD62327D17E0067AD34 /* SignupViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		5A6F3DC322F2DF0900043F12 /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				5A6F3DC422F2DF3900043F12 /* SalesViewController.swift */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
+		5A8E6E9422E98979001613DA = {
+			isa = PBXGroup;
+			children = (
+				5A8E6E9F22E98979001613DA /* BiAssure */,
+				5A8E6EB422E98987001613DA /* BiAssureTests */,
+				5A8E6EBF22E98987001613DA /* BiAssureUITests */,
+				5A8E6E9E22E98979001613DA /* Products */,
+				08EA0687CD5849CCDF9901DA /* Pods */,
+				E65B78B3394827249443107D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5A8E6E9E22E98979001613DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A8E6E9D22E98979001613DA /* BiAssure.app */,
+				5A8E6EB122E98987001613DA /* BiAssureTests.xctest */,
+				5A8E6EBC22E98987001613DA /* BiAssureUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A8E6E9F22E98979001613DA /* BiAssure */ = {
+			isa = PBXGroup;
+			children = (
+				5A349BD52327D1240067AD34 /* Signup */,
+				3935347D22FBFE1D001F3EDB /* RandomColor */,
+				3935347B22FBFE1C001F3EDB /* third-party */,
+				5A34285422F0582000FC6A53 /* Sales */,
+				5A34284F22F056BF00FC6A53 /* CustomerPicker */,
+				39FE1B0F22EB0052000357B0 /* ForgetPassword */,
+				39FE1B0622EACB11000357B0 /* ChangePassword */,
+				39FE1B0722EACB11000357B0 /* CustomTextField */,
+				39FD558422E9D19F004FA8A1 /* Login */,
+				39FD558122E9C6B0004FA8A1 /* DashBoard */,
+				5A8E6ED522E9C307001613DA /* Utilities */,
+				5A8E6ECE22E9A39C001613DA /* SideMenu */,
+				5A8E6EA022E98979001613DA /* AppDelegate.swift */,
+				5A8E6EA422E98979001613DA /* Main.storyboard */,
+				5A8E6EA722E98986001613DA /* Assets.xcassets */,
+				5A8E6EA922E98986001613DA /* LaunchScreen.storyboard */,
+				5A8E6EAC22E98986001613DA /* Info.plist */,
+				39FD31D922F0166E00A13836 /* ViewController.swift */,
+			);
+			path = BiAssure;
+			sourceTree = "<group>";
+		};
+		5A8E6EB422E98987001613DA /* BiAssureTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A8E6EB522E98987001613DA /* BiAssureTests.swift */,
+				5A8E6EB722E98987001613DA /* Info.plist */,
+			);
+			path = BiAssureTests;
+			sourceTree = "<group>";
+		};
+		5A8E6EBF22E98987001613DA /* BiAssureUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5A8E6EC022E98987001613DA /* BiAssureUITests.swift */,
+				5A8E6EC222E98987001613DA /* Info.plist */,
+			);
+			path = BiAssureUITests;
+			sourceTree = "<group>";
+		};
+		5A8E6ECE22E9A39C001613DA /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5A8E6ED022E9A3BF001613DA /* MainViewController.swift */,
+				5A8E6ECF22E9A3BF001613DA /* NavigationViewController.swift */,
+				5A8E6ED322E9A455001613DA /* RightViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		5A8E6ED522E9C307001613DA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5A8E6ED622E9C31A001613DA /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E65B78B3394827249443107D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */,
+				4B98671213D564C55E012554 /* Pods_BiAssureTests.framework */,
+				9AB0A35AF19D3E5D3BC72BC0 /* Pods_BiAssureUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A8E6E9C22E98979001613DA /* BiAssure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A8E6EC522E98987001613DA /* Build configuration list for PBXNativeTarget "BiAssure" */;
+			buildPhases = (
+				CD7C587010FDFEF73109F854 /* [CP] Check Pods Manifest.lock */,
+				5A8E6E9922E98979001613DA /* Sources */,
+				5A8E6E9A22E98979001613DA /* Frameworks */,
+				5A8E6E9B22E98979001613DA /* Resources */,
+				96A8B98C47425972B1C6024E /* [CP] Embed Pods Frameworks */,
+				B64FB3A623FEB2060035C7C7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BiAssure;
+			productName = BiAssure;
+			productReference = 5A8E6E9D22E98979001613DA /* BiAssure.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5A8E6EB022E98987001613DA /* BiAssureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A8E6EC822E98987001613DA /* Build configuration list for PBXNativeTarget "BiAssureTests" */;
+			buildPhases = (
+				0E37F472E2B311F00A00B0B2 /* [CP] Check Pods Manifest.lock */,
+				5A8E6EAD22E98987001613DA /* Sources */,
+				5A8E6EAE22E98987001613DA /* Frameworks */,
+				5A8E6EAF22E98987001613DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A8E6EB322E98987001613DA /* PBXTargetDependency */,
+			);
+			name = BiAssureTests;
+			productName = BiAssureTests;
+			productReference = 5A8E6EB122E98987001613DA /* BiAssureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5A8E6EBB22E98987001613DA /* BiAssureUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A8E6ECB22E98987001613DA /* Build configuration list for PBXNativeTarget "BiAssureUITests" */;
+			buildPhases = (
+				DD2F249E3A1C5B66437FCC78 /* [CP] Check Pods Manifest.lock */,
+				5A8E6EB822E98987001613DA /* Sources */,
+				5A8E6EB922E98987001613DA /* Frameworks */,
+				5A8E6EBA22E98987001613DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A8E6EBE22E98987001613DA /* PBXTargetDependency */,
+			);
+			name = BiAssureUITests;
+			productName = BiAssureUITests;
+			productReference = 5A8E6EBC22E98987001613DA /* BiAssureUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A8E6E9522E98979001613DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = Techfour;
+				TargetAttributes = {
+					5A8E6E9C22E98979001613DA = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					5A8E6EB022E98987001613DA = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5A8E6E9C22E98979001613DA;
+					};
+					5A8E6EBB22E98987001613DA = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5A8E6E9C22E98979001613DA;
+					};
+				};
+			};
+			buildConfigurationList = 5A8E6E9822E98979001613DA /* Build configuration list for PBXProject "BiAssure" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A8E6E9422E98979001613DA;
+			productRefGroup = 5A8E6E9E22E98979001613DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A8E6E9C22E98979001613DA /* BiAssure */,
+				5A8E6EB022E98987001613DA /* BiAssureTests */,
+				5A8E6EBB22E98987001613DA /* BiAssureUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A8E6E9B22E98979001613DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A8E6EAB22E98986001613DA /* LaunchScreen.storyboard in Resources */,
+				3935348422FBFE1D001F3EDB /* ntc.js in Resources */,
+				5A8E6EA822E98986001613DA /* Assets.xcassets in Resources */,
+				5A34285322F056BF00FC6A53 /* CustomPicker.xib in Resources */,
+				5A8E6EA622E98979001613DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A8E6EAF22E98987001613DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A8E6EBA22E98987001613DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E37F472E2B311F00A00B0B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BiAssureTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96A8B98C47425972B1C6024E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BiAssure/Pods-BiAssure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BiAssure/Pods-BiAssure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BiAssure/Pods-BiAssure-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD7C587010FDFEF73109F854 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BiAssure-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD2F249E3A1C5B66437FCC78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BiAssureUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A8E6E9922E98979001613DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3935348822FBFE1D001F3EDB /* Hue.swift in Sources */,
+				5A8E6ED722E9C31A001613DA /* Utilities.swift in Sources */,
+				5A8E6ED122E9A3BF001613DA /* NavigationViewController.swift in Sources */,
+				3935348522FBFE1D001F3EDB /* Luminosity.swift in Sources */,
+				39FE1B0B22EACB95000357B0 /* ChangePasswordViewController.swift in Sources */,
+				39FD558322E9C6C5004FA8A1 /* DashBoardViewController.swift in Sources */,
+				5A31109B22F4109700477AB0 /* RegionDetailViewControllerViewController.swift in Sources */,
+				39FD31DA22F0166E00A13836 /* ViewController.swift in Sources */,
+				5A34285222F056BF00FC6A53 /* CustomPicker.swift in Sources */,
+				3935348722FBFE1D001F3EDB /* ColorDefinition.swift in Sources */,
+				39FE1B0922EACB7B000357B0 /* PaddingTextField.swift in Sources */,
+				5A2ACF8622F5677700D4678F /* ModelShowViewController.swift in Sources */,
+				39FD558622E9D1B4004FA8A1 /* LoginViewController.swift in Sources */,
+				5A8E6ED422E9A455001613DA /* RightViewController.swift in Sources */,
+				5A8E6EA122E98979001613DA /* AppDelegate.swift in Sources */,
+				5A2ACF8522F5677700D4678F /* RegionShowViewController.swift in Sources */,
+				5A8E6ED222E9A3BF001613DA /* MainViewController.swift in Sources */,
+				5A6F3DC522F2DF3900043F12 /* SalesViewController.swift in Sources */,
+				3935348622FBFE1D001F3EDB /* RandomColor.swift in Sources */,
+				39FE1B1122EB0060000357B0 /* ForgetPasswordViewController.swift in Sources */,
+				5A349BD72327D17E0067AD34 /* SignupViewController.swift in Sources */,
+				5A34285722F0582000FC6A53 /* OEMWiseViewController.swift in Sources */,
+				5A2ACF8022F5676F00D4678F /* ToyotaEWViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A8E6EAD22E98987001613DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A8E6EB622E98987001613DA /* BiAssureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A8E6EB822E98987001613DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A8E6EC122E98987001613DA /* BiAssureUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A8E6EB322E98987001613DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A8E6E9C22E98979001613DA /* BiAssure */;
+			targetProxy = 5A8E6EB222E98987001613DA /* PBXContainerItemProxy */;
+		};
+		5A8E6EBE22E98987001613DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A8E6E9C22E98979001613DA /* BiAssure */;
+			targetProxy = 5A8E6EBD22E98987001613DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5A8E6EA422E98979001613DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A8E6EA522E98979001613DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5A8E6EA922E98986001613DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A8E6EAA22E98986001613DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A8E6EC322E98987001613DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5A8E6EC422E98987001613DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A8E6EC622E98987001613DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46753957F9DC293477C6CC82 /* Pods-BiAssure.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = BiAssure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "./**";
+				PRODUCT_BUNDLE_IDENTIFIER = Techfour.BiAssure;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A8E6EC722E98987001613DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDEDE15E99C5ABBF48A2B02A /* Pods-BiAssure.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = BiAssure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "./**";
+				PRODUCT_BUNDLE_IDENTIFIER = Techfour.BiAssure;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5A8E6EC922E98987001613DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 220AA5DB70666AFE8C71409A /* Pods-BiAssureTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
+				INFOPLIST_FILE = BiAssureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.techfour.liveStreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiAssure.app/BiAssure";
+			};
+			name = Debug;
+		};
+		5A8E6ECA22E98987001613DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4379033D3EBCC23D452E09A5 /* Pods-BiAssureTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
+				INFOPLIST_FILE = BiAssureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.techfour.liveStreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BiAssure.app/BiAssure";
+			};
+			name = Release;
+		};
+		5A8E6ECC22E98987001613DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 079710D0F45BC74A64793426 /* Pods-BiAssureUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
+				INFOPLIST_FILE = BiAssureUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.techfour.liveStreamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BiAssure;
+			};
+			name = Debug;
+		};
+		5A8E6ECD22E98987001613DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA793EBB3D18391D8383EBEA /* Pods-BiAssureUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MR2GEYTM6Y;
+				INFOPLIST_FILE = BiAssureUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.techfour.liveStreamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BiAssure;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A8E6E9822E98979001613DA /* Build configuration list for PBXProject "BiAssure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A8E6EC322E98987001613DA /* Debug */,
+				5A8E6EC422E98987001613DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A8E6EC522E98987001613DA /* Build configuration list for PBXNativeTarget "BiAssure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A8E6EC622E98987001613DA /* Debug */,
+				5A8E6EC722E98987001613DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A8E6EC822E98987001613DA /* Build configuration list for PBXNativeTarget "BiAssureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A8E6EC922E98987001613DA /* Debug */,
+				5A8E6ECA22E98987001613DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A8E6ECB22E98987001613DA /* Build configuration list for PBXNativeTarget "BiAssureUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A8E6ECC22E98987001613DA /* Debug */,
+				5A8E6ECD22E98987001613DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5A8E6E9522E98979001613DA /* Project object */;
+}

@@ -31,9 +31,11 @@ open class ChartDataSet: ChartBaseDataSet
         super.init()
     }
     
-    public override convenience init(label: String?)
+    public override init(label: String?)
     {
-        self.init(entries: nil, label: label)
+        entries = []
+
+        super.init(label: label)
     }
     
     @objc public init(entries: [ChartDataEntry]?, label: String?)

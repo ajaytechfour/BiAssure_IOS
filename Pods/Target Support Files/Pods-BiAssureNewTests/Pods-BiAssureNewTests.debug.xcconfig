@@ -1,9 +1,0 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Charts" "${PODS_CONFIGURATION_BUILD_DIR}/Colours" "${PODS_CONFIGURATION_BUILD_DIR}/KSToastView" "${PODS_CONFIGURATION_BUILD_DIR}/RMActionController" "${PODS_CONFIGURATION_BUILD_DIR}/RMPickerViewController" "${PODS_CONFIGURATION_BUILD_DIR}/SCLAlertView" "${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD" "${PODS_CONFIGURATION_BUILD_DIR}/TAKUUID"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Charts/Charts.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Colours/Colours.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/KSToastView/KSToastView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RMActionController/RMActionController.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RMPickerViewController/RMPickerViewController.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SCLAlertView/SCLAlertView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD/SVProgressHUD.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TAKUUID/TAKUUID.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Charts" -framework "Colours" -framework "CoreGraphics" -framework "KSToastView" -framework "QuartzCore" -framework "RMActionController" -framework "RMPickerViewController" -framework "SCLAlertView" -framework "SVProgressHUD" -framework "Security" -framework "TAKUUID"
-PODS_BUILD_DIR = ${BUILD_DIR}
-PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
-PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
-PODS_ROOT = ${SRCROOT}/Pods
-USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

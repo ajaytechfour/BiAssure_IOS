@@ -1,6 +1,0 @@
-framework module Pods_BiAssureNewTests {
-  umbrella header "Pods-BiAssureNewTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
