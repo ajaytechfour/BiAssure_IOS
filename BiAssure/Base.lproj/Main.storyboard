@@ -567,7 +567,7 @@
                                             <action selector="btnDaily_didSelect:" destination="Aet-jR-UdN" eventType="touchUpInside" id="a0X-2N-yug"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-B8-x4B">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-B8-x4B">
                                         <rect key="frame" x="122" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1169,7 +1169,7 @@
                                             <action selector="btnDaily_didSelect:" destination="ZSQ-XL-LRo" eventType="touchUpInside" id="Pt0-5J-sJh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXz-Df-Hq9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXz-Df-Hq9">
                                         <rect key="frame" x="122" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1218,23 +1218,23 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0y-B1-yC7">
-                                        <rect key="frame" x="243" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="UIZ-jG-3sI"/>
-                                            <constraint firstAttribute="width" constant="120" id="ybY-6e-JTv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIp-5v-MJl">
                                         <rect key="frame" x="122" y="41" width="120" height="2"/>
                                         <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="jHm-fJ-tvP"/>
                                             <constraint firstAttribute="width" constant="120" id="oeq-g1-6Ew"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0y-B1-yC7">
+                                        <rect key="frame" x="243" y="41" width="120" height="2"/>
+                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="UIZ-jG-3sI"/>
+                                            <constraint firstAttribute="width" constant="120" id="ybY-6e-JTv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -2141,6 +2141,25 @@
                                             <action selector="btnDaily_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="igI-af-oUW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaW-i6-gdE">
+                                        <rect key="frame" x="122" y="0.0" width="120" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="TuX-jT-76E"/>
+                                            <constraint firstAttribute="width" constant="120" id="mLh-8z-QWx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Monthly">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnMonth_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="t6H-rS-VJz"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hom-RE-8DO">
                                         <rect key="frame" x="243" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2193,25 +2212,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaW-i6-gdE">
-                                        <rect key="frame" x="122" y="0.0" width="120" height="40"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="TuX-jT-76E"/>
-                                            <constraint firstAttribute="width" constant="120" id="mLh-8z-QWx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Monthly">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnMonth_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="t6H-rS-VJz"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3721,7 +3721,7 @@
                                             <action selector="btnDaily_didSelect:" destination="OZp-6U-w11" eventType="touchUpInside" id="hvH-mQ-hqj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0O-PS-qkj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0O-PS-qkj">
                                         <rect key="frame" x="122" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -4774,20 +4774,20 @@
                                 <rect key="frame" x="9" y="69" width="357" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E56-ya-TtX">
-                                        <rect key="frame" x="1" y="41" width="177.5" height="5"/>
+                                        <rect key="frame" x="1" y="41" width="177.5" height="2"/>
                                         <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="wmm-bq-4hI"/>
+                                            <constraint firstAttribute="height" constant="2" id="wmm-bq-4hI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2do-Wp-Pcw">
-                                        <rect key="frame" x="179.5" y="41" width="176.5" height="5"/>
+                                        <rect key="frame" x="179.5" y="41" width="176.5" height="2"/>
                                         <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="UO7-yW-GOi"/>
+                                            <constraint firstAttribute="height" constant="2" id="UO7-yW-GOi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -4849,7 +4849,7 @@
                                     <constraint firstItem="1fe-sG-zc5" firstAttribute="leading" secondItem="Oqi-OF-xZm" secondAttribute="leading" constant="1" id="wvD-Lh-2Pi"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JKN-aM-ucf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JKN-aM-ucf">
                                 <rect key="frame" x="0.0" y="135" width="374" height="532"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -4996,7 +4996,7 @@
                                     <outlet property="delegate" destination="c20-2t-bKB" id="NJR-5r-LXz"/>
                                 </connections>
                             </tableView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="272" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZQ-i7-iYP">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="272" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZQ-i7-iYP">
                                 <rect key="frame" x="0.0" y="135" width="374" height="532"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -5168,11 +5168,13 @@
                             <constraint firstItem="TfS-Ub-LEs" firstAttribute="top" secondItem="JKN-aM-ucf" secondAttribute="bottom" id="H42-6x-rP3"/>
                             <constraint firstItem="Oqi-OF-xZm" firstAttribute="leading" secondItem="cK8-VC-rM1" secondAttribute="leading" constant="9" id="JPP-7Z-HhK"/>
                             <constraint firstItem="JKN-aM-ucf" firstAttribute="leading" secondItem="QWM-tT-KU0" secondAttribute="leading" id="JeO-Uv-M1e"/>
+                            <constraint firstItem="RZQ-i7-iYP" firstAttribute="top" secondItem="Oqi-OF-xZm" secondAttribute="bottom" constant="11" id="QUu-9h-6qH"/>
                             <constraint firstAttribute="trailing" secondItem="RZQ-i7-iYP" secondAttribute="trailing" constant="1" id="bSL-mW-f8g"/>
                             <constraint firstItem="TfS-Ub-LEs" firstAttribute="top" secondItem="RZQ-i7-iYP" secondAttribute="bottom" id="gOY-bF-6af"/>
                             <constraint firstItem="RZQ-i7-iYP" firstAttribute="leading" secondItem="QWM-tT-KU0" secondAttribute="leading" id="m3W-FW-jg1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8eh-yG-nzg" secondAttribute="trailing" constant="-10" id="mvK-vR-mPg"/>
                             <constraint firstItem="cK8-VC-rM1" firstAttribute="trailing" secondItem="Oqi-OF-xZm" secondAttribute="trailing" constant="9" id="q4B-vv-d2j"/>
+                            <constraint firstItem="JKN-aM-ucf" firstAttribute="top" secondItem="Oqi-OF-xZm" secondAttribute="bottom" constant="11" id="rnI-cH-fWc"/>
                             <constraint firstItem="8eh-yG-nzg" firstAttribute="top" secondItem="D9q-vu-jf7" secondAttribute="bottom" constant="13" id="tE5-Pi-69H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cK8-VC-rM1"/>

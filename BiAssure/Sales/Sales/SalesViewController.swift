@@ -185,7 +185,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
 //        let imageView = UIImageView.init(frame: CGRect(x: -30, y: 5, width: 20, height: 20))
 //        imageView.image = UIImage.init(named: "dashboard-icon")
         
-        let lblTitle = UILabel.init(frame: CGRect(x: 0, y: 3, width: 200, height: 30))
+        let lblTitle = UILabel.init(frame: CGRect(x: 35, y: 3, width: 200, height: 30))
         lblTitle.text = BrandsName
         lblTitle.textColor = UIColor.white
         lblTitle.font = UIFont.systemFont(ofSize: 13)
@@ -197,21 +197,21 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         let backButton  = UIButton.init(type: .custom)
         backButton.frame = CGRect(x: 0, y: 0, width: 130, height: 22)
         backButton .setImage(UIImage.init(named: "arrow-left"), for: .normal)
-        backButton .setTitle("Dashboard", for: .normal)
+        backButton .setTitle("", for: .normal)
         backButton.addTarget(self, action: #selector(btnDashboard_didSelect(_:)), for: .touchUpInside)
-        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -40, bottom: 0, right: 0)
+        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -110, bottom: 0, right: 0)
         backButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -30, bottom: 0, right: 0)
         backButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
         
-        let menuButton  = UIButton.init(type: .custom)
-        menuButton.frame = CGRect(x: 0, y: 0, width: 52, height: 40)
-        menuButton .setImage(UIImage.init(named: "right-menu-icon"), for: .normal)
-       
-        menuButton.addTarget(self, action: #selector(slidemenuAction(_:)), for: .touchUpInside)
-        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
+//        let menuButton  = UIButton.init(type: .custom)
+//        menuButton.frame = CGRect(x: 0, y: 0, width: 52, height: 40)
+//        menuButton .setImage(UIImage.init(named: "right-menu-icon"), for: .normal)
+//
+//        menuButton.addTarget(self, action: #selector(slidemenuAction(_:)), for: .touchUpInside)
+//        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
+//
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
