@@ -1,8 +1,6 @@
 //
 //  NavigationViewController.swift
-//  DominosApp
-//
-//  left menu view Created by Divya on 12/02/19 #task Id5861 
+//  left menu view Created by Pulkit on 04/09/20.
 //  Copyright © 2020 Tech Four. All rights reserved.
 
 

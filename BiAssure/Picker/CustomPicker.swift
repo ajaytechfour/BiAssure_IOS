@@ -12,15 +12,15 @@ let STRT_TITLE = "Start Date"
 let END_TITLE = "End Date"
 
 class CustomPicker: UIView {
-
-     @IBOutlet var lblTitle : UILabel!
+    
+    @IBOutlet var lblTitle : UILabel!
     @IBOutlet var datePickerView : UIDatePicker!
     @IBOutlet var btnDone : UIButton!
     var superView : UIView!
     var selectedStartDate : NSDate!
     var selectedEndDate : NSDate!
     var completionHandler: ((_ status: Date?, _ result: Date?) -> Void)?
-   
+    
     func addPicker(on sourceView: UIView?, handler completionHandler: @escaping (Date?, Date?) -> Void) {
         self.completionHandler = completionHandler
         superView = sourceView
@@ -53,10 +53,10 @@ class CustomPicker: UIView {
         }
         sourceView .reloadInputViews()
     }
-
+    
     @IBAction func btnCancelClicked(_ sender: UIButton)
     {
-      self.removePickerViewWithAnimaion(sourceView: self.superView)
+        self.removePickerViewWithAnimaion(sourceView: self.superView)
         if (Utilities.sharedUtilities.selectedIndex == 4)
         {
             selectedStartDate = nil
@@ -113,7 +113,7 @@ class CustomPicker: UIView {
         self.btnDone .setTitle("Next", for: .normal)
         
     }
-
-   
+    
+    
     
 }

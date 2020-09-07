@@ -163,15 +163,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		3935347B22FBFE1C001F3EDB /* third-party */ = {
+		3935347B22FBFE1C001F3EDB /* helper class */ = {
 			isa = PBXGroup;
 			children = (
 				3935347C22FBFE1C001F3EDB /* ntc.js */,
 			);
-			path = "third-party";
+			path = "helper class";
 			sourceTree = "<group>";
 		};
-		3935347D22FBFE1D001F3EDB /* RandomColor */ = {
+		3935347D22FBFE1D001F3EDB /* Color  */ = {
 			isa = PBXGroup;
 			children = (
 				3935347E22FBFE1D001F3EDB /* Luminosity.swift */,
@@ -181,15 +181,15 @@
 				3935348222FBFE1D001F3EDB /* Info.plist */,
 				3935348322FBFE1D001F3EDB /* RandomColor.h */,
 			);
-			path = RandomColor;
+			path = "Color ";
 			sourceTree = "<group>";
 		};
-		39FD558122E9C6B0004FA8A1 /* DashBoard */ = {
+		39FD558122E9C6B0004FA8A1 /* Dash Board */ = {
 			isa = PBXGroup;
 			children = (
 				39FD558222E9C6C5004FA8A1 /* DashBoardViewController.swift */,
 			);
-			path = DashBoard;
+			path = "Dash Board";
 			sourceTree = "<group>";
 		};
 		39FD558422E9D19F004FA8A1 /* Login */ = {
@@ -200,28 +200,28 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		39FE1B0622EACB11000357B0 /* ChangePassword */ = {
+		39FE1B0622EACB11000357B0 /* ChangePass */ = {
 			isa = PBXGroup;
 			children = (
 				39FE1B0A22EACB95000357B0 /* ChangePasswordViewController.swift */,
 			);
-			path = ChangePassword;
+			path = ChangePass;
 			sourceTree = "<group>";
 		};
-		39FE1B0722EACB11000357B0 /* CustomTextField */ = {
+		39FE1B0722EACB11000357B0 /* Cus TextField */ = {
 			isa = PBXGroup;
 			children = (
 				39FE1B0822EACB7B000357B0 /* PaddingTextField.swift */,
 			);
-			path = CustomTextField;
+			path = "Cus TextField";
 			sourceTree = "<group>";
 		};
-		39FE1B0F22EB0052000357B0 /* ForgetPassword */ = {
+		39FE1B0F22EB0052000357B0 /* Forget Pass */ = {
 			isa = PBXGroup;
 			children = (
 				39FE1B1022EB0060000357B0 /* ForgetPasswordViewController.swift */,
 			);
-			path = ForgetPassword;
+			path = "Forget Pass";
 			sourceTree = "<group>";
 		};
 		5A2ACF7E22F5676F00D4678F /* Product */ = {
@@ -256,13 +256,13 @@
 			path = RegionDetailView;
 			sourceTree = "<group>";
 		};
-		5A34284F22F056BF00FC6A53 /* CustomerPicker */ = {
+		5A34284F22F056BF00FC6A53 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
 				5A34285022F056BF00FC6A53 /* CustomPicker.swift */,
 				5A34285122F056BF00FC6A53 /* CustomPicker.xib */,
 			);
-			path = CustomerPicker;
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		5A34285422F0582000FC6A53 /* Sales */ = {
@@ -286,12 +286,12 @@
 			path = OEMWise;
 			sourceTree = "<group>";
 		};
-		5A349BD52327D1240067AD34 /* Signup */ = {
+		5A349BD52327D1240067AD34 /* Sign up */ = {
 			isa = PBXGroup;
 			children = (
 				5A349BD62327D17E0067AD34 /* SignupViewController.swift */,
 			);
-			path = Signup;
+			path = "Sign up";
 			sourceTree = "<group>";
 		};
 		5A6F3DC322F2DF0900043F12 /* Sales */ = {
@@ -327,18 +327,18 @@
 		5A8E6E9F22E98979001613DA /* BiAssure */ = {
 			isa = PBXGroup;
 			children = (
-				5A349BD52327D1240067AD34 /* Signup */,
-				3935347D22FBFE1D001F3EDB /* RandomColor */,
-				3935347B22FBFE1C001F3EDB /* third-party */,
+				5A349BD52327D1240067AD34 /* Sign up */,
+				3935347D22FBFE1D001F3EDB /* Color  */,
+				3935347B22FBFE1C001F3EDB /* helper class */,
 				5A34285422F0582000FC6A53 /* Sales */,
-				5A34284F22F056BF00FC6A53 /* CustomerPicker */,
-				39FE1B0F22EB0052000357B0 /* ForgetPassword */,
-				39FE1B0622EACB11000357B0 /* ChangePassword */,
-				39FE1B0722EACB11000357B0 /* CustomTextField */,
+				5A34284F22F056BF00FC6A53 /* Picker */,
+				39FE1B0F22EB0052000357B0 /* Forget Pass */,
+				39FE1B0622EACB11000357B0 /* ChangePass */,
+				39FE1B0722EACB11000357B0 /* Cus TextField */,
 				39FD558422E9D19F004FA8A1 /* Login */,
-				39FD558122E9C6B0004FA8A1 /* DashBoard */,
+				39FD558122E9C6B0004FA8A1 /* Dash Board */,
 				5A8E6ED522E9C307001613DA /* Utilities */,
-				5A8E6ECE22E9A39C001613DA /* SideMenu */,
+				5A8E6ECE22E9A39C001613DA /* Side Menu */,
 				5A8E6EA022E98979001613DA /* AppDelegate.swift */,
 				5A8E6EA422E98979001613DA /* Main.storyboard */,
 				5A8E6EA722E98986001613DA /* Assets.xcassets */,
@@ -367,14 +367,14 @@
 			path = BiAssureUITests;
 			sourceTree = "<group>";
 		};
-		5A8E6ECE22E9A39C001613DA /* SideMenu */ = {
+		5A8E6ECE22E9A39C001613DA /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
 				5A8E6ED022E9A3BF001613DA /* MainViewController.swift */,
 				5A8E6ECF22E9A3BF001613DA /* NavigationViewController.swift */,
 				5A8E6ED322E9A455001613DA /* RightViewController.swift */,
 			);
-			path = SideMenu;
+			path = "Side Menu";
 			sourceTree = "<group>";
 		};
 		5A8E6ED522E9C307001613DA /* Utilities */ = {

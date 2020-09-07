@@ -24,7 +24,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     var strOEMname = ""
     var strdate = ""
     var regionName = ""
-
+    
     var selectedIndex = 0
     
     var _startDate = NSDate()
@@ -34,34 +34,34 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     var arrRegionSales = NSMutableArray()
     var arrRegionPerSales = NSMutableArray()
     var arrRegionRevenue = NSMutableArray()
-
+    
     var datePicker = SSMaterialCalendarPicker()
     var adtBarChartView = BarChartView()
     var pieChartOEM = PieChartView()
     var sePicker = CustomPicker()
     var appDelegate :AppDelegate = AppDelegate()
-
+    
     var dictStartDateEndDate = NSDictionary()
     
     
     
     
-     @IBOutlet weak var tblModelShow: UITableView!
-     @IBOutlet weak var tblTabularDataShow: UITableView!
+    @IBOutlet weak var tblModelShow: UITableView!
+    @IBOutlet weak var tblTabularDataShow: UITableView!
     @IBOutlet weak var btnGraphical: UIButton!
-     @IBOutlet weak var btnTabular: UIButton!
-     @IBOutlet weak var btnAllRegion: UIButton!
-     @IBOutlet weak var lblLine1: UILabel!
-     @IBOutlet weak var lblLine2: UILabel!
-     @IBOutlet weak var lblStartDate: UILabel!
-     @IBOutlet weak var lblEndDate: UILabel!
+    @IBOutlet weak var btnTabular: UIButton!
+    @IBOutlet weak var btnAllRegion: UIButton!
+    @IBOutlet weak var lblLine1: UILabel!
+    @IBOutlet weak var lblLine2: UILabel!
+    @IBOutlet weak var lblStartDate: UILabel!
+    @IBOutlet weak var lblEndDate: UILabel!
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
@@ -71,7 +71,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         configureView()
         
         lblStartDate.text = String(format: "\(strdate)")
-       
+        
         if masterList.count == 0
         {
             btnAllRegion.isUserInteractionEnabled = false
@@ -106,7 +106,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             self.regionName = selectedRegion
             self.title = selectedRegion
             
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let RegionDetailViewController = mainStoryboard.instantiateViewController(withIdentifier: "RegionDetailViewController") as! RegionDetailViewControllerViewController
             RegionDetailViewController.strRegionModel = "Regionwise"
             RegionDetailViewController.apistr = self.apistr
@@ -115,7 +115,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             RegionDetailViewController.strOEM = self.strOEMname
             
             self.navigationController?.pushViewController(RegionDetailViewController, animated: true)
-           
+            
         })
         let cancelAction :RMAction = RMAction.init(title: "Cancel", style: RMActionStyle.cancel) { (controller) in
             print("Row selection was canceled")
@@ -168,7 +168,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     @IBAction func slidemenuAction(_ sender:UIButton)
     {
         kMainViewController.showRightView(animated: true, completionHandler: nil)
-
+        
     }
     
     
@@ -237,7 +237,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr, "region": "all","oem":strOEMname]
         }
         else{
-             dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr, "region": strRegionname,"oem":strOEMname]
+            dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr, "region": strRegionname,"oem":strOEMname]
         }
         
         ChartDataShowMethod()
@@ -245,7 +245,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     
-   
+    
     
     
     func configureBarChartGraph(barChartView:BarChartView,arrchart:NSArray)->Void
@@ -269,62 +269,62 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             let eachData = eachData1 as! NSString
             let dataEntry  = BarChartDataEntry.init(x: Double(i), y: Double(eachData.floatValue))
             barChartdataEntry1.append(dataEntry)
-
             
-        let set1  = BarChartDataSet.init(entries:barChartdataEntry1, label: "")
-        set1.axisDependency = .left
-        set1.drawIconsEnabled = true
-        set1.highlightColor = UIColor.red
-        set1.drawValuesEnabled = true
-        
-        let colorapp =  NSMutableArray.init()
-        for j in 0..<arrchart.count {
             
-            let color = colors.object(at: j)
-            colorapp.add(color)
+            let set1  = BarChartDataSet.init(entries:barChartdataEntry1, label: "")
+            set1.axisDependency = .left
+            set1.drawIconsEnabled = true
+            set1.highlightColor = UIColor.red
+            set1.drawValuesEnabled = true
             
+            let colorapp =  NSMutableArray.init()
+            for j in 0..<arrchart.count {
+                
+                let color = colors.object(at: j)
+                colorapp.add(color)
+                
+            }
+            
+            set1.colors = colorapp as! [NSUIColor]
+            dataSets.add(set1)
+            i+=1
+            
+            let l:Legend = barChartView.legend
+            l.horizontalAlignment = Legend.HorizontalAlignment.left
+            l.verticalAlignment = Legend.VerticalAlignment.bottom
+            l.orientation = Legend.Orientation.horizontal
+            l.drawInside = false
+            l.form = .square
+            l.formSize = 9.0
+            l.font = UIFont.init(name: "HelveticaNeue-Light", size: 10)!
+            l.xEntrySpace = 4.0
+            
+            setupBarLineChartView(chartView: barChartView)
+            
+            barChartView.delegate = self
+            barChartView.drawBarShadowEnabled = false
+            barChartView.drawValueAboveBarEnabled = true
+            barChartView.leftAxis.enabled = false
+            barChartView.rightAxis.enabled = false
+            barChartView.xAxis.enabled = true
+            barChartView.xAxis.axisRange = 0
+            barChartView.borderColor = UIColor.blue
+            barChartView.borderLineWidth = 30
+            let xAxis : XAxis = barChartView.xAxis
+            xAxis.labelPosition = .bottom
+            xAxis.labelFont = UIFont.systemFont(ofSize: 0)
+            xAxis.drawGridLinesEnabled = false
+            xAxis.granularity = 3.0
+            xAxis.labelCount = 7
+            
+            let data : BarChartData = BarChartData(dataSet: set1)
+            data.setValueTextColor(UIColor.black)
+            data.setValueFont(UIFont.systemFont(ofSize: 9))
+            data.setDrawValues(true)
+            barChartView.data = data
+            barChartView.animate(yAxisDuration: 2.0)
         }
         
-        set1.colors = colorapp as! [NSUIColor]
-        dataSets.add(set1)
-         i+=1
-            
-        let l:Legend = barChartView.legend
-        l.horizontalAlignment = Legend.HorizontalAlignment.left
-        l.verticalAlignment = Legend.VerticalAlignment.bottom
-        l.orientation = Legend.Orientation.horizontal
-        l.drawInside = false
-        l.form = .square
-        l.formSize = 9.0
-        l.font = UIFont.init(name: "HelveticaNeue-Light", size: 10)!
-        l.xEntrySpace = 4.0
-        
-        setupBarLineChartView(chartView: barChartView)
-        
-        barChartView.delegate = self
-        barChartView.drawBarShadowEnabled = false
-        barChartView.drawValueAboveBarEnabled = true
-        barChartView.leftAxis.enabled = false
-        barChartView.rightAxis.enabled = false
-        barChartView.xAxis.enabled = true
-        barChartView.xAxis.axisRange = 0
-        barChartView.borderColor = UIColor.blue
-        barChartView.borderLineWidth = 30
-        let xAxis : XAxis = barChartView.xAxis
-        xAxis.labelPosition = .bottom
-        xAxis.labelFont = UIFont.systemFont(ofSize: 0)
-        xAxis.drawGridLinesEnabled = false
-        xAxis.granularity = 3.0
-        xAxis.labelCount = 7
-        
-        let data : BarChartData = BarChartData(dataSet: set1)
-        data.setValueTextColor(UIColor.black)
-        data.setValueFont(UIFont.systemFont(ofSize: 9))
-        data.setDrawValues(true)
-        barChartView.data = data
-        barChartView.animate(yAxisDuration: 2.0)
-        }
-
     }
     
     
@@ -350,40 +350,40 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             pieChart.centerText = String(format: "No Chart data available")
         }
         else{
-        
-        self.setupPieChartView(chartView: pieChart)
-        pieChart.holeColor = UIColor.white
-        pieChart.holeRadiusPercent = 0.68
-        pieChart.rotationEnabled = true
-        pieChart.highlightPerTapEnabled = true
-        pieChart.maxAngle = 180.0
-        pieChart.rotationAngle = 180.0
-        pieChart.centerTextOffset = CGPoint(x: 0.0, y: 0.0)
-        
-        var i = 0
-        let values = NSMutableArray.init()
-        var dataSet = PieChartDataSet()
-        for eachdata1 in arrchart
-        {
-           // let eachdata = eachdata1 as! NSNumber
-            let data = PieChartDataEntry.init(value: Double((eachdata1 as AnyObject).floatValue * 100), label: String(format: "\(masterList.object(at: i))" as String))
-            i+=1
-            values .add(data)
-        }
-        
-        dataSet = PieChartDataSet.init(entries: values as? [ChartDataEntry], label: "")
-        dataSet.sliceSpace = 1.0
-        dataSet.selectionShift = 5.0
-        dataSet.valueLineWidth = 30
-        dataSet.drawValuesEnabled = true
-        dataSet.entryLabelFont = UIFont.systemFont(ofSize: 0.0)
-        dataSet.valueTextColor = UIColor.black
-        
-        let colors = NSMutableArray.init(array: Utilities.sharedUtilities.colorArray())
-       colors.add( ChartColorTemplates.joyful())
-       colors.add( ChartColorTemplates.colorful())
-        
-        dataSet.colors = colors as! [NSUIColor]
+            
+            self.setupPieChartView(chartView: pieChart)
+            pieChart.holeColor = UIColor.white
+            pieChart.holeRadiusPercent = 0.68
+            pieChart.rotationEnabled = true
+            pieChart.highlightPerTapEnabled = true
+            pieChart.maxAngle = 180.0
+            pieChart.rotationAngle = 180.0
+            pieChart.centerTextOffset = CGPoint(x: 0.0, y: 0.0)
+            
+            var i = 0
+            let values = NSMutableArray.init()
+            var dataSet = PieChartDataSet()
+            for eachdata1 in arrchart
+            {
+                // let eachdata = eachdata1 as! NSNumber
+                let data = PieChartDataEntry.init(value: Double((eachdata1 as AnyObject).floatValue * 100), label: String(format: "\(masterList.object(at: i))" as String))
+                i+=1
+                values .add(data)
+            }
+            
+            dataSet = PieChartDataSet.init(entries: values as? [ChartDataEntry], label: "")
+            dataSet.sliceSpace = 1.0
+            dataSet.selectionShift = 5.0
+            dataSet.valueLineWidth = 30
+            dataSet.drawValuesEnabled = true
+            dataSet.entryLabelFont = UIFont.systemFont(ofSize: 0.0)
+            dataSet.valueTextColor = UIColor.black
+            
+            let colors = NSMutableArray.init(array: Utilities.sharedUtilities.colorArray())
+            colors.add( ChartColorTemplates.joyful())
+            colors.add( ChartColorTemplates.colorful())
+            
+            dataSet.colors = colors as! [NSUIColor]
             let pFormatter : NumberFormatter = NumberFormatter.init()
             pFormatter.numberStyle = NumberFormatter.Style.percent
             pFormatter.maximumFractionDigits  = 1
@@ -391,10 +391,10 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             pFormatter.percentSymbol = "%"
             let formatter = DefaultValueFormatter(formatter: pFormatter)
             dataSet.valueFormatter = formatter
-        let data = PieChartData.init(dataSet: dataSet)
-        pieChart.data = data
-        pieChart.setNeedsDisplay()
-        pieChart.animate(xAxisDuration: 1.0)
+            let data = PieChartData.init(dataSet: dataSet)
+            pieChart.data = data
+            pieChart.setNeedsDisplay()
+            pieChart.animate(xAxisDuration: 1.0)
         }
     }
     
@@ -435,7 +435,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     {
         return 2
     }
-
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -444,9 +444,9 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         {
             if indexPath.row == 0
             {
-            let cell = tableView .dequeueReusableCell(withIdentifier: "ModelviewCell0", for: indexPath)
-            adtBarChartView = cell.viewWithTag(300) as! BarChartView
-            configureBarChartGraph(barChartView: adtBarChartView, arrchart: arrRegionRevenue)
+                let cell = tableView .dequeueReusableCell(withIdentifier: "ModelviewCell0", for: indexPath)
+                adtBarChartView = cell.viewWithTag(300) as! BarChartView
+                configureBarChartGraph(barChartView: adtBarChartView, arrchart: arrRegionRevenue)
                 return cell
             }
             else
@@ -461,58 +461,58 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         {
             if indexPath.row == 0
             {
-            let cell = tableView .dequeueReusableCell(withIdentifier: "TabularviewCell0", for: indexPath)
+                let cell = tableView .dequeueReusableCell(withIdentifier: "TabularviewCell0", for: indexPath)
                 let viewbg = cell .viewWithTag(10)
-            
-            var y:Float = 5.0
-            var x:Float = 5.0
-            
+                
+                var y:Float = 5.0
+                var x:Float = 5.0
+                
                 if viewbg!.subviews.count > 0
                 {
-                for v in viewbg!.subviews
+                    for v in viewbg!.subviews
+                    {
+                        v.removeFromSuperview()
+                    }
+                }
+                
+                for i in 0..<masterList.count
                 {
-                     v.removeFromSuperview()
+                    let lblOne = UILabel()
+                    let imgArrow = UIImageView()
+                    let lbltwo = UILabel()
+                    
+                    lblOne.textColor = UIColor.darkGray
+                    lblOne.font = UIFont.systemFont(ofSize: 14)
+                    lbltwo.textColor = UIColor.darkGray
+                    lbltwo.font = UIFont.systemFont(ofSize: 14)
+                    
+                    
+                    lblOne.frame = CGRect(x: 3, y: CGFloat(y), width: 116, height: 21)
+                    lblOne.text = "\(masterList.object(at: i))"
+                    
+                    imgArrow.frame = CGRect(x: 132, y: CGFloat(y + 5), width: 120, height: 15)
+                    imgArrow.image = UIImage(named: "grid-arrow-line")
+                    
+                    
+                    lbltwo.frame = CGRect(x: 263, y: CGFloat(x), width: 70, height: 21)
+                    
+                    
+                    
+                    
+                    y = Float(lblOne.frame.origin.y + lblOne.frame.size.height + 10)
+                    x = Float(lbltwo.frame.origin.y + lbltwo.frame.size.height + 10)
+                    // z = Float(imgArrow.frame.origin.y + imgArrow.frame.size.height + 10)
+                    
+                    viewbg!.addSubview(lblOne)
+                    viewbg!.addSubview(imgArrow)
+                    viewbg!.addSubview(lbltwo)
+                    
+                    
+                    
+                    lbltwo.text = String(format: "%.1f", (arrRegionRevenue.object(at: i) as? NSString)!.floatValue)
                 }
-                }
                 
-            for i in 0..<masterList.count
-            {
-                let lblOne = UILabel()
-                let imgArrow = UIImageView()
-                let lbltwo = UILabel()
-                
-                lblOne.textColor = UIColor.darkGray
-                lblOne.font = UIFont.systemFont(ofSize: 14)
-                lbltwo.textColor = UIColor.darkGray
-                lbltwo.font = UIFont.systemFont(ofSize: 14)
-                
-                
-                lblOne.frame = CGRect(x: 3, y: CGFloat(y), width: 116, height: 21)
-                lblOne.text = "\(masterList.object(at: i))"
-                
-                imgArrow.frame = CGRect(x: 132, y: CGFloat(y + 5), width: 120, height: 15)
-                imgArrow.image = UIImage(named: "grid-arrow-line")
-                
-                
-                lbltwo.frame = CGRect(x: 263, y: CGFloat(x), width: 70, height: 21)
-                
-                
-                
-                
-                y = Float(lblOne.frame.origin.y + lblOne.frame.size.height + 10)
-                x = Float(lbltwo.frame.origin.y + lbltwo.frame.size.height + 10)
-               // z = Float(imgArrow.frame.origin.y + imgArrow.frame.size.height + 10)
-                
-                viewbg!.addSubview(lblOne)
-                viewbg!.addSubview(imgArrow)
-                viewbg!.addSubview(lbltwo)
-                
-                
-                
-                lbltwo.text = String(format: "%.1f", (arrRegionRevenue.object(at: i) as? NSString)!.floatValue)
-            }
-
-            return cell
+                return cell
             }
             else{
                 let cell = tableView .dequeueReusableCell(withIdentifier: "TabularviewCell1", for: indexPath)
@@ -567,10 +567,10 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             }
         }
     }
-
     
     
-
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if tableView == tblModelShow
@@ -578,18 +578,18 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             return 270.0
         }
         else{
-             return CGFloat((masterList.count * 50) + 50)
-
+            return CGFloat((masterList.count * 50) + 50)
+            
         }
     }
     
-
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
     }
-
+    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
@@ -607,13 +607,13 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     
-   
+    
     func rangeSelected(withStart startDate: Date!, andEnd endDate: Date!)
     {
         _startDate = startDate! as NSDate
         _endDate = endDate! as NSDate
-       strdate = String(format: "\(  Utilities.sharedUtilities.getDuration(date: startDate! as NSDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate! as NSDate)  )")
-
+        strdate = String(format: "\(  Utilities.sharedUtilities.getDuration(date: startDate! as NSDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate! as NSDate)  )")
+        
     }
     
     
@@ -639,9 +639,9 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         
         
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
-           
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
                 // here read response
@@ -657,7 +657,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
                         self.arrRegionPerSales.removeAllObjects()
                         self.arrRegionSales.removeAllObjects()
                         self.arrRegionRevenue.removeAllObjects()
-
+                        
                         let arrayproduct = Data["group"] as! NSArray
                         self.masterList = arrayproduct.mutableCopy() as! NSMutableArray
                         let arrayproductclaim = Data["TotalSales"] as! NSArray
@@ -688,11 +688,11 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
                     let enddate = Utilities.sharedUtilities.ClaimsMonthDateConversion(serverDate: strEnddate!)
                     self.strdate = "\(startdate) - \(enddate)"
                     
-                     self.lblStartDate.text = self.strdate
+                    self.lblStartDate.text = self.strdate
                     
                     self.tblModelShow.reloadData()
                     self.tblTabularDataShow.reloadData()
-
+                    
                 }
                     
                 else
@@ -706,10 +706,10 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         })
         { (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-           
+            
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
-
-
+    
+    
 }

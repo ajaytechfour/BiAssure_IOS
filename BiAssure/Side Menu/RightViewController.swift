@@ -1,7 +1,6 @@
 //
 //  RightViewController.swift
 //  BiAssure
-//
 //  Created by Pulkit on 04/09/20.
 //  Copyright © 2020 Tech Four. All rights reserved.
 

@@ -73,11 +73,11 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     var prerevenue = Float()
     var rowvalue = 0
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         startDate = NSDate.init()
         endDate = NSDate.init()
         self.style()
@@ -102,12 +102,12 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         self.CurentDateWebserviceCallingMethod()
         self.configureView()
         
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
-
+        
+        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -139,16 +139,16 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     
     func style ()
     {
-           let view = UIView.init(frame: CGRect(x: -40, y: 0, width: 150, height: 33))
-//        let imageView = UIImageView.init(frame: CGRect(x: -40, y: 5, width: 20, height: 20))
-//        imageView.image = UIImage.init(named: "dashboard-icon")
+        let view = UIView.init(frame: CGRect(x: -40, y: 0, width: 150, height: 33))
+        //        let imageView = UIImageView.init(frame: CGRect(x: -40, y: 5, width: 20, height: 20))
+        //        imageView.image = UIImage.init(named: "dashboard-icon")
         
         let lblTitle = UILabel.init(frame: CGRect(x: -15, y: 3, width: 100, height: 30))
         lblTitle.text = ""
         lblTitle.textColor = UIColor.white
         lblTitle.font = UIFont.systemFont(ofSize: 13)
         
-      //  view .addSubview(imageView)
+        //  view .addSubview(imageView)
         view.addSubview(lblTitle)
         self.navigationController?.navigationBar.topItem?.titleView = view
     }
@@ -164,17 +164,17 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             arrPerSales = NSMutableArray.init()
             arrSales = NSMutableArray.init()
             arrRevenue = NSMutableArray.init()
-             revenue = 0.00
+            revenue = 0.00
             prerevenue = 0.00
             
             tblDailySales.reloadData()
-           
+            
             tblDailySales.scrollToRow(at: MyIP as IndexPath, at: .top, animated: true)
             
         }
         
     }
-
+    
     @objc func refreshTable()
     {
         refreshControl.endRefreshing()
@@ -193,7 +193,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     @IBAction func allCampaingsAction(_ sender:UIButton)
     {
         let selectAction = RMAction(title: "Select", style: RMActionStyle.done, andHandler: { controller in
-          
+            
             
             let selectedRegion = self.masterList[self.rowvalue] as? String
             sender.setTitle(selectedRegion?.capitalized, for: .normal)
@@ -203,7 +203,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let saleView = storyboard.instantiateViewController(withIdentifier: "SalesViewController") as? SalesViewController
             saleView?.BrandsName = self.Brands
-
+            
             if let saleView = saleView {
                 self.navigationController?.pushViewController(saleView, animated: false)
             }
@@ -259,7 +259,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         
         dictRegion = ["report_type":"cmth"]
         dictPreRegion = ["report_type":"pmth"]
-    
+        
         appDelegate.storebuttonName(button: "Month")
         
         self.CurentDateWebserviceCallingMethod()
@@ -276,7 +276,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         
         dailytblIndexpath = nil
         self.refreshMethod()
-         appDelegate.storebuttonName(button: "Range")
+        appDelegate.storebuttonName(button: "Range")
         sePicker .showPickerViewWithAnimation(sourceView: self.view)
     }
     
@@ -317,7 +317,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                           "end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
             
             dictPreRegion = ["report_type" : "crp","start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
-          self.CurentDateWebserviceCallingMethod()
+            self.CurentDateWebserviceCallingMethod()
             
         }
         else{
@@ -356,14 +356,14 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                 let lblPolicySoldCu = cell?.viewWithTag(18) as! UILabel
                 let btnSaleShow = cell?.viewWithTag(45) as! UIButton
                 let btnRevenueShow = cell?.viewWithTag(46) as! UIButton
-              
+                
                 let lblPreDateNo = cell?.viewWithTag(14) as! UILabel
                 let lblPreRemDate = cell?.viewWithTag(15) as! UILabel
                 let lblPreSales = cell?.viewWithTag(16) as! UILabel
                 let lblPreRevnue = cell?.viewWithTag(17) as! UILabel
                 let lblMonthRangePre = cell?.viewWithTag(44) as! UILabel
                 let lblPolicySoldPre = cell?.viewWithTag(19) as! UILabel
-              
+                
                 if btnMonth.isSelected
                 {
                     lblCurrentDateNo.isHidden = true
@@ -384,7 +384,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                         lblMonthRangeCu.text = "\(itemsfirst.object(at: 0)) - \(items.object(at: 0))"
                         lblCurrentRemDate.text = "\(items.object(at: 1)) \(items.object(at: 2))"
                     }
-                   
+                    
                     if prestrcurrent_day_month != ""
                     {
                         let previousDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: prestrcurrent_day_month)
@@ -395,7 +395,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                         lblMonthRangePre.text = "\(Prefirstitems.object(at: 0)) - \(Preitems.object(at: 0))"
                         lblPreRemDate.text = "\(Preitems.object(at: 1)) \(Preitems.object(at: 2))"
                     }
-                   
+                    
                 }
                 else if btnRange.isSelected
                 {
@@ -446,7 +446,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                         lblPreDateNo.text = Preitems.object(at: 0) as? String
                         lblPreRemDate.text = "\(Preitems.object(at: 1)) \(Preitems.object(at: 2))"
                     }
-                   
+                    
                 }
                 if showTodayDate.count != 0
                 {
@@ -454,7 +454,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     if let val = dictData["TotalSales"] as? NSNumber {
                         lblCurrentSales.text = val.stringValue
                     }
-                
+                    
                     if btnMonth.isSelected
                     {
                         lblPolicySoldCu.text = "POLICY SOLD (CRORES)"
@@ -462,7 +462,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                         {
                             revenue = Revval.floatValue / 10000000
                         }
-                    
+                        
                     }
                     else
                     {
@@ -471,7 +471,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                         {
                             revenue = Revval.floatValue / 100000
                         }
-                       
+                        
                     }
                     
                     let strresult = NSString(format: "%.1f", revenue)
@@ -489,8 +489,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     if let val = dictData["TotalSales"] as? NSNumber {
                         lblPreSales.text = val.stringValue
                     }
-                   // lblPreSales.text = "\(dictData["TotalSales"] as! String)"
-            
+                    // lblPreSales.text = "\(dictData["TotalSales"] as! String)"
+                    
                     if btnMonth.isSelected
                     {
                         lblPolicySoldPre.text = "POLICY SOLD (CRORES)"
@@ -527,7 +527,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                         btnSaleShow .setImage(UIImage.init(named: "down-arrow_wh"), for: .normal)
                     }
                     else{
-                       btnSaleShow .setImage(UIImage.init(named: "up-arrow"), for: .normal)
+                        btnSaleShow .setImage(UIImage.init(named: "up-arrow"), for: .normal)
                     }
                     
                     if demoRev! < 1
@@ -573,7 +573,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     
                 }
                 else{
-                     selectedIndex = 2
+                    selectedIndex = 2
                     self.configurePieChart(pieChart: pieChartabs, arrchart: arrRevenue)
                     
                 }
@@ -582,7 +582,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                 
                 return cell!
             }
-          
+            
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1")
@@ -690,9 +690,9 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         let colors = NSMutableArray.init(array: Utilities.sharedUtilities.colorArray())
         colors.add(ChartColorTemplates.joyful())
         colors.add(ChartColorTemplates.colorful())
-       
         
-       dataSet.colors = colors as! [NSUIColor]
+        
+        dataSet.colors = colors as! [NSUIColor]
         
         let data : PieChartData = PieChartData.init(dataSet: dataSet)
         pieChart.data = data
@@ -707,7 +707,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         chartView.chartDescription?.enabled = false
         chartView .setExtraOffsets(left: 0.0, top: 0.0, right: 0.0, bottom: 0.0)
         chartView.drawCenterTextEnabled = true
-       chartView.rotationEnabled = true
+        chartView.rotationEnabled = true
         chartView.highlightPerTapEnabled = true
         
         let l = chartView.legend
@@ -738,8 +738,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        
-        manager .post("\(Base_Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -769,11 +769,11 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     }
                     else if self.btnRange.isSelected
                     {
-                         let addtionInfo = info["data1"] as! NSDictionary
+                        let addtionInfo = info["data1"] as! NSDictionary
                         self.strStartdate = addtionInfo["start_date"] as! String
                         self.strEnddate = addtionInfo["end_date"] as! String
                         
-                      let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strStartdate)
+                        let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strStartdate)
                         let enddate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strEnddate)
                         self.strsetdate = "\(startdate) - \(enddate)"
                         self.dictStartDateEndDate = ["start_date":self.strStartdate,"end_date":self.strEnddate]
@@ -792,13 +792,13 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                 }
                 else
                 {
-                   KSToastView .ks_showToast(jsonResponse["message"])
+                    KSToastView .ks_showToast(jsonResponse["message"])
                 }
             }
             
         }){ (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-           
+            
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
@@ -820,9 +820,9 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-       
         
-        manager .post("\(Base_Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -881,7 +881,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     }
                     else if self.btnRange.isSelected
                     {
-
+                        
                         let addtionInfo = info["addtionalinfo"] as! NSDictionary
                         self.prestartdate = addtionInfo["date1"] as! String
                         self.preenddate = addtionInfo["date2"] as! String
@@ -924,8 +924,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -935,11 +935,11 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     let dataArray = info["data"] as! NSArray
                     if dataArray.count != 0
                     {
-                       
+                        
                         let data = dataArray.object(at: 0) as! NSDictionary
                         let groupArr = data ["group"] as! NSArray
                         self.masterList = groupArr.mutableCopy() as! NSMutableArray
-                         let SalesArr = data ["TotalSales"] as! NSArray
+                        let SalesArr = data ["TotalSales"] as! NSArray
                         self.arrSales = SalesArr.mutableCopy() as! NSMutableArray
                         let perSalesArr = data["percentages_sales"] as! NSArray
                         self.arrPerSales = perSalesArr.mutableCopy() as!NSMutableArray
@@ -974,7 +974,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     
                     self.tblDailySales.reloadData()
                     self.tblPieChartData.reloadData()
-                   
+                    
                 }
                 else
                 {
@@ -984,10 +984,10 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             
         }){ (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-           
+            
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
     
-
+    
 }

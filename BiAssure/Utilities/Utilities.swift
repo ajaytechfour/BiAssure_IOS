@@ -14,7 +14,7 @@ import CommonCrypto
 
 class Utilities: NSObject {
     
-   
+    
     var selectedIndex = 0
     var campiagnSelectedIndex = 0
     var storeSelectdIndex = 0
@@ -24,7 +24,7 @@ class Utilities: NSObject {
     var overViewRange = NSDictionary()
     var storeViewDay = NSDictionary()
     var storeViewMonth = NSDictionary()
-
+    
     var regionSalseData = NSArray()
     var regionServiceData = NSArray()
     var areaSalseData = NSArray()
@@ -35,7 +35,7 @@ class Utilities: NSObject {
     var plansReportArray = NSArray()
     
     var colorsArray = NSMutableArray()
-
+    
     var fromDateCompaign = NSDate()
     var toDateCompaign = NSDate()
     var fromDatePlans = NSDate()
@@ -46,17 +46,17 @@ class Utilities: NSObject {
     var toDateMonth_Compaign_daily = NSDate()
     var fromDateMonth_Plans_daily = NSDate()
     var toDateMonth_Plans_daily = NSDate()
-
+    
     fileprivate var count = 120
     fileprivate var hue: Hue = .random
     fileprivate var luminosity: Luminosity = .random
     var colors: [UIColor]!
-
+    
     var appDelegate:AppDelegate = AppDelegate()
-
     
     
-  
+    
+    
     static let sharedUtilities:Utilities = {
         let instance = Utilities ()
         return instance
@@ -65,22 +65,22 @@ class Utilities: NSObject {
     func colorArray()-> NSMutableArray{
         if colorsArray.count == 0{
             colorsArray = NSMutableArray.init()
-
-           colors = randomColors(count: count, hue: hue, luminosity: luminosity)
+            
+            colors = randomColors(count: count, hue: hue, luminosity: luminosity)
             for j in 0..<count  {
                 
                 let color = colors[j]
                 colorsArray.add(color)
                 
             }
-
+            
             let INCREMENT:Double = 0.09
             
             for hue in stride(from: 0.0, through: 1.0, by: INCREMENT){
                 let color:UIColor = UIColor.init(hue: CGFloat(hue), saturation: 1.0, brightness: 1.0, alpha: 1.0)
                 colorsArray.add(color)
             }
-
+            
         }
         
         return colorsArray
@@ -95,7 +95,7 @@ class Utilities: NSObject {
         dateFormat.dateFormat = "MMM yyyy"
         return dateFormat.string(from: date! as Date)
     }
-
+    
     
     
     func overViewDateOnly(serverDate:String)-> String
@@ -201,8 +201,8 @@ class Utilities: NSObject {
         return dateFormat.string(from: date as Date)
     }
     
-     func getDurationWith01(date:NSDate)-> String
-     {
+    func getDurationWith01(date:NSDate)-> String
+    {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "MMM 01-dd, yyyy"
         return dateFormat.string(from: date as Date)
@@ -280,7 +280,7 @@ class Utilities: NSObject {
         return address!
     }
     
-   
+    
     
 }
 extension UIColor {

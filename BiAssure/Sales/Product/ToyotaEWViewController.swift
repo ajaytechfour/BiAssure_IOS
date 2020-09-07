@@ -15,7 +15,7 @@ import AFNetworking
 
 class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,ChartViewDelegate,UITableViewDelegate,UITableViewDataSource
 {
-  
+    
     
     
     
@@ -38,12 +38,12 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     var apistr = ""
     var brandname = ""
     var strSalesOrRevenue = ""
-
+    
     
     var selectedIndex = 0
     
     var dailytblIndexpath = IndexPath()
-
+    
     var _startDate = NSDate()
     var _endDate = NSDate()
     
@@ -67,7 +67,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     var masterList3 = NSMutableArray()
     var arrRegionRevPercentage = NSMutableArray()
     var arrModelRevPercentage = NSMutableArray()
-
+    
     
     var showTodayDate = NSArray()
     var showPreviousDate = NSArray()
@@ -82,22 +82,22 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     
     var dictRegion = NSDictionary()
     var dictPreRegion = NSDictionary()
-
+    
     var dictStartDateEndDate = NSMutableDictionary()
-
+    
     var Slabs = Bool()
     
     var viewModel = UIView()
-
+    
     var btnallCampaings = UIButton()
     var btncalender = UIButton()
-
+    
     var tblChartData = UITableView()
-
-   
     
     
-  
+    
+    
+    
     
     @IBOutlet weak var tblOEMShow: UITableView!
     @IBOutlet weak var btnDaily: UIButton!
@@ -108,13 +108,13 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     @IBOutlet weak var lblLine3: UILabel!
     @IBOutlet weak var campiagnDateLable: UILabel!
     @IBOutlet weak var tableBHeightConstraints: NSLayoutConstraint!
-
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         
         tblOEMShow.estimatedRowHeight = 361.0
@@ -130,7 +130,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         tblOEMShow.layoutIfNeeded()
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool)
     {
         style()
@@ -151,7 +151,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             dictPreRegion = ["report_type": "pmth", "oem": brandname,"brand" :apistr]
             CurentDateWebserviceCallingMethod()
         }
-       else if strname == "Range"
+        else if strname == "Range"
         {
             btnDaily.isSelected=false;
             btnMonth.isSelected=false;
@@ -218,7 +218,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             {
                 return masterList0.count
             }
-           else if selectedIndex == 2
+            else if selectedIndex == 2
             {
                 return masterList1.count
             }
@@ -231,9 +231,9 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             }
         }
     }
-
-
-
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         if tableView == tblOEMShow
@@ -259,7 +259,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 let lblMonthRangePre = cell.viewWithTag(44) as! UILabel
                 let lblPolicySoldCu = cell.viewWithTag(18) as! UILabel
                 let lblPolicySoldPre = cell.viewWithTag(19) as! UILabel
-
+                
                 
                 if btnMonth.isSelected == true
                 {
@@ -272,25 +272,25 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     if strcurrent_day_month != ""
                     {
-                    let currentDay = Utilities.sharedUtilities.MonthDateConversion(serverDate: strcurrent_day_month)
-                    let items = currentDay.components(separatedBy: " ") as NSArray
-                    
-                    let firstDay = Utilities.sharedUtilities.overViewDateConversion(serverDate: first_day_month)
-                    let itemsfirst = firstDay.components(separatedBy: " ") as NSArray
-                    
-                    lblMonthRangeCu.text = "\(itemsfirst.object(at: 0)) - \(items.object(at: 0))"
-                    lblCurrentRemDate.text = "\(items.object(at: 1)) \(items.object(at: 2))"
+                        let currentDay = Utilities.sharedUtilities.MonthDateConversion(serverDate: strcurrent_day_month)
+                        let items = currentDay.components(separatedBy: " ") as NSArray
+                        
+                        let firstDay = Utilities.sharedUtilities.overViewDateConversion(serverDate: first_day_month)
+                        let itemsfirst = firstDay.components(separatedBy: " ") as NSArray
+                        
+                        lblMonthRangeCu.text = "\(itemsfirst.object(at: 0)) - \(items.object(at: 0))"
+                        lblCurrentRemDate.text = "\(items.object(at: 1)) \(items.object(at: 2))"
                     }
                     
                     if prestrcurrent_day_month != ""
                     {
-                    let previousDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: prestrcurrent_day_month)
-                    let Preitems = previousDate.components(separatedBy: " ") as NSArray
-                    
-                    let previousfirstDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: prefirst_day_month)
-                    let Prefirstitems = previousfirstDate.components(separatedBy: " ") as NSArray
-                    lblMonthRangePre.text = "\(Prefirstitems.object(at: 0)) - \(Preitems.object(at: 0))"
-                    lblPreRemDate.text = "\(Preitems.object(at: 1)) \(Preitems.object(at: 2))"
+                        let previousDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: prestrcurrent_day_month)
+                        let Preitems = previousDate.components(separatedBy: " ") as NSArray
+                        
+                        let previousfirstDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: prefirst_day_month)
+                        let Prefirstitems = previousfirstDate.components(separatedBy: " ") as NSArray
+                        lblMonthRangePre.text = "\(Prefirstitems.object(at: 0)) - \(Preitems.object(at: 0))"
+                        lblPreRemDate.text = "\(Preitems.object(at: 1)) \(Preitems.object(at: 2))"
                     }
                 }
                 else if btnRange.isSelected
@@ -304,18 +304,18 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     if strStartdate != ""
                     {
-                    let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: strStartdate)
-                    let enddate = Utilities.sharedUtilities.RengeDateConversion(serverDate: strEnddate)
-                    lblMonthRangeCu.text = startdate
-                    lblCurrentRemDate.text = enddate
+                        let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: strStartdate)
+                        let enddate = Utilities.sharedUtilities.RengeDateConversion(serverDate: strEnddate)
+                        lblMonthRangeCu.text = startdate
+                        lblCurrentRemDate.text = enddate
                     }
                     
                     if prestartdate != ""
                     {
-                    let prestartDate = Utilities.sharedUtilities.RengeDateConversion(serverDate: prestartdate)
-                    let preendDate = Utilities.sharedUtilities.RengeDateConversion(serverDate: preenddate)
-                    lblMonthRangePre.text = prestartDate
-                    lblPreRemDate.text = preendDate
+                        let prestartDate = Utilities.sharedUtilities.RengeDateConversion(serverDate: prestartdate)
+                        let preendDate = Utilities.sharedUtilities.RengeDateConversion(serverDate: preenddate)
+                        lblMonthRangePre.text = prestartDate
+                        lblPreRemDate.text = preendDate
                     }
                 }
                 else{
@@ -328,18 +328,18 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     if StrCurrentDate != ""
                     {
-                    let currentDate = Utilities.sharedUtilities.overViewDateConversion(serverDate: StrCurrentDate)
-                    let items = currentDate.components(separatedBy: " ") as NSArray
-                    lblCurrentDateNo.text = items.object(at: 0) as? String
-                    lblCurrentRemDate.text = "\(items.object(at: 1)) \(items.object(at: 2))"
+                        let currentDate = Utilities.sharedUtilities.overViewDateConversion(serverDate: StrCurrentDate)
+                        let items = currentDate.components(separatedBy: " ") as NSArray
+                        lblCurrentDateNo.text = items.object(at: 0) as? String
+                        lblCurrentRemDate.text = "\(items.object(at: 1)) \(items.object(at: 2))"
                     }
                     
                     if StrPreDate != ""
                     {
-                    let previousDate = Utilities.sharedUtilities.overViewDateConversion(serverDate: StrPreDate)
-                    let Preitems = previousDate.components(separatedBy: " ") as NSArray
-                    lblPreDateNo.text = Preitems.object(at: 0) as? String
-                    lblPreRemDate.text = "\(Preitems.object(at: 1)) \(Preitems.object(at: 2))"
+                        let previousDate = Utilities.sharedUtilities.overViewDateConversion(serverDate: StrPreDate)
+                        let Preitems = previousDate.components(separatedBy: " ") as NSArray
+                        lblPreDateNo.text = Preitems.object(at: 0) as? String
+                        lblPreRemDate.text = "\(Preitems.object(at: 1)) \(Preitems.object(at: 2))"
                     }
                     
                 }
@@ -439,7 +439,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 }
                 else{
                     configurePieChart(pieChart: pieChartOEM, arrchart: arrRegionRev)
-
+                    
                 }
                 tblChartData.reloadData()
                 
@@ -492,51 +492,51 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 cell.setNeedsUpdateConstraints()
                 
                 return cell
-
+                
             }
             else if dailytblIndexpath.row == 3
             {
-                 let cell = tableView .dequeueReusableCell(withIdentifier: "TableviewCell3", for: indexPath)
+                let cell = tableView .dequeueReusableCell(withIdentifier: "TableviewCell3", for: indexPath)
                 if Slabs{
-                selectedIndex = 3
+                    selectedIndex = 3
                     viewModel = cell.viewWithTag(4)!
-                btnallCampaings = cell.viewWithTag(9) as! UIButton
-                btncalender = cell.viewWithTag(10) as! UIButton
-                adtBarChartView = cell.viewWithTag(300) as! BarChartView
-                tblChartData = cell.viewWithTag(333) as! UITableView
-                tblChartData.dataSource = self
-                tblChartData.delegate = self
-                tblChartData.estimatedRowHeight = 35.0
-                tblChartData.rowHeight = UITableView.automaticDimension
-                
-              
-                btncalender.addTarget(self, action: #selector(changeDate(_:)), for: UIControl.Event.touchUpInside)
-                
-                btncalender.setTitle(strsetdate, for: UIControl.State.normal)
-                
-                if strSalesOrRevenue == "Sales"
-                {
-                    configureBarChartGraph(barChartView: adtBarChartView, arrchart: arrbarChartSales)
-                }
-                else{
-                    configureBarChartGraph(barChartView: adtBarChartView, arrchart: arrbarChartRevenue)
-
-                }
-                tblChartData.reloadData()
-                
-                viewModel.frame(forAlignmentRect: CGRect.init(x:viewModel.frame.origin.x, y: viewModel.frame.origin.y, width: viewModel.frame.size.width, height: tblChartData.contentSize.height+tblChartData.frame.origin.y+5))
-                
-                cell.contentView.frame(forAlignmentRect: CGRect.init(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: viewModel.frame.size.height+viewModel.frame.origin.y))
-                
-                viewModel.setNeedsUpdateConstraints()
-                cell.contentView.setNeedsUpdateConstraints()
-                cell.setNeedsUpdateConstraints()
-                
-                
+                    btnallCampaings = cell.viewWithTag(9) as! UIButton
+                    btncalender = cell.viewWithTag(10) as! UIButton
+                    adtBarChartView = cell.viewWithTag(300) as! BarChartView
+                    tblChartData = cell.viewWithTag(333) as! UITableView
+                    tblChartData.dataSource = self
+                    tblChartData.delegate = self
+                    tblChartData.estimatedRowHeight = 35.0
+                    tblChartData.rowHeight = UITableView.automaticDimension
+                    
+                    
+                    btncalender.addTarget(self, action: #selector(changeDate(_:)), for: UIControl.Event.touchUpInside)
+                    
+                    btncalender.setTitle(strsetdate, for: UIControl.State.normal)
+                    
+                    if strSalesOrRevenue == "Sales"
+                    {
+                        configureBarChartGraph(barChartView: adtBarChartView, arrchart: arrbarChartSales)
+                    }
+                    else{
+                        configureBarChartGraph(barChartView: adtBarChartView, arrchart: arrbarChartRevenue)
+                        
+                    }
+                    tblChartData.reloadData()
+                    
+                    viewModel.frame(forAlignmentRect: CGRect.init(x:viewModel.frame.origin.x, y: viewModel.frame.origin.y, width: viewModel.frame.size.width, height: tblChartData.contentSize.height+tblChartData.frame.origin.y+5))
+                    
+                    cell.contentView.frame(forAlignmentRect: CGRect.init(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.size.width, height: viewModel.frame.size.height+viewModel.frame.origin.y))
+                    
+                    viewModel.setNeedsUpdateConstraints()
+                    cell.contentView.setNeedsUpdateConstraints()
+                    cell.setNeedsUpdateConstraints()
+                    
+                    
                 }
                 return cell
-
-
+                
+                
             }
             else
             {
@@ -552,7 +552,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 tblChartData.estimatedRowHeight = 35.0
                 tblChartData.rowHeight = UITableView.automaticDimension
                 
-               
+                
                 btncalender.addTarget(self, action: #selector(changeDate(_:)), for: UIControl.Event.touchUpInside)
                 
                 btncalender.setTitle(strsetdate, for: UIControl.State.normal)
@@ -563,7 +563,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 }
                 else{
                     configreHorizontalChartGraph(horiGraph: horiBarChartview, arrchart: arrHbarChartRevenue)
-
+                    
                 }
                 tblChartData.reloadData()
                 
@@ -578,7 +578,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 
                 
                 return cell
-
+                
             }
         }
         else{
@@ -611,7 +611,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     lblrevenue.text = NSString(format: "%.1f%%", revenueValue) as String
                 }
             }
-            
+                
             else if selectedIndex == 2
             {
                 let lblrevenue = cell.viewWithTag(115) as! UILabel
@@ -655,7 +655,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     lblrevenue.text = NSString(format: "%.1f%%", revenueValue) as String
                 }
             }
-            
+                
             else{
                 lblname.text = "\(masterList3.object(at: indexPath.row))"
                 
@@ -673,7 +673,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             }
             
             return cell
-
+            
         }
     }
     
@@ -690,7 +690,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 {
                     return ArraySizeCellSizeEstimation(array: masterList0)
                 }
-                 else if indexPath.row == 2
+                else if indexPath.row == 2
                 {
                     return ArraySizeCellSizeEstimation(array: masterList1)
                 }
@@ -698,7 +698,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                 {
                     return ArraySizeCellSizeEstimation(array: masterList2)
                 }
-               else
+                else
                 {
                     return ArraySizeCellSizeEstimation(array: masterList3)
                 }
@@ -708,7 +708,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             return 35
         }
     }
-
+    
     
     func rangeSelected(withStart startDate: Date!, andEnd endDate: Date!)
     {
@@ -717,7 +717,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         strsetdate = String(format: "\(  Utilities.sharedUtilities.getDuration(date: startDate! as NSDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate! as NSDate)  )")
     }
     
-   
+    
     
     
     func refreshMethod()
@@ -728,7 +728,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         showTodayDate = NSArray.init()
         showPreviousDate = NSArray.init()
-
+        
         masterList0.removeAllObjects()
         arrPerSales.removeAllObjects()
         arrSales.removeAllObjects()
@@ -752,7 +752,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         arrHbarChartSales.removeAllObjects()
         arrHbarChartRevenue.removeAllObjects()
         arrHbarPerRevenue.removeAllObjects()
-
+        
         tblOEMShow.reloadData()
         tblChartData.reloadData()
         tblOEMShow.scrollToRow(at: MyIp as IndexPath, at: UITableView.ScrollPosition.top, animated: true)
@@ -783,7 +783,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         view.addSubview(imageView)
         view.addSubview(lblTitle)
-         self.navigationItem.titleView = view
+        self.navigationItem.titleView = view
         
         let backButton:UIButton =  UIButton(type:.custom)
         backButton.frame =  CGRect.init(x: -30, y: 0, width: 130, height: 40)
@@ -911,7 +911,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         set1.colors = colorapp as! [NSUIColor]
         dataSets.add(set1)
-
+        
         
         let l:Legend = barChartView.legend
         l.horizontalAlignment = Legend.HorizontalAlignment.left
@@ -972,71 +972,71 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         pieChart.rotationEnabled = true
         pieChart.highlightPerTapEnabled = true
         pieChart.centerTextOffset = CGPoint(x: 0.0, y: 0.0)
-
+        
         
         if arrchart.count == 0{
             pieChart.centerText = String(format: "No Chart data available")
         }
         else{
-         if strSalesOrRevenue == "Sales"
-         {
-            if selectedIndex == 1
+            if strSalesOrRevenue == "Sales"
             {
-                pieChart.centerText = "All Regions"
+                if selectedIndex == 1
+                {
+                    pieChart.centerText = "All Regions"
+                }
+                else if selectedIndex == 2
+                {
+                    pieChart.centerText = "All Models"
+                    
+                }
             }
-            else if selectedIndex == 2
-            {
-                pieChart.centerText = "All Models"
-
-            }
-            }
-         else{
-            if selectedIndex == 1
-            {
-                pieChart.centerText = "All Regions"
-            }
-            else if selectedIndex == 2
-            {
-                pieChart.centerText = "All Models"
-                
-            }
+            else{
+                if selectedIndex == 1
+                {
+                    pieChart.centerText = "All Regions"
+                }
+                else if selectedIndex == 2
+                {
+                    pieChart.centerText = "All Models"
+                    
+                }
             }
             
         }
+        
+        
+        
+        var i = 0
+        let values = NSMutableArray.init()
+        var dataSet = PieChartDataSet()
+        for eachdata1 in arrchart
+        {
+            let eachdata = eachdata1 as! NSNumber
+            let data = PieChartDataEntry.init(value: Double(eachdata.floatValue * 100))
             
-           
-            
-            var i = 0
-            let values = NSMutableArray.init()
-            var dataSet = PieChartDataSet()
-            for eachdata1 in arrchart
-            {
-                let eachdata = eachdata1 as! NSNumber
-                let data = PieChartDataEntry.init(value: Double(eachdata.floatValue * 100))
-                
-                i+=1
-                values .add(data)
-            }
-            
-            dataSet = PieChartDataSet.init(entries: values as? [ChartDataEntry], label: "")
-            dataSet.sliceSpace = 1.0
-            dataSet.selectionShift = 5.0
-            dataSet.valueLineWidth = 10
-            dataSet.drawValuesEnabled = false
-            dataSet.entryLabelFont = UIFont.systemFont(ofSize: 0.0)
-            dataSet.valueTextColor = UIColor.black
-            
-            let colors = NSMutableArray.init(array: Utilities.sharedUtilities.colorArray())
-            colors.add( ChartColorTemplates.joyful())
-            colors.add( ChartColorTemplates.colorful())
-
-            dataSet.colors = colors as! [NSUIColor]
-            
-            let data = PieChartData.init(dataSet: dataSet)
-            pieChart.data = data
-            pieChart.setNeedsDisplay()
-            pieChart.animate(xAxisDuration: 1.0)
-       
+            i+=1
+            values .add(data)
+        }
+        
+        dataSet = PieChartDataSet.init(entries: values as? [ChartDataEntry], label: "")
+        dataSet.sliceSpace = 1.0
+        dataSet.selectionShift = 5.0
+        dataSet.valueLineWidth = 10
+        dataSet.drawValuesEnabled = false
+        dataSet.entryLabelFont = UIFont.systemFont(ofSize: 0.0)
+        dataSet.valueTextColor = UIColor.black
+        
+        let colors = NSMutableArray.init(array: Utilities.sharedUtilities.colorArray())
+        colors.add( ChartColorTemplates.joyful())
+        colors.add( ChartColorTemplates.colorful())
+        
+        dataSet.colors = colors as! [NSUIColor]
+        
+        let data = PieChartData.init(dataSet: dataSet)
+        pieChart.data = data
+        pieChart.setNeedsDisplay()
+        pieChart.animate(xAxisDuration: 1.0)
+        
     }
     
     
@@ -1083,25 +1083,25 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             barChartdataEntry1.append(dataEntry)
             i+=1
         }
-
-            let set1  = BarChartDataSet.init(entries:barChartdataEntry1, label: "" )
-            set1.axisDependency = .left
-            set1.drawIconsEnabled = true
-            set1.highlightColor = UIColor.red
-            set1.drawValuesEnabled = false
+        
+        let set1  = BarChartDataSet.init(entries:barChartdataEntry1, label: "" )
+        set1.axisDependency = .left
+        set1.drawIconsEnabled = true
+        set1.highlightColor = UIColor.red
+        set1.drawValuesEnabled = false
         
         let colorapp =  NSMutableArray.init()
-            for j in 0..<arrchart.count {
+        for j in 0..<arrchart.count {
             
-                let color = colors.object(at: j)
-                colorapp.add(color)
-                
+            let color = colors.object(at: j)
+            colorapp.add(color)
+            
         }
         
         set1.colors = colorapp as! [NSUIColor]
         dataSets.add(set1)
-
-       
+        
+        
         
         let l:Legend = horiGraph.legend
         l.horizontalAlignment = Legend.HorizontalAlignment.left
@@ -1138,7 +1138,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         horiGraph.animate(yAxisDuration: 2)
     }
     
-   
+    
     
     @IBAction func btnDashboard_didSelect(_ sender:UIButton)
     {
@@ -1172,7 +1172,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         dictRegion = ["report_type": "tdy", "oem": brandname,"brand" :apistr]
         dictPreRegion = ["report_type": "ydy", "oem": brandname,"brand" :apistr]
         dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()), "brand": apistr, "oem": brandname]
-
+        
         appDelegate.storebuttonName(button: "Daily")
         CurentDateWebserviceCallingMethod()
     }
@@ -1193,7 +1193,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         dictRegion = ["report_type": "cmth", "oem": brandname,"brand" :apistr]
         dictPreRegion = ["report_type": "pmth", "oem": brandname,"brand" :apistr]
-         appDelegate.storebuttonName(button: "Month")
+        appDelegate.storebuttonName(button: "Month")
         CurentDateWebserviceCallingMethod()
     }
     
@@ -1277,8 +1277,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         
         
-        
-        manager .post("\(Base_Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1304,7 +1304,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                         
                         self.strsetdate = NSString.init(format: "%@ - %@ %@,%@", itemsfirst.object(at: 0) as! CVarArg,items.object(at: 0) as! CVarArg,items .object(at: 1) as! CVarArg,items.object(at: 2) as! CVarArg) as String
                         
-                            self.dictStartDateEndDate  = ["start_date" : self.first_day_month,"end_date" : self.strcurrent_day_month,"brand":self.apistr,"oem":self.brandname]
+                        self.dictStartDateEndDate  = ["start_date" : self.first_day_month,"end_date" : self.strcurrent_day_month,"brand":self.apistr,"oem":self.brandname]
                         
                     }
                     else if self.btnRange.isSelected
@@ -1316,8 +1316,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                         let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strStartdate)
                         let enddate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strEnddate)
                         self.strsetdate = "\(startdate) - \(enddate)"
-                       
-                            self.dictStartDateEndDate  = ["start_date" : self.strStartdate,"end_date" : self.strEnddate,"brand":self.apistr,"oem":self.brandname]
+                        
+                        self.dictStartDateEndDate  = ["start_date" : self.strStartdate,"end_date" : self.strEnddate,"brand":self.apistr,"oem":self.brandname]
                     }
                     else{
                         let addtionInfo = info["addtionalinfo"] as! NSDictionary
@@ -1360,8 +1360,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        
-        manager .post("\(Base_Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1463,16 +1463,16 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         }
         else if btnMonth.isSelected
         {
-             self.dictStartDateEndDate  = ["start_date" : self.first_day_month,"end_date" : self.strcurrent_day_month,"brand":self.apistr,"oem":self.brandname,"region":"all"]
+            self.dictStartDateEndDate  = ["start_date" : self.first_day_month,"end_date" : self.strcurrent_day_month,"brand":self.apistr,"oem":self.brandname,"region":"all"]
         }
         else{
             
-             self.dictStartDateEndDate  = ["start_date" : strStartdate,"end_date" : strEnddate,"brand":self.apistr,"oem":self.brandname,"region":"all"]
+            self.dictStartDateEndDate  = ["start_date" : strStartdate,"end_date" : strEnddate,"brand":self.apistr,"oem":self.brandname,"region":"all"]
         }
         
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1567,8 +1567,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         }
         
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1664,12 +1664,12 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         else{
             
             dictStartDateEndDate = ["start_date":strStartdate,"end_date" : strEnddate,"brand":apistr,"oem":brandname,"slab":"all"]
-           
+            
         }
         
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1720,7 +1720,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.Slabs = true
                     self.tblOEMShow.reloadData()
                     self.tblChartData.reloadData()
-                   
+                    
                 }
                 else
                 {
@@ -1753,13 +1753,13 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         if btnDaily.isSelected
         {
-        
+            
             dictStartDateEndDate = ["start_date":Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"brand":apistr,"oem":brandname,"plan":"all"]
             
         }
         else if btnMonth.isSelected
         {
-           
+            
             dictStartDateEndDate = ["start_date":first_day_month,"end_date" : strcurrent_day_month,"brand":apistr,"oem":brandname,"plan":"all"]
             
         }
@@ -1769,8 +1769,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1834,6 +1834,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
-
-
+    
+    
 }

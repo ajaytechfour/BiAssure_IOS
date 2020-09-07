@@ -11,7 +11,7 @@ import KSToastView
 import AFNetworking
 
 class ChangePasswordViewController: UIViewController {
-
+    
     
     
     @IBOutlet weak var txtusername: UITextField!
@@ -19,7 +19,7 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var txtNewpassword: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var btnSave_didshow: UIButton!
-
+    
     
     
     
@@ -39,9 +39,9 @@ class ChangePasswordViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool)
     {
-            style()
+        style()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-       
+        
     }
     
     
@@ -51,14 +51,14 @@ class ChangePasswordViewController: UIViewController {
     func style()
     {
         let view : UIView = UIView.init(frame: CGRect.init(x: -10, y: 0, width: 150, height: 33))
-//        let imageView : UIImageView = UIImageView.init(frame: CGRect.init(x: -30, y: 0, width: 25, height: 25))
-//        imageView.image = UIImage.init(named: "dashboard-icon")
+        //        let imageView : UIImageView = UIImageView.init(frame: CGRect.init(x: -30, y: 0, width: 25, height: 25))
+        //        imageView.image = UIImage.init(named: "dashboard-icon")
         
         let lblTitle : UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 200, height: 30))
         
-        lblTitle.text = "Changed Password"
+        lblTitle.text = "Change Password"
         lblTitle.textColor = UIColor.white
-       // view.addSubview(imageView)
+        // view.addSubview(imageView)
         view.addSubview(lblTitle)
         navBar.topItem?.titleView = view
         
@@ -135,7 +135,7 @@ class ChangePasswordViewController: UIViewController {
             })
             { (task: URLSessionDataTask?, error: Error) in
                 print("POST fails with error \(error)")
-
+                
                 KSToastView.ks_showToast(error.localizedDescription)
             }
             
@@ -151,21 +151,21 @@ class ChangePasswordViewController: UIViewController {
         {
             if txtOldpassword.text!.count > 4
             {
-            if txtNewpassword.text!.count > 4
+                if txtNewpassword.text!.count > 4
+                {
+                    return true
+                }
+                else{
+                    KSToastView.ks_showToast("Enter new password")
+                }
+            }
+            else
             {
-                return true
+                KSToastView.ks_showToast("Enter old password")
             }
-            else{
-                KSToastView.ks_showToast("Enter new password")
-            }
-        }
-        else
-        {
-            KSToastView.ks_showToast("Enter old password")
-        }
         }
         else{
-             KSToastView.ks_showToast("Enter valid username")
+            KSToastView.ks_showToast("Enter valid username")
         }
         return false
     }
@@ -175,14 +175,14 @@ class ChangePasswordViewController: UIViewController {
         let alert : UIAlertController = UIAlertController.init(title: "", message: message, preferredStyle: UIAlertController.Style.alert)
         
         let yesButton : UIAlertAction = UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default) { (action:UIAlertAction) in
-           self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(yesButton)
         self.present(alert, animated: true, completion: nil)
         
     }
     
-
+    
     func gradientAdd(button:UIButton) {
         
         let gradient: CAGradientLayer = CAGradientLayer()
@@ -196,6 +196,6 @@ class ChangePasswordViewController: UIViewController {
         
     }
     
-
-
+    
+    
 }

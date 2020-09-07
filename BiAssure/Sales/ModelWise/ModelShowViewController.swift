@@ -15,7 +15,7 @@ import Charts
 import RMPickerViewController
 
 class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate,ChartViewDelegate {
-
+    
     
     
     var strRegionname = ""
@@ -44,7 +44,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     var dictStartDateEndDate = NSDictionary()
     
     
-   
+    
     
     @IBOutlet weak var tblModelShow: UITableView!
     @IBOutlet weak var tblTabularDataShow: UITableView!
@@ -61,7 +61,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -204,7 +204,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         lblTitle.font = UIFont.systemFont(ofSize: 13)
         view.addSubview(imageView)
         view.addSubview(lblTitle)
-         self.navigationItem.titleView = view
+        self.navigationItem.titleView = view
         
         let backButton:UIButton =  UIButton(type:.custom)
         backButton.frame =  CGRect.init(x: -180, y: 0, width: 180, height: 22)
@@ -242,7 +242,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     
-   
+    
     
     func configureBarChartGraph(barChartView:BarChartView,arrchart:NSArray)->Void
     {
@@ -388,7 +388,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
             pFormatter.percentSymbol = "%"
             let formatter = DefaultValueFormatter(formatter: pFormatter)
             dataSet.valueFormatter = formatter
-
+            
             
             
             let data = PieChartData.init(dataSet: dataSet)
@@ -514,8 +514,8 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
                     
                     lbltwo.text = String(format: "%.1f", (arrRegionRevenue.object(at: i) as? NSString)!.floatValue)
                 }
-                      return cell
-                }
+                return cell
+            }
             else
             {
                 let cell = tableView .dequeueReusableCell(withIdentifier: "TabularviewCell1", for: indexPath)
@@ -581,13 +581,13 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
         else{
             
-
+            
             return CGFloat((masterList.count * 50) + 50)
         }
     }
     
     
-   
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
@@ -611,7 +611,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     
-   
+    
     func rangeSelected(withStart startDate: Date!, andEnd endDate: Date!)
     {
         _startDate = startDate! as NSDate
@@ -642,8 +642,8 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
-        
-        manager .post("\(Base_Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
                 // here read response
@@ -713,6 +713,6 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
     }
     
-
-
+    
+    
 }

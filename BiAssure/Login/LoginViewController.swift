@@ -12,10 +12,10 @@ import AFNetworking
 import SVProgressHUD
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
-
-  
     
- 
+    
+    
+    
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnForgetPassword: UIButton!
     @IBOutlet weak var txtUsername: UITextField!
@@ -24,8 +24,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var appDelegate:AppDelegate = AppDelegate()
     var gradient: CAGradientLayer = CAGradientLayer()
-
-
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         gradient.frame = btnLogin.layer.bounds
         gradient.cornerRadius = btnLogin.layer.cornerRadius
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool)
@@ -73,7 +73,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
-
+    
     func showDashBoard()
     {
         self.performSegue(withIdentifier: "dashboardsegue", sender: self)
@@ -86,10 +86,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         {
             if txtPassword.text!.count >= 4
             {
-            return true
+                return true
             }
-        else{
-            KSToastView.ks_showToast("Enter valid password")
+            else{
+                KSToastView.ks_showToast("Enter valid password")
             }
         }
         else
@@ -99,7 +99,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         return false
     }
     
-
+    
     
     @IBAction func btnSingup_didSelect(_ sender:UIButton)
     {
@@ -136,25 +136,25 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let serializerResponse = AFJSONResponseSerializer()
             
             manager.responseSerializer = serializerResponse
-
-            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
-          
             
-            manager.post(NSString.init(format: "\(Base_Url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
+            
+            let Url = "http://bi.servassure.net/api/"
+            manager.post(NSString.init(format: "\(Url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                     
                     print("json response \(jsonResponse.description)")
                     let info : NSDictionary = jsonResponse as NSDictionary
                     if info["success"]as! Int == 1
                     {
-                       
+                        
                         self.appDelegate.storeSessionId(session_id: info["token"]as! String)
                         
                         self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
                         
                         self.showDashBoard()
                     }
-                   
+                        
                     else
                     {
                         KSToastView.ks_showToast(info["message"]as! String)
@@ -177,8 +177,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5) // vertical gradient start
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.frame = gradientView.layer.bounds
-      gradient.cornerRadius = gradientView.layer.cornerRadius
+        gradient.cornerRadius = gradientView.layer.cornerRadius
         gradientView.layer.insertSublayer(gradient, at: 1)
     }
-   
+    
 }
