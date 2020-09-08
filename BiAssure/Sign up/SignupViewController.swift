@@ -15,7 +15,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var txtusername: UITextField!
     @IBOutlet weak var btnSubmit: UIButton!
     
-    var gradient: CAGradientLayer = CAGradientLayer()
+    var gradientbutton: CAGradientLayer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +33,15 @@ class SignupViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage.init()
         self.navigationController?.navigationBar.isTranslucent = true
-        gradientAdd(button: btnSubmit)
-        // Do any additional setup after loading the view.
+        gradientAddbutton(button: btnSubmit)
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        gradient.frame = btnSubmit.layer.bounds
-        gradient.cornerRadius = btnSubmit.layer.cornerRadius
+        gradientbutton.frame = btnSubmit.layer.bounds
+        gradientbutton.cornerRadius = btnSubmit.layer.cornerRadius
         
     }
     
@@ -74,7 +74,7 @@ class SignupViewController: UIViewController {
             }
         }
         else{
-            KSToastView.ks_showToast("Enter valid username")
+            KSToastView.ks_showToast("Enter valid user name")
         }
         return false
     }
@@ -91,15 +91,14 @@ class SignupViewController: UIViewController {
         
     }
     
-    func gradientAdd(button:UIButton) {
+    func gradientAddbutton(button:UIButton) {
         
-        gradient.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        // vertical gradient start
-        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.frame = button.layer.bounds
-        gradient.cornerRadius = button.layer.cornerRadius
-        button.layer.insertSublayer(gradient, at: 1)
+        gradientbutton.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]
+        gradientbutton.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientbutton.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientbutton.frame = button.layer.bounds
+        gradientbutton.cornerRadius = button.layer.cornerRadius
+        button.layer.insertSublayer(gradientbutton, at: 1)
     }
     
     

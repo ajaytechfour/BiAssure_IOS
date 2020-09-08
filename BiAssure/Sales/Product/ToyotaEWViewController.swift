@@ -1220,33 +1220,33 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         if indexpath?.row == 1
         {
-            let regionVC = storyboard.instantiateViewController(withIdentifier: "RegionShowViewController") as! RegionShowViewController
-            regionVC.arrRegionSales = arrSales
-            regionVC.arrRegionPerSales = arrPerSales
-            regionVC.masterList = masterList0
-            regionVC.strRegionname = Region
-            regionVC.arrRegionRevenue = arrRegionRev
-            regionVC.strdate = strsetdate
-            regionVC.apistr = apistr
-            regionVC.strCome = "OEM"
-            regionVC.strOEMname = brandname
+            let regionvc = storyboard.instantiateViewController(withIdentifier: "RegionShowViewController") as! RegionShowViewController
+            regionvc.arrRegionSales = arrSales
+            regionvc.arrRegionPerSales = arrPerSales
+            regionvc.masterList = masterList0
+            regionvc.strRegionname = Region
+            regionvc.arrRegionRevenue = arrRegionRev
+            regionvc.strdate = strsetdate
+            regionvc.apistr = apistr
+            regionvc.strCome = "OEM"
+            regionvc.strOEMname = brandname
             
-            self.navigationController?.pushViewController(regionVC, animated: true)
+            self.navigationController?.pushViewController(regionvc, animated: true)
         }
         else if indexpath?.row == 2
         {
-            let modelVC = storyboard.instantiateViewController(withIdentifier: "ModelShowViewController") as! ModelShowViewController
-            modelVC.arrRegionSales = arrRevenue
-            modelVC.arrRegionPerSales = arrPerRevenue
-            modelVC.masterList = masterList1
-            modelVC.strRegionname = Region
-            modelVC.arrRegionRevenue = arrModelRev
-            modelVC.strdate = strsetdate
-            modelVC.apistr = apistr
-            modelVC.strCome = "OEM"
-            modelVC.strOEMname = brandname
+            let modelvc = storyboard.instantiateViewController(withIdentifier: "ModelShowViewController") as! ModelShowViewController
+            modelvc.arrRegionSales = arrRevenue
+            modelvc.arrRegionPerSales = arrPerRevenue
+            modelvc.masterList = masterList1
+            modelvc.strRegionname = Region
+            modelvc.arrRegionRevenue = arrModelRev
+            modelvc.strdate = strsetdate
+            modelvc.apistr = apistr
+            modelvc.strCome = "OEM"
+            modelvc.strOEMname = brandname
             
-            self.navigationController?.pushViewController(modelVC, animated: true)
+            self.navigationController?.pushViewController(modelvc, animated: true)
         }
     }
     
@@ -1274,11 +1274,9 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue(token, forHTTPHeaderField: "x-access-token")
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
-        
-        
-        
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+     
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1360,8 +1358,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1471,8 +1469,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         }
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1567,8 +1565,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         }
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1668,8 +1666,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         }
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1769,8 +1767,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")

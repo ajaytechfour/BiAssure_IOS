@@ -39,7 +39,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     var adtBarChartView = BarChartView()
     var pieChartOEM = PieChartView()
     var sePicker = CustomPicker()
-    var appDelegate :AppDelegate = AppDelegate()
+    var appDele :AppDelegate = AppDelegate()
     
     var dictStartDateEndDate = NSDictionary()
     
@@ -634,7 +634,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         manager.requestSerializer = serializerRequest
         manager.requestSerializer.timeoutInterval = 1000.0
         
-        let token = appDelegate.getSessionId()
+        let token = appDele.getSessionId()
         
         serializerRequest.setValue(token, forHTTPHeaderField: "x-access-token")
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
@@ -642,8 +642,8 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
                 // here read response

@@ -1,10 +1,12 @@
 //
 //  OEMWiseViewController.swift
 //  BiAssure
-//
 //  Created by Pulkit on 04/09/20.
 //  Copyright © 2020 Tech Four. All rights reserved.
-//
+
+
+
+
 
 import UIKit
 import SSMaterialCalendarPicker
@@ -277,7 +279,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         dailytblIndexpath = nil
         self.refreshMethod()
         appDelegate.storebuttonName(button: "Range")
-        sePicker .showPickerViewWithAnimation(sourceView: self.view)
+        sePicker.showPickerViewWithAnimation(sourceView: self.view)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -560,7 +562,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                 tblPieChartData.rowHeight = UITableView.automaticDimension
                 
                 btnallCampaings .setTitle("OEM wise", for: .normal)
-                btnallCampaings .addTarget(self, action: #selector(allCampaingsAction(_:)), for: .touchUpInside)
+                btnallCampaings.addTarget(self, action: #selector(allCampaingsAction(_:)), for: .touchUpInside)
                 btncalender.addTarget(self, action: #selector(changeDate(_:)), for: .touchUpInside)
                 btncalender .setTitle(strsetdate, for: .normal)
                 
@@ -647,11 +649,11 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight)
     {
-        print("chartValueSelected")
+        print("chartValueSelect")
     }
     
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        print("chartValueNothingSelected")
+        print("chartValueNothingSelect")
     }
     
     func configurePieChart(pieChart: PieChartView ,arrchart : NSArray)
@@ -663,7 +665,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         pieChart.centerTextOffset = CGPoint(x: 0.0, y: 0.0)
         if selectedIndex == 1
         {
-            pieChart.centerText = "EW Numbers"
+            pieChart.centerText = "EW Number"
         }
         else if selectedIndex == 2
         {
@@ -738,8 +740,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -821,8 +823,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -924,8 +926,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")

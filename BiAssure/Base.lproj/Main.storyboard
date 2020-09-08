@@ -270,12 +270,13 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Etk-oG-H1l" customClass="PaddingTextField" customModule="BiAssure" customModuleProvider="target">
                                 <rect key="frame" x="57" y="292" width="261" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="yYX-B7-ohQ"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="6YP-qf-zUx" id="Uaf-JX-oUj"/>
                                 </connections>
@@ -283,6 +284,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sch-xO-zeU" customClass="PaddingTextField" customModule="BiAssure" customModuleProvider="target">
                                 <rect key="frame" x="57" y="345" width="261" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="B4r-uu-N0K"/>
                                 </constraints>
@@ -586,7 +588,7 @@
                                             <action selector="btnMonth_didSelect:" destination="Aet-jR-UdN" eventType="touchUpInside" id="ztr-vY-7A0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWB-9E-YiO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWB-9E-YiO">
                                         <rect key="frame" x="243" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1188,7 +1190,7 @@
                                             <action selector="btnMonth_didSelect:" destination="ZSQ-XL-LRo" eventType="touchUpInside" id="d91-DD-ya9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S35-h3-IA3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S35-h3-IA3">
                                         <rect key="frame" x="243" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2160,7 +2162,7 @@
                                             <action selector="btnMonth_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="t6H-rS-VJz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hom-RE-8DO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hom-RE-8DO">
                                         <rect key="frame" x="243" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -3740,7 +3742,7 @@
                                             <action selector="btnMonth_didSelect:" destination="OZp-6U-w11" eventType="touchUpInside" id="0AS-lm-zws"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f97-Ls-es1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f97-Ls-es1">
                                         <rect key="frame" x="243" y="0.0" width="120" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -5196,7 +5198,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vno-lD-SOo"/>
+        <segue reference="1ie-xd-wrL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Regions-icon-gray" width="8.5" height="11.5"/>

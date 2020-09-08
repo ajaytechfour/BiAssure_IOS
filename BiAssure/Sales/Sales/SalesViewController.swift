@@ -792,8 +792,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let Url = "http://bi.servassure.net/api/"
-          manager .post("\(Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          let BaseUrl = "http://bi.servassure.net/api/"
+          manager .post("\(BaseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -875,8 +875,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let Url = "http://bi.servassure.net/api/"
-          manager .post("\(Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          let BaseUrl = "http://bi.servassure.net/api/"
+          manager .post("\(BaseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -970,8 +970,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let Url = "http://bi.servassure.net/api/"
-          manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          let BaseUrl = "http://bi.servassure.net/api/"
+          manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
