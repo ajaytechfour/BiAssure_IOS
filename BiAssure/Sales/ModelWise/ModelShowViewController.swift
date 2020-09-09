@@ -642,8 +642,8 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
-        let BaseUrl = "http://bi.servassure.net/api/"
-        manager .post("\(BaseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let Url = "http://bi.servassure.net/api/"
+        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
                 // here read response
