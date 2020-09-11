@@ -792,8 +792,13 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let Url = "http://bi.servassure.net/api/"
-          manager .post("\(Url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          SVProgressHUD.show()
+          SVProgressHUD.setDefaultMaskType(.black)
+          
+          
+          
+          let baseUrl = "http://bi.servassure.net/api/"
+          manager .post("\(baseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -852,7 +857,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                
           }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
-               
+               SVProgressHUD.dismiss()
                KSToastView.ks_showToast(error.localizedDescription)
           }
      }
@@ -875,8 +880,13 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let Url = "http://bi.servassure.net/api/"
-          manager .post("\(Url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          SVProgressHUD.show()
+          SVProgressHUD.setDefaultMaskType(.black)
+          
+          
+          
+          let baseUrl = "http://bi.servassure.net/api/"
+          manager .post("\(baseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -949,6 +959,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                
           }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
+               SVProgressHUD.dismiss()
                KSToastView.ks_showToast(error.localizedDescription)
           }
      }
@@ -970,8 +981,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let Url = "http://bi.servassure.net/api/"
-          manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          let baseUrl = "http://bi.servassure.net/api/"
+          manager .post("\(baseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -1030,6 +1041,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                
           }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
+               SVProgressHUD.dismiss()
                KSToastView.ks_showToast(error.localizedDescription)
                
           }

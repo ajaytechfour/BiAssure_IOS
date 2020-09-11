@@ -103,16 +103,12 @@ class ChangePasswordViewController: UIViewController {
             manager.responseSerializer = serializerResponse
             let parameters = ["user_name" :txtusername.text!,"user_password":txtOldpassword.text!,"new_password":txtNewpassword.text!]
             
-            
-            
-            
-            
-            
+            SVProgressHUD.show()
             
             manager.post(NSString.init(format: "http://13.232.233.123/UserProfileAccess/api/change_password") as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 
                 if let jsonResponse = responseObject as? [String: AnyObject] {
-                    // here read response
+                   
                     print("json response \(jsonResponse.description)")
                     let info : NSDictionary = jsonResponse as NSDictionary
                     if info["Status"]as! String == "1"
@@ -135,7 +131,7 @@ class ChangePasswordViewController: UIViewController {
             })
             { (task: URLSessionDataTask?, error: Error) in
                 print("POST fails with error \(error)")
-                
+                SVProgressHUD.dismiss()
                 KSToastView.ks_showToast(error.localizedDescription)
             }
             

@@ -642,11 +642,11 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
-        let Url = "http://bi.servassure.net/api/"
-        manager .post("\(Url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseUrl = "http://bi.servassure.net/api/"
+        manager .post("\(baseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
-                // here read response
+        
                 print("json response \(jsonResponse.description)")
                 let info : NSDictionary = jsonResponse as NSDictionary
                 if info["success"]as! Int == 1
