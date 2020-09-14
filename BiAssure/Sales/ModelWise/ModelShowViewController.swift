@@ -62,7 +62,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -96,7 +96,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBAction func btnAllModels_didSelect(_ sender:UIButton)
     {
-        let selectAction = RMAction(title: "Select", style: RMActionStyle.done, andHandler: { controller in
+        let selectAction = RMAction(title: "Select anyone", style: RMActionStyle.done, andHandler: { controller in
             let picker = UIPickerView()
             let selectedRow :NSInteger = picker.selectedRow(inComponent: 0)
             let selectedRegion = self.masterList.object(at: selectedRow) as! String
@@ -123,7 +123,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         pickerController.picker.tag = 1
         pickerController.picker.delegate = self
         pickerController.picker.dataSource = self
-        pickerController.title = "All Regions"
+      
         pickerController.message = "Select a Region of your choice"
         self.present(pickerController, animated: true, completion: nil)
     }
@@ -249,7 +249,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         let xVals = NSMutableArray.init()
         for eachData1 in arrchart
         {
-            //let eachData = eachData1 as! NSNumber
+            
             xVals.add(eachData1)
         }
         
@@ -360,7 +360,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
             var dataSet = PieChartDataSet()
             for eachdata1 in arrchart
             {
-                //let eachdata = eachdata1 as! NSNumber
+                
                 let data = PieChartDataEntry.init(value: Double((eachdata1 as AnyObject).floatValue * 100), label: String(format: "\(masterList.object(at: i))" as String))
                 
                 i+=1
@@ -425,8 +425,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     
-    /*MARK: -TABLEVIEW DELEGATE AND DATASOURCE
-     */
+    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -504,7 +503,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
                     
                     y = Float(lblOne.frame.origin.y + lblOne.frame.size.height + 10)
                     x = Float(lbltwo.frame.origin.y + lbltwo.frame.size.height + 10)
-                    // z = Float(imgArrow.frame.origin.y + imgArrow.frame.size.height + 10)
+                   
                     
                     viewbg!.addSubview(lblOne)
                     viewbg!.addSubview(imgArrow)

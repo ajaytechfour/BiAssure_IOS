@@ -662,7 +662,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           let buttonPosition = sender.convert(CGPoint.zero, to: tblDailySales)
           let indexpath = tblDailySales.indexPathForRow(at: buttonPosition)
           
-          let selectAction = RMAction(title: "Select", style: RMActionStyle.done, andHandler: { controller in
+          let selectAction = RMAction(title: "Select anyone", style: RMActionStyle.done, andHandler: { controller in
                
                
                let selectedRegion = self.masterList[self.rowvalue ] as? String
@@ -694,7 +694,6 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           pickerController?.picker.tag = 1
           pickerController?.picker.delegate = self
           pickerController?.picker.dataSource = self
-          pickerController?.title = "All Region"
           pickerController?.message = "Select a region of your choice"
           self.present(pickerController!, animated: true, completion: nil)
      }
@@ -797,7 +796,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           
           
           
-          let baseUrl = "http://bi.servassure.net/api/"
+            let baseUrl = "http://bi.servassure.net/api/"
           manager .post("\(baseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
@@ -885,7 +884,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           
           
           
-          let baseUrl = "http://bi.servassure.net/api/"
+            let baseUrl = "http://bi.servassure.net/api/"
           manager .post("\(baseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {

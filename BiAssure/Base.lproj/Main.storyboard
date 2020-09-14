@@ -515,12 +515,13 @@
         <!--Navigation View Controller-->
         <scene sceneID="fzm-N9-nG6">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" navigationBarHidden="YES" id="xk7-2G-hS2" customClass="NavigationViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="xk7-2G-hS2" customClass="NavigationViewController" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pHP-tT-xFK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="barTintColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -559,10 +560,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Daily">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnDaily_didSelect:" destination="Aet-jR-UdN" eventType="touchUpInside" id="a0X-2N-yug"/>
@@ -578,10 +579,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Monthly">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnMonth_didSelect:" destination="Aet-jR-UdN" eventType="touchUpInside" id="ztr-vY-7A0"/>
@@ -597,10 +598,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Range">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnRange_didSelect:" destination="Aet-jR-UdN" eventType="touchUpInside" id="Tyn-L6-JSR"/>
@@ -608,7 +609,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjO-35-Yf1">
                                         <rect key="frame" x="1" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="XKc-V9-S4m"/>
                                             <constraint firstAttribute="width" constant="120" id="etv-Ym-M7D"/>
@@ -619,7 +620,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-0g-Db4">
                                         <rect key="frame" x="122" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="2u8-aa-WgQ"/>
                                             <constraint firstAttribute="width" constant="120" id="bXR-ty-w0X"/>
@@ -630,7 +631,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0O-jY-TmY">
                                         <rect key="frame" x="243" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="bMj-m5-UGc"/>
                                             <constraint firstAttribute="width" constant="120" id="jug-Zp-T5T"/>
@@ -1145,7 +1146,7 @@
                         <viewControllerLayoutGuide type="bottom" id="jfa-PI-Wmj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Kg-g7-GA7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tK3-We-kOc">
@@ -1160,11 +1161,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Dail">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Daily">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnDaily_didSelect:" destination="ZSQ-XL-LRo" eventType="touchUpInside" id="Pt0-5J-sJh"/>
@@ -1180,10 +1181,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Monthly">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnMonth_didSelect:" destination="ZSQ-XL-LRo" eventType="touchUpInside" id="d91-DD-ya9"/>
@@ -1199,10 +1200,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Range">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnRange_didSelect:" destination="ZSQ-XL-LRo" eventType="touchUpInside" id="p2I-qv-pXF"/>
@@ -1210,7 +1211,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qmi-4u-tZC">
                                         <rect key="frame" x="1" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="9Xe-vh-EOD"/>
                                             <constraint firstAttribute="height" constant="2" id="BfI-x4-I19"/>
@@ -1221,7 +1222,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIp-5v-MJl">
                                         <rect key="frame" x="122" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="jHm-fJ-tvP"/>
                                             <constraint firstAttribute="width" constant="120" id="oeq-g1-6Ew"/>
@@ -1232,7 +1233,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0y-B1-yC7">
                                         <rect key="frame" x="243" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="UIZ-jG-3sI"/>
                                             <constraint firstAttribute="width" constant="120" id="ybY-6e-JTv"/>
@@ -1262,7 +1263,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="349" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-c5-zzv">
-                                <rect key="frame" x="0.0" y="63" width="374" height="604"/>
+                                <rect key="frame" x="0.0" y="63" width="374" height="560"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="iFe-Le-0dh"/>
@@ -2133,10 +2134,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Daily">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnDaily_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="igI-af-oUW"/>
@@ -2152,10 +2153,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Monthly">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnMonth_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="t6H-rS-VJz"/>
@@ -2171,10 +2172,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Range">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnRange_didSelect:" destination="np8-z9-SzT" eventType="touchUpInside" id="bTg-H5-1lq"/>
@@ -2182,7 +2183,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-dj-DbF">
                                         <rect key="frame" x="1" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="BeU-Tc-CeM"/>
                                             <constraint firstAttribute="width" constant="120" id="fGh-KK-o8s"/>
@@ -2193,7 +2194,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huX-by-ntr">
                                         <rect key="frame" x="122" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="Ktg-hG-9BT"/>
                                             <constraint firstAttribute="width" constant="120" id="e11-T0-LoB"/>
@@ -2204,7 +2205,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eB3-k7-w7q">
                                         <rect key="frame" x="243" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="3Wa-9G-FKW"/>
                                             <constraint firstAttribute="height" constant="2" id="mN2-h7-pIq"/>
@@ -3250,10 +3251,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Graphical">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnGraphical_didSelect:" destination="Tao-Zo-akG" eventType="touchUpInside" id="7QE-a6-eQX"/>
@@ -3268,10 +3269,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Tabular">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnTabular_didSelect:" destination="Tao-Zo-akG" eventType="touchUpInside" id="EIN-kB-rn2"/>
@@ -3279,7 +3280,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIR-sG-cQV">
                                         <rect key="frame" x="1" y="48" width="178" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="91L-Vo-FxI"/>
                                         </constraints>
@@ -3289,7 +3290,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jf-DN-hJK">
                                         <rect key="frame" x="180" y="48" width="178" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="gcl-Wf-3tM"/>
                                         </constraints>
@@ -3713,10 +3714,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Daily">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnDaily_didSelect:" destination="OZp-6U-w11" eventType="touchUpInside" id="hvH-mQ-hqj"/>
@@ -3732,10 +3733,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Monthly">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnMonth_didSelect:" destination="OZp-6U-w11" eventType="touchUpInside" id="0AS-lm-zws"/>
@@ -3751,10 +3752,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Range">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnRange_didSelect:" destination="OZp-6U-w11" eventType="touchUpInside" id="4zl-K1-DqL"/>
@@ -3762,7 +3763,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-xM-VNm">
                                         <rect key="frame" x="1" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="bRr-BF-Yu5"/>
                                             <constraint firstAttribute="height" constant="2" id="kjE-KT-tJI"/>
@@ -3773,7 +3774,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoU-YG-Mbg">
                                         <rect key="frame" x="122" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="BWh-y5-hnn"/>
                                             <constraint firstAttribute="width" constant="120" id="zCj-YU-5VK"/>
@@ -3784,7 +3785,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5m-Ro-RD5">
                                         <rect key="frame" x="243" y="41" width="120" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="D0U-85-s2c"/>
                                             <constraint firstAttribute="height" constant="2" id="USG-5v-z8e"/>
@@ -4142,7 +4143,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgF-M6-4gb">
-                                                            <rect key="frame" x="4" y="5" width="105" height="30"/>
+                                                            <rect key="frame" x="4" y="3" width="105" height="30"/>
                                                             <color key="backgroundColor" red="1" green="0.58039215690000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="101" id="2lm-Lq-hhy"/>
@@ -4235,7 +4236,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="WgF-M6-4gb" firstAttribute="top" secondItem="m88-Bl-uIa" secondAttribute="top" constant="5" id="P44-Ch-dwP"/>
+                                                        <constraint firstItem="WgF-M6-4gb" firstAttribute="top" secondItem="m88-Bl-uIa" secondAttribute="top" constant="3" id="P44-Ch-dwP"/>
                                                         <constraint firstAttribute="width" constant="359" id="cRc-bE-cvP"/>
                                                         <constraint firstItem="oAj-tj-jjC" firstAttribute="top" secondItem="m88-Bl-uIa" secondAttribute="top" constant="3" id="fC5-5T-kxs"/>
                                                         <constraint firstAttribute="trailing" secondItem="oAj-tj-jjC" secondAttribute="trailing" constant="4" id="oAJ-ba-adG"/>
@@ -4776,7 +4777,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E56-ya-TtX">
                                         <rect key="frame" x="1" y="41" width="177.5" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="wmm-bq-4hI"/>
                                         </constraints>
@@ -4786,7 +4787,7 @@
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2do-Wp-Pcw">
                                         <rect key="frame" x="179.5" y="41" width="176.5" height="2"/>
-                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="UO7-yW-GOi"/>
                                         </constraints>
@@ -4803,10 +4804,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Graphical">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnGraphical_didSelect:" destination="c20-2t-bKB" eventType="touchUpInside" id="LA1-Bd-IZX"/>
@@ -4821,10 +4822,10 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Tabular">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.12941176469999999" green="0.25098039220000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnTabular_didSelect:" destination="c20-2t-bKB" eventType="touchUpInside" id="2NU-xh-NRk"/>

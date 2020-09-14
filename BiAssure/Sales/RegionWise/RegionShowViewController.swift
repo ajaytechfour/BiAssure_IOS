@@ -98,7 +98,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBAction func btnAllModels_didSelect(_ sender:UIButton)
     {
-        let selectAction = RMAction(title: "Select", style: RMActionStyle.done, andHandler: { controller in
+        let selectAction = RMAction(title: "Select anyone", style: RMActionStyle.done, andHandler: { controller in
             let picker = UIPickerView()
             let selectedRow :NSInteger = picker.selectedRow(inComponent: 0)
             let selectedRegion = self.masterList.object(at: selectedRow) as! String
@@ -125,7 +125,6 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         pickerController.picker.tag = 1
         pickerController.picker.delegate = self
         pickerController.picker.dataSource = self
-        pickerController.title = "All Regions"
         pickerController.message = "Select a Region of your choice"
         self.present(pickerController, animated: true, completion: nil)
     }
@@ -253,7 +252,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         let xVals = NSMutableArray.init()
         for eachData1 in arrchart
         {
-            //let eachData = eachData1 as! NSNumber
+            
             xVals.add(eachData1)
         }
         
@@ -501,7 +500,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
                     
                     y = Float(lblOne.frame.origin.y + lblOne.frame.size.height + 10)
                     x = Float(lbltwo.frame.origin.y + lbltwo.frame.size.height + 10)
-                    // z = Float(imgArrow.frame.origin.y + imgArrow.frame.size.height + 10)
+                    
                     
                     viewbg!.addSubview(lblOne)
                     viewbg!.addSubview(imgArrow)
@@ -645,7 +644,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
-                // here read response
+                
                 print("json response \(jsonResponse.description)")
                 let info : NSDictionary = jsonResponse as NSDictionary
                 if info["success"]as! Int == 1

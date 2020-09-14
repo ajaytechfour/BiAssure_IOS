@@ -4,7 +4,6 @@
 //
 //  Created by Pulkit on 04/09/20.
 //  Copyright © 2020 Tech Four. All rights reserved.
-//
 
 import UIKit
 
@@ -74,7 +73,7 @@ class CustomPicker: UIView {
             self.btnDone.setTitle("Done", for: UIControl.State.normal)
             selectedStartDate = datePickerView.date as NSDate
             datePickerView.minimumDate = selectedStartDate as Date?
-            self.lblTitle.text = "Select End Date"
+            self.lblTitle.text = "End Date"
             
             self.frame = CGRect(x: self.superView.frame.size.width, y: self.frame.origin.y, width: self.superView.frame.size.width, height: self.frame.size.height)
             self.isHidden = false
@@ -109,7 +108,7 @@ class CustomPicker: UIView {
         comps.year = -2
         let minDate = gregorian .date(byAdding: comps as DateComponents, to: currentDate)
         self.datePickerView.minimumDate = minDate
-        self.lblTitle.text = "Select Start Date"
+        self.lblTitle.text = "Start Date"
         self.btnDone .setTitle("Next", for: .normal)
         
     }
