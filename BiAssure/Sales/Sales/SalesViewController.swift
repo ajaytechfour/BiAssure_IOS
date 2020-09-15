@@ -796,8 +796,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           
           
           
-            let baseUrl = "http://bi.servassure.net/api/"
-          manager .post("\(baseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            let URL = "http://bi.servassure.net/api/"
+          manager .post("\(URL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -884,8 +884,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           
           
           
-            let baseUrl = "http://bi.servassure.net/api/"
-          manager .post("\(baseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            let URL = "http://bi.servassure.net/api/"
+          manager .post("\(URL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -980,8 +980,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let baseUrl = "http://bi.servassure.net/api/"
-          manager .post("\(baseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          let URL = "http://bi.servassure.net/api/"
+          manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")

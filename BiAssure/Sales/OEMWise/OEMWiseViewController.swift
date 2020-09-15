@@ -713,87 +713,88 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         l.yOffset = 0.0
     }
     
-    func CurentDateWebserviceCallingMethod()
-    {
-        let timestamp = NSInteger(NSDate().timeIntervalSince1970)
-        let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
-        let serializerRequest = AFHTTPRequestSerializer()
-        serializerRequest .setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
-        
-        manager.requestSerializer = serializerRequest
-        manager.requestSerializer.timeoutInterval = 1000.0
-        
-        let token = appDelegate.getSessionId()
-        
-        serializerRequest.setValue(token, forHTTPHeaderField: "x-access-token")
-        serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
-        manager.responseSerializer = AFJSONResponseSerializer.init()
-        
-        
-        let baseUrl = "http://bi.servassure.net/api/"
-        manager .post("\(baseUrl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
-            if let jsonResponse = responseObject as? [String: AnyObject]
-            {
-                print("JSON: \(jsonResponse)")
-                let info : NSDictionary = jsonResponse as NSDictionary
-                if info["success"]as! Bool == true
-                {
-                    let dataArray = info["data"] as! NSArray
-                    if dataArray.count != 0
-                    {
-                        self.showTodayDate = dataArray.mutableCopy() as! NSMutableArray
-                    }
-                    if self.btnMonth.isSelected
-                    {
-                        let addtionInfo = info["addtionalinfo"] as! NSDictionary
-                        self.strcurrent_day_month = addtionInfo["date2"] as! String
-                        self.first_day_month = addtionInfo["date1"] as! String
-                        
-                        let currentDay = Utilities .sharedUtilities.MonthDateConversion(serverDate: self.strcurrent_day_month)
-                        let items = currentDay.components(separatedBy: " ") as NSArray
-                        
-                        let firstDay = Utilities.sharedUtilities.overViewDateConversion(serverDate: self.first_day_month)
-                        let itemsfirst = firstDay.components(separatedBy: " ") as NSArray
-                        
-                        self.strsetdate = NSString.init(format: "%@ - %@ %@,%@", itemsfirst.object(at: 0) as! CVarArg,items.object(at: 0) as! CVarArg,items .object(at: 1) as! CVarArg,items.object(at: 2) as! CVarArg) as String
-                        self.dictStartDateEndDate  = ["start_date" : self.first_day_month,"end_date" : self.strcurrent_day_month]
-                        
-                    }
-                    else if self.btnRange.isSelected
-                    {
-                        let addtionInfo = info["data1"] as! NSDictionary
-                        self.strStartdate = addtionInfo["start_date"] as! String
-                        self.strEnddate = addtionInfo["end_date"] as! String
-                        
-                        let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strStartdate)
-                        let enddate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strEnddate)
-                        self.strsetdate = "\(startdate) - \(enddate)"
-                        self.dictStartDateEndDate = ["start_date":self.strStartdate,"end_date":self.strEnddate]
-                        
-                    }
-                    else{
-                        let addtionInfo = info["addtionalinfo"] as! NSDictionary
-                        self.StrCurrentDate = addtionInfo["date1"] as! String
-                        let currentDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: self.StrCurrentDate)
-                        let items = currentDate.components(separatedBy: " ") as NSArray
-                        self.strsetdate = "\(items.object(at: 1)) \(items.object(at: 0)),\(items.object(at: 2))"
-                        
-                    }
-                    
-                    self.PreviousDateWebserviceCallingMethod()
-                }
-                else
-                {
-                    KSToastView .ks_showToast(jsonResponse["message"])
-                }
-            }
-            
-        }){ (task: URLSessionDataTask?, error: Error) in
-            print("POST fails with error \(error)")
-            
-            KSToastView.ks_showToast(error.localizedDescription)
-        }
+     func CurentDateWebserviceCallingMethod()
+       {
+           let timestamp = NSInteger(NSDate().timeIntervalSince1970)
+           let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+           let serializerRequest = AFHTTPRequestSerializer()
+           serializerRequest .setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+           serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
+           
+           manager.requestSerializer = serializerRequest
+           manager.requestSerializer.timeoutInterval = 1000.0
+           
+           let token = appDelegate.getSessionId()
+           
+           serializerRequest.setValue(token, forHTTPHeaderField: "x-access-token")
+           serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
+           manager.responseSerializer = AFJSONResponseSerializer.init()
+           
+           SVProgressHUD.show()
+           SVProgressHUD.setDefaultMaskType(.black)
+           let URL = "http://bi.servassure.net/api/"
+           manager .post("\(URL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+               if let jsonResponse = responseObject as? [String: AnyObject]
+               {
+                   print("JSON: \(jsonResponse)")
+                   let info : NSDictionary = jsonResponse as NSDictionary
+                   if info["success"]as! Bool == true
+                   {
+                       let dataArray = info["data"] as! NSArray
+                       if dataArray.count != 0
+                       {
+                           self.showTodayDate = dataArray.mutableCopy() as! NSMutableArray
+                       }
+                       if self.btnMonth.isSelected
+                       {
+                           let addtionInfo = info["addtionalinfo"] as! NSDictionary
+                           self.strcurrent_day_month = addtionInfo["date2"] as! String
+                           self.first_day_month = addtionInfo["date1"] as! String
+                           
+                           let currentDay = Utilities .sharedUtilities.MonthDateConversion(serverDate: self.strcurrent_day_month)
+                           let items = currentDay.components(separatedBy: " ") as NSArray
+                           
+                           let firstDay = Utilities.sharedUtilities.overViewDateConversion(serverDate: self.first_day_month)
+                           let itemsfirst = firstDay.components(separatedBy: " ") as NSArray
+                           
+                           self.strsetdate = NSString.init(format: "%@ - %@ %@,%@", itemsfirst.object(at: 0) as! CVarArg,items.object(at: 0) as! CVarArg,items .object(at: 1) as! CVarArg,items.object(at: 2) as! CVarArg) as String
+                           self.dictStartDateEndDate  = ["start_date" : self.first_day_month,"end_date" : self.strcurrent_day_month]
+                           
+                       }
+                       else if self.btnRange.isSelected
+                       {
+                            let addtionInfo = info["data1"] as! NSDictionary
+                           self.strStartdate = addtionInfo["start_date"] as! String
+                           self.strEnddate = addtionInfo["end_date"] as! String
+                           
+                         let startdate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strStartdate)
+                           let enddate = Utilities.sharedUtilities.RengeDateConversion(serverDate: self.strEnddate)
+                           self.strsetdate = "\(startdate) - \(enddate)"
+                           self.dictStartDateEndDate = ["start_date":self.strStartdate,"end_date":self.strEnddate]
+                           
+                       }
+                       else{
+                           let addtionInfo = info["addtionalinfo"] as! NSDictionary
+                           self.StrCurrentDate = addtionInfo["date1"] as! String
+                           let currentDate = Utilities.sharedUtilities.MonthDateConversion(serverDate: self.StrCurrentDate)
+                           let items = currentDate.components(separatedBy: " ") as NSArray
+                           self.strsetdate = "\(items.object(at: 1)) \(items.object(at: 0)),\(items.object(at: 2))"
+                           
+                       }
+                       
+                       self.PreviousDateWebserviceCallingMethod()
+                   }
+                   else
+                   {
+                      KSToastView .ks_showToast(jsonResponse["message"])
+                   }
+               }
+               
+           }){ (task: URLSessionDataTask?, error: Error) in
+               print("POST fails with error \(error)")
+               SVProgressHUD.dismiss()
+               KSToastView.ks_showToast(error.localizedDescription)
+           }
     }
     
     func PreviousDateWebserviceCallingMethod()
@@ -814,8 +815,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-         let baseUrl = "http://bi.servassure.net/api/"
-        manager .post("\(baseUrl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+         let URL = "http://bi.servassure.net/api/"
+        manager .post("\(URL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -917,8 +918,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let baseUrl = "http://bi.servassure.net/api/"
-        manager .post("\(baseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let URL = "http://bi.servassure.net/api/"
+        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")

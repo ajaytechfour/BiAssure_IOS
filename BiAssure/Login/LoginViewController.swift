@@ -141,8 +141,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             
             SVProgressHUD.show()
             
-            let baseUrl = "http://bi.servassure.net/api/"
-            manager.post(NSString.init(format: "\(baseUrl)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            let URL = "http://bi.servassure.net/api/"
+            manager.post(NSString.init(format: "\(URL)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                     
                     print("json response \(jsonResponse.description)")

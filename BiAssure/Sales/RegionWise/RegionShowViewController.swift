@@ -639,8 +639,8 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         SVProgressHUD.show()
         
         
-        let baseUrl = "http://bi.servassure.net/api/"
-        manager .post("\(baseUrl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let URL = "http://bi.servassure.net/api/"
+        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
