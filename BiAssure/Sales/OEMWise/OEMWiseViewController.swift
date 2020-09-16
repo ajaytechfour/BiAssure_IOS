@@ -11,7 +11,6 @@ import SSMaterialCalendarPicker
 import Charts
 import RMPickerViewController
 import AFNetworking
-import SVProgressHUD
 import KSToastView
 
 class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate {
@@ -730,10 +729,9 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
            serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
            manager.responseSerializer = AFJSONResponseSerializer.init()
            
-           SVProgressHUD.show()
-           SVProgressHUD.setDefaultMaskType(.black)
-           let URL = "http://bi.servassure.net/api/"
-           manager .post("\(URL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+
+           let BaseURL = "http://bi.servassure.net/api/"
+           manager .post("\(BaseURL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                    print("JSON: \(jsonResponse)")
@@ -792,7 +790,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                
            }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
-               SVProgressHUD.dismiss()
+               
                KSToastView.ks_showToast(error.localizedDescription)
            }
     }
@@ -815,8 +813,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-         let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+         let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -918,8 +916,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")

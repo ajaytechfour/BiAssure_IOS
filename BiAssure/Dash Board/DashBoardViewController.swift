@@ -100,7 +100,6 @@ class DashBoardViewController: UIViewController {
         
         gradient.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-        // vertical gradient start
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.frame = button.layer.bounds
         gradient.cornerRadius = button.layer.cornerRadius

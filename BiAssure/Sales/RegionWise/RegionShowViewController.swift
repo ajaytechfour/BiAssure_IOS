@@ -8,7 +8,6 @@
 
 import UIKit
 import SSMaterialCalendarPicker
-import SVProgressHUD
 import KSToastView
 import AFNetworking
 import Charts
@@ -636,11 +635,11 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        SVProgressHUD.show()
+       
         
         
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
@@ -706,7 +705,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         })
         { (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-            SVProgressHUD.dismiss()
+            
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }

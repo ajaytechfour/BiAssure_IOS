@@ -9,7 +9,6 @@
 import UIKit
 import KSToastView
 import AFNetworking
-import SVProgressHUD
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
@@ -139,10 +138,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             
             let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
             
-            SVProgressHUD.show()
             
-            let URL = "http://bi.servassure.net/api/"
-            manager.post(NSString.init(format: "\(URL)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+           let BaseURL = "http://bi.servassure.net/api/"
+            manager.post(NSString.init(format: "\(BaseURL)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                     
                     print("json response \(jsonResponse.description)")
@@ -167,7 +165,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             })
             { (task: URLSessionDataTask?, error: Error) in
                 print("POST fails with error \(error)")
-                SVProgressHUD.dismiss()
                 KSToastView.ks_showToast(error.localizedDescription)
             }
             

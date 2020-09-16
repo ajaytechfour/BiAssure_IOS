@@ -8,7 +8,6 @@
 
 import UIKit
 import Charts
-import SVProgressHUD
 import SSMaterialCalendarPicker
 import KSToastView
 import AFNetworking
@@ -1275,8 +1274,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
      
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1358,8 +1357,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1472,13 +1471,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             self.dictStartDateEndDate  = ["start_date" : strStartdate,"end_date" : strEnddate,"brand":self.apistr,"oem":self.brandname,"region":"all"]
         }
         
-        SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.black)
-        
-        
-        
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1528,7 +1522,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     self.tblOEMShow.reloadData()
                     self.tblChartData.reloadData()
-                    SVProgressHUD.dismiss()
                 }
                 else
                 {
@@ -1538,7 +1531,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }){ (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-             SVProgressHUD.dismiss()
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
@@ -1574,14 +1566,9 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
             self.dictStartDateEndDate  = ["start_date" : strStartdate,"end_date" : strEnddate,"brand":self.apistr,"oem":self.brandname,"model":"all"]
         }
-        
-        
-        SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.black)
-        
-        
-         let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+
+         let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1631,7 +1618,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     self.tblOEMShow.reloadData()
                     self.tblChartData.reloadData()
-                    SVProgressHUD.dismiss()
+                    
                 }
                 else
                 {
@@ -1641,7 +1628,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }){ (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-            SVProgressHUD.dismiss()
+            
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
@@ -1679,12 +1666,9 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             dictStartDateEndDate = ["start_date":strStartdate,"end_date" : strEnddate,"brand":apistr,"oem":brandname,"slab":"all"]
             
         }
-        SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.black)
-        
-        
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+    
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1735,7 +1719,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.Slabs = true
                     self.tblOEMShow.reloadData()
                     self.tblChartData.reloadData()
-                    SVProgressHUD.dismiss()
+        
                 }
                 else
                 {
@@ -1745,7 +1729,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }){ (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-            SVProgressHUD.dismiss()
+            
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
@@ -1784,12 +1768,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }
         
-        SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.black)
-        
-        
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1839,7 +1819,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     self.tblOEMShow.reloadData()
                     self.tblChartData.reloadData()
-                    SVProgressHUD.dismiss()
+                    
                 }
                 else
                 {
@@ -1849,7 +1829,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }){ (task: URLSessionDataTask?, error: Error) in
             print("POST fails with error \(error)")
-            SVProgressHUD.dismiss()
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }

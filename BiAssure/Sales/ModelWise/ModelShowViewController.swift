@@ -8,7 +8,6 @@
 
 import UIKit
 import SSMaterialCalendarPicker
-import SVProgressHUD
 import KSToastView
 import AFNetworking
 import Charts
@@ -641,8 +640,8 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
-        let URL = "http://bi.servassure.net/api/"
-        manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let BaseURL = "http://bi.servassure.net/api/"
+        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
         

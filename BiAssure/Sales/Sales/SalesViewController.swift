@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 import SSMaterialCalendarPicker
 import Charts
 import KSToastView
@@ -791,13 +790,12 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          SVProgressHUD.show()
-          SVProgressHUD.setDefaultMaskType(.black)
           
           
           
-            let URL = "http://bi.servassure.net/api/"
-          manager .post("\(URL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          
+            let BaseURL = "http://bi.servassure.net/api/"
+          manager .post("\(BaseURL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -856,7 +854,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                
           }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
-               SVProgressHUD.dismiss()
+               
                KSToastView.ks_showToast(error.localizedDescription)
           }
      }
@@ -878,14 +876,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
-          
-          SVProgressHUD.show()
-          SVProgressHUD.setDefaultMaskType(.black)
-          
-          
-          
-            let URL = "http://bi.servassure.net/api/"
-          manager .post("\(URL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            let BaseURL = "http://bi.servassure.net/api/"
+          manager .post("\(BaseURL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -958,7 +950,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                
           }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
-               SVProgressHUD.dismiss()
+               
                KSToastView.ks_showToast(error.localizedDescription)
           }
      }
@@ -980,8 +972,8 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           manager.responseSerializer = AFJSONResponseSerializer.init()
           
           
-          let URL = "http://bi.servassure.net/api/"
-          manager .post("\(URL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+          let BaseURL = "http://bi.servassure.net/api/"
+          manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                     print("JSON: \(jsonResponse)")
@@ -1040,7 +1032,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                
           }){ (task: URLSessionDataTask?, error: Error) in
                print("POST fails with error \(error)")
-               SVProgressHUD.dismiss()
+               
                KSToastView.ks_showToast(error.localizedDescription)
                
           }

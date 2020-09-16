@@ -17,8 +17,8 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
 
        
-        menuArray = NSMutableArray.init(objects: "Dashboard","Live streaming")
-        nameLable.text = "Hey \(appdelegate.getUserName())"
+        menuArray = NSMutableArray.init(objects: "Dashboard")
+        nameLable.text = "\(appdelegate.getUserName())"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -43,9 +43,6 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
         case 0:
             imageView.image = UIImage.init(named: "dashboard-icon1")
             break
-            case 1:
-            imageView.image = UIImage.init(named: "dashboard-icon1")
-            break
             
         default:
             break
@@ -66,20 +63,7 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
                     kMainViewController.hideRightView()
                   
                     break
-                case 1:
-                  
-                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let navigationController = mainStoryboard.instantiateViewController(withIdentifier: "VideoViewController") as! UINavigationController
-                                let window = UIApplication.shared.delegate?.window as? UIWindow
-                    
-                                window?.rootViewController = navigationController
-                                window?.makeKeyAndVisible()
-                                kMainViewController.hideRightView()
                 
-                    
-                    
-                    
-                    break
                 default:
                     break
                 }
