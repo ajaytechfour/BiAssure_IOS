@@ -16,7 +16,6 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
         menuArray = NSMutableArray.init(objects: "Dashboard")
         nameLable.text = "\(appdelegate.getUserName())"
     }
@@ -60,7 +59,7 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
                     window?.rootViewController = navigationController
                     window?.makeKeyAndVisible()
-                    kMainViewController.hideRightView()
+                    
                   
                     break
                 

@@ -8,6 +8,8 @@
 import UIKit
 import LGSideMenuController
 
+
+
 class DashBoardViewController: UIViewController {
     
     @IBOutlet weak var btnClaims: UIButton!
@@ -87,7 +89,19 @@ class DashBoardViewController: UIViewController {
     
     @IBAction func btnSales_didSelect(_ sender:UIButton)
     {
-        showDashBoard()
+       let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                           let sw = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+
+                           self.view.window?.rootViewController = sw
+                           
+                          let navigationControllers = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        
+        
+                           let destinationController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+
+                             destinationController.rootViewController =  navigationControllers
+                          sw.pushFrontViewController(navigationControllers, animated: true)
         
     }
     @IBAction func btnClaim_didSelect(_ sender:UIButton)

@@ -638,8 +638,8 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
        
         
         
-        let BaseURL = "http://bi.servassure.net/api/"
-        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             
             if let jsonResponse = responseObject as? [String: AnyObject] {

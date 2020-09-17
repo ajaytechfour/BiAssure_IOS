@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05E400D1E6408EF683774B82 /* Pods_BiAssure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */; };
+		15615EA92513466100391C12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15615EA82513466100391C12 /* SWRevealViewController.m */; };
 		3935348422FBFE1D001F3EDB /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = 3935347C22FBFE1C001F3EDB /* ntc.js */; };
 		3935348522FBFE1D001F3EDB /* Luminosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347E22FBFE1D001F3EDB /* Luminosity.swift */; };
 		3935348622FBFE1D001F3EDB /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347F22FBFE1D001F3EDB /* RandomColor.swift */; };
@@ -75,6 +76,9 @@
 /* Begin PBXFileReference section */
 		00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		079710D0F45BC74A64793426 /* Pods-BiAssureUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureUITests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureUITests/Pods-BiAssureUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		15615EA62513466000391C12 /* BiAssure-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BiAssure-Bridging-Header.h"; sourceTree = "<group>"; };
+		15615EA72513466000391C12 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = BiAssure/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
+		15615EA82513466100391C12 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = BiAssure/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
 		220AA5DB70666AFE8C71409A /* Pods-BiAssureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureTests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureTests/Pods-BiAssureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3935347C22FBFE1C001F3EDB /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
 		3935347E22FBFE1D001F3EDB /* Luminosity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Luminosity.swift; sourceTree = "<group>"; };
@@ -370,9 +374,12 @@
 		5A8E6ECE22E9A39C001613DA /* Side Menu */ = {
 			isa = PBXGroup;
 			children = (
+				15615EA72513466000391C12 /* SWRevealViewController.h */,
+				15615EA82513466100391C12 /* SWRevealViewController.m */,
 				5A8E6ED022E9A3BF001613DA /* MainViewController.swift */,
 				5A8E6ECF22E9A3BF001613DA /* NavigationViewController.swift */,
 				5A8E6ED322E9A455001613DA /* RightViewController.swift */,
+				15615EA62513466000391C12 /* BiAssure-Bridging-Header.h */,
 			);
 			path = "Side Menu";
 			sourceTree = "<group>";
@@ -468,6 +475,7 @@
 				TargetAttributes = {
 					5A8E6E9C22E98979001613DA = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1170;
 					};
 					5A8E6EB022E98987001613DA = {
 						CreatedOnToolsVersion = 10.3;
@@ -630,6 +638,7 @@
 				5A34285222F056BF00FC6A53 /* CustomPicker.swift in Sources */,
 				3935348722FBFE1D001F3EDB /* ColorDefinition.swift in Sources */,
 				39FE1B0922EACB7B000357B0 /* PaddingTextField.swift in Sources */,
+				15615EA92513466100391C12 /* SWRevealViewController.m in Sources */,
 				5A2ACF8622F5677700D4678F /* ModelShowViewController.swift in Sources */,
 				39FD558622E9D1B4004FA8A1 /* LoginViewController.swift in Sources */,
 				5A8E6ED422E9A455001613DA /* RightViewController.swift in Sources */,
@@ -836,7 +845,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Techfour.BiAssure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiAssure/Side Menu/BiAssure-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -866,7 +876,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Techfour.BiAssure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BiAssure/Side Menu/BiAssure-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

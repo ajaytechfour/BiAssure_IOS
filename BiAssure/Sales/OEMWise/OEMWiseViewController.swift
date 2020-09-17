@@ -29,6 +29,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     @IBOutlet var lblLine2 : UILabel!
     @IBOutlet var lblLine3 : UILabel!
     
+    @IBOutlet weak var menuBarItem: UIBarButtonItem!
     var adtBarChartView : BarChartView!
     var pieChartabs : PieChartView!
     var tblPieChartData : UITableView!
@@ -77,6 +78,14 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        if self.revealViewController() != nil {
+            menuBarItem.target = self.revealViewController()
+          menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        
         startDate = NSDate.init()
         endDate = NSDate.init()
         self.style()
@@ -122,7 +131,11 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     }
     @IBAction func slidemenuAction(_ sender: UIBarButtonItem)
     {
-        kMainViewController .showRightView(animated: true, completionHandler: nil)
+        if self.revealViewController() != nil {
+              menuBarItem.target = self.revealViewController()
+            menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+              self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+          }
     }
     func updateCampiagnData()
     {
@@ -730,8 +743,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
            manager.responseSerializer = AFJSONResponseSerializer.init()
            
 
-           let BaseURL = "http://bi.servassure.net/api/"
-           manager .post("\(BaseURL)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+           let url = "http://bi.servassure.net/api/"
+           manager .post("\(url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                    print("JSON: \(jsonResponse)")
@@ -813,8 +826,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-         let BaseURL = "http://bi.servassure.net/api/"
-        manager .post("\(BaseURL)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+         let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -916,8 +929,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let BaseURL = "http://bi.servassure.net/api/"
-        manager .post("\(BaseURL)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
