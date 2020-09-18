@@ -363,7 +363,6 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             var dataSet = PieChartDataSet()
             for eachdata1 in arrchart
             {
-                // let eachdata = eachdata1 as! NSNumber
                 let data = PieChartDataEntry.init(value: Double((eachdata1 as AnyObject).floatValue * 100), label: String(format: "\(masterList.object(at: i))" as String))
                 i+=1
                 values .add(data)
@@ -638,8 +637,8 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
        
         
         
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
