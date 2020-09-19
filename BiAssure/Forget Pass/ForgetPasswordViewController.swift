@@ -78,8 +78,9 @@ class ForgetPasswordViewController: UIViewController {
             manager.responseSerializer = serializerResponse
             let parameters = ["user_name" :txtusername.text!,"email":txtEmailid.text!]
             
-
-            manager.post(NSString.init(format: "http://13.232.233.123/UserProfileAccess/api/forget_password") as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            
+            let url = "http://13.232.233.123/UserProfileAccess/api/forget_password"
+            manager.post(NSString.init(format: url as NSString ) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                     

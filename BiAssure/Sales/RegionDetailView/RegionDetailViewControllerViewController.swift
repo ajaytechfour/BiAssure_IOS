@@ -1107,8 +1107,8 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1208,8 +1208,8 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1304,8 +1304,8 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1385,8 +1385,8 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-        let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1496,8 +1496,8 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         }
         
         
-       let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+       let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1582,8 +1582,8 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         }
         
         
-        let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let url = "http://bi.servassure.net/api/"
+        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")

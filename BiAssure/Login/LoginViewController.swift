@@ -139,8 +139,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
             
             
-           let baseurl = "http://bi.servassure.net/api/"
-            manager.post(NSString.init(format: "\(baseurl)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+           let url = "http://bi.servassure.net/api/"
+            manager.post(NSString.init(format: "\(url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                     
                     print("json response \(jsonResponse.description)")
@@ -174,7 +174,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     func gradientAdd(gradientView:UIButton) {
         gradient.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.5) // vertical gradient start
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.frame = gradientView.layer.bounds
         gradient.cornerRadius = gradientView.layer.cornerRadius
