@@ -41,6 +41,15 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         txtUsername.tintColor = UIColor.blue
         btnForgetPassword.isHidden = false
         gradientAdd(gradientView:btnLogin)
+        
+        if Reachability.isConnectedToNetwork() {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
     }
     
     
@@ -139,8 +148,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
             
             
-           let url = "http://bi.servassure.net/api/"
-            manager.post(NSString.init(format: "\(url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+           let baseurl = "http://bi.servassure.net/api/"
+            manager.post(NSString.init(format: "\(baseurl)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                     
                     print("json response \(jsonResponse.description)")

@@ -18,8 +18,7 @@ class DashBoardViewController: UIViewController {
     
     var gradient: CAGradientLayer = CAGradientLayer()
     var gradient1: CAGradientLayer = CAGradientLayer()
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()

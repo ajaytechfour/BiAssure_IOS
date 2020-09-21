@@ -1,0 +1,211 @@
+
+App Thinning Size Report for All Variants of BiAssure
+
+Variant: BiAssure-04A41A7F-87AB-48A6-9373-F003A25B716B.ipa
+Supported variant descriptors: [device: iPhone12,5, os-version: 13.0], [device: iPhone10,3, os-version: 13.0], [device: iPhone12,3, os-version: 13.0], [device: iPhone11,6, os-version: 13.0], [device: iPhone9,2, os-version: 13.0], [device: iPhone10,5, os-version: 13.0], [device: iPhone10,6, os-version: 13.0], [device: iPhone11,4, os-version: 13.0], [device: iPhone10,2, os-version: 13.0], [device: iPhone9,4, os-version: 13.0], and [device: iPhone11,2, os-version: 13.0]
+App + On Demand Resources size: 3.4 MB compressed, 8.2 MB uncompressed
+App size: 3.4 MB compressed, 8.2 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-0A54575D-4A0E-498D-97B0-4C5CCAFD3BEB.ipa
+Supported variant descriptors: [device: iPad3,6, os-version: 10.0], [device: iPad3,4, os-version: 10.0], and [device: iPad3,5, os-version: 10.0]
+App + On Demand Resources size: 6.2 MB compressed, 13.3 MB uncompressed
+App size: 6.2 MB compressed, 13.3 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-157878D0-78A4-4AAF-8133-9B198ACE1160.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 13.0] and [device: iPhone12,1, os-version: 13.0]
+App + On Demand Resources size: 3.3 MB compressed, 8 MB uncompressed
+App size: 3.3 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-1DDDBDFB-FA2D-4F04-852D-19D5985F2D84.ipa
+Supported variant descriptors: [device: iPhone5,3, os-version: 10.0], [device: iPhone5,1, os-version: 10.0], [device: iPhone5,2, os-version: 10.0], and [device: iPhone5,4, os-version: 10.0]
+App + On Demand Resources size: 6.2 MB compressed, 13.3 MB uncompressed
+App size: 6.2 MB compressed, 13.3 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-2D26FD10-14B4-47DD-BD86-50437B9EDF7A.ipa
+Supported variant descriptors: [device: iPhone8,4, os-version: 10.0], [device: iPhone7,2, os-version: 10.0], [device: iPhone6,1, os-version: 10.0], [device: iPod7,1, os-version: 10.0], [device: iPhone6,2, os-version: 10.0], and [device: iPhone8,1, os-version: 10.0]
+App + On Demand Resources size: 5.9 MB compressed, 15.1 MB uncompressed
+App size: 5.9 MB compressed, 15.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-3BB0FEA0-3F23-4B8A-B027-3F2B843E0C71.ipa
+Supported variant descriptors: [device: iPad7,2, os-version: 10.0], [device: iPad6,3, os-version: 10.0], [device: iPad6,4, os-version: 10.0], [device: iPad7,4, os-version: 10.0], [device: iPad7,3, os-version: 10.0], and [device: iPad7,1, os-version: 10.0]
+App + On Demand Resources size: 5.9 MB compressed, 15.1 MB uncompressed
+App size: 5.9 MB compressed, 15.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-3D212DE6-CA7C-42A4-85C8-CB06082DF09F.ipa
+Supported variant descriptors: [device: iPhone11,2, os-version: 12.0], [device: iPhone10,5, os-version: 12.0], [device: iPhone11,4, os-version: 12.0], [device: iPhone10,3, os-version: 12.0], [device: iPhone11,6, os-version: 12.0], [device: iPhone10,2, os-version: 12.0], [device: iPhone9,2, os-version: 12.0], [device: iPhone10,6, os-version: 12.0], and [device: iPhone9,4, os-version: 12.0]
+App + On Demand Resources size: 5.8 MB compressed, 15 MB uncompressed
+App size: 5.8 MB compressed, 15 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-3FEE4988-DC22-4DA0-8899-8DF04C7B6409.ipa
+Supported variant descriptors: [device: iPhone9,3, os-version: 12.2], [device: iPhone10,1, os-version: 12.2], [device: iPhone10,4, os-version: 12.2], and [device: iPhone9,1, os-version: 12.2]
+App + On Demand Resources size: 3.3 MB compressed, 8 MB uncompressed
+App size: 3.3 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-49A7DE94-E4CE-4AD3-BCC4-DDCE48F69A26.ipa
+Supported variant descriptors: [device: iPod7,1, os-version: 12.0], [device: iPhone8,4, os-version: 12.0], [device: iPhone8,1, os-version: 12.0], [device: iPhone6,1, os-version: 12.0], [device: iPhone6,2, os-version: 12.0], and [device: iPhone7,2, os-version: 12.0]
+App + On Demand Resources size: 5.6 MB compressed, 14.8 MB uncompressed
+App size: 5.6 MB compressed, 14.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-52FECA66-25D2-4555-9168-70A006E3CBF2.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 12.2] and [device: iPhone7,1, os-version: 12.2]
+App + On Demand Resources size: 3.4 MB compressed, 8.2 MB uncompressed
+App size: 3.4 MB compressed, 8.2 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-533F44E4-A175-435A-8FE7-A29261D9D131.ipa
+Supported variant descriptors: [device: iPhone7,1, os-version: 10.0] and [device: iPhone8,2, os-version: 10.0]
+App + On Demand Resources size: 6.1 MB compressed, 15.3 MB uncompressed
+App size: 6.1 MB compressed, 15.3 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-53F5B103-3E34-4774-8758-BD08643ED934.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 12.0], [device: iPhone9,3, os-version: 12.0], [device: iPhone9,1, os-version: 12.0], and [device: iPhone10,4, os-version: 12.0]
+App + On Demand Resources size: 5.6 MB compressed, 14.8 MB uncompressed
+App size: 5.6 MB compressed, 14.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-58BA0189-60BE-4B3E-8A1B-48B429679D85.ipa
+Supported variant descriptors: [device: iPad5,1, os-version: 13.0], [device: iPad7,6, os-version: 13.0], [device: iPad5,3, os-version: 13.0], [device: iPad6,8, os-version: 13.0], [device: iPad7,11, os-version: 13.0], [device: iPad5,2, os-version: 13.0], [device: iPad7,12, os-version: 13.0], [device: iPad6,7, os-version: 13.0], [device: iPad6,12, os-version: 13.0], [device: iPad6,11, os-version: 13.0], [device: iPad5,4, os-version: 13.0], and [device: iPad7,5, os-version: 13.0]
+App + On Demand Resources size: 3.2 MB compressed, 8 MB uncompressed
+App size: 3.2 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-6AF199D2-D5B6-422F-BD5E-5D40B1B311C8.ipa
+Supported variant descriptors: [device: iPod9,1, os-version: 13.0], [device: iPhone8,4, os-version: 13.0], and [device: iPhone8,1, os-version: 13.0]
+App + On Demand Resources size: 3.2 MB compressed, 8 MB uncompressed
+App size: 3.2 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-6D295EEB-FD6E-4583-A12D-2EF447999643.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 13.0], [device: iPhone9,1, os-version: 13.0], [device: iPhone10,4, os-version: 13.0], [device: iPhone12,8, os-version: 13.0], and [device: iPhone9,3, os-version: 13.0]
+App + On Demand Resources size: 3.2 MB compressed, 8 MB uncompressed
+App size: 3.2 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-6FB72DB7-A2F4-49E5-8553-CCD70377D5DB.ipa
+Supported variant descriptors: [device: iPad8,8, os-version: 13.0], [device: iPad8,2, os-version: 13.0], [device: iPad8,3, os-version: 13.0], [device: iPad8,5, os-version: 13.0], [device: iPad8,9, os-version: 13.0], [device: iPad7,2, os-version: 13.0], [device: iPad11,1, os-version: 13.0], [device: iPad8,4, os-version: 13.0], [device: iPad11,2, os-version: 13.0], [device: iPad8,11, os-version: 13.0], [device: iPad6,4, os-version: 13.0], [device: iPad8,1, os-version: 13.0], [device: iPad7,3, os-version: 13.0], [device: iPad8,7, os-version: 13.0], [device: iPad11,3, os-version: 13.0], [device: iPad7,1, os-version: 13.0], [device: iPad8,10, os-version: 13.0], [device: iPad8,12, os-version: 13.0], [device: iPad8,6, os-version: 13.0], [device: iPad7,4, os-version: 13.0], [device: iPad11,4, os-version: 13.0], and [device: iPad6,3, os-version: 13.0]
+App + On Demand Resources size: 3.2 MB compressed, 8 MB uncompressed
+App size: 3.2 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-883AB16B-D012-44B5-BECC-73DB9999848F.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.0]
+App + On Demand Resources size: 5.6 MB compressed, 14.9 MB uncompressed
+App size: 5.6 MB compressed, 14.9 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-8C80BCAB-6858-4B3D-8B45-0E07D821CF03.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 12.2], [device: iPod9,1, os-version: 12.2], [device: iPhone6,1, os-version: 12.2], [device: iPhone6,2, os-version: 12.2], [device: iPod7,1, os-version: 12.2], [device: iPhone8,4, os-version: 12.2], and [device: iPhone7,2, os-version: 12.2]
+App + On Demand Resources size: 3.3 MB compressed, 8 MB uncompressed
+App size: 3.3 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-99ED3251-7CBC-4477-AE55-8193BAA657DA.ipa
+Supported variant descriptors: [device: iPad7,5, os-version: 11.0], [device: iPad4,1, os-version: 10.0], [device: iPad4,8, os-version: 10.0], [device: iPad6,7, os-version: 10.0], [device: iPad5,2, os-version: 10.0], [device: iPad5,4, os-version: 10.0], [device: iPad4,6, os-version: 10.0], [device: iPad5,3, os-version: 10.0], [device: iPad6,12, os-version: 10.0], [device: iPad6,11, os-version: 10.0], [device: iPad7,6, os-version: 11.0], [device: iPad4,5, os-version: 10.0], [device: iPad5,1, os-version: 10.0], [device: iPad4,7, os-version: 10.0], [device: iPad4,4, os-version: 10.0], [device: iPad4,3, os-version: 10.0], [device: iPad6,8, os-version: 10.0], [device: iPad4,9, os-version: 10.0], and [device: iPad4,2, os-version: 10.0]
+App + On Demand Resources size: 5.9 MB compressed, 15.1 MB uncompressed
+App size: 5.9 MB compressed, 15.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-9F4CDFA3-9E73-4AD3-9A93-67AF053146AC.ipa
+Supported variant descriptors: [device: iPad7,1, os-version: 12.0], [device: iPad6,3, os-version: 12.0], [device: iPad7,4, os-version: 12.0], [device: iPad7,2, os-version: 12.0], [device: iPad8,8, os-version: 12.0], [device: iPad6,4, os-version: 12.0], [device: iPad8,5, os-version: 12.0], [device: iPad8,1, os-version: 12.0], [device: iPad8,3, os-version: 12.0], [device: iPad8,4, os-version: 12.0], [device: iPad8,6, os-version: 12.0], [device: iPad8,2, os-version: 12.0], [device: iPad7,3, os-version: 12.0], and [device: iPad8,7, os-version: 12.0]
+App + On Demand Resources size: 5.6 MB compressed, 14.8 MB uncompressed
+App size: 5.6 MB compressed, 14.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-ABBE275F-2D51-4496-91E6-895EEDA38C82.ipa
+Supported variant descriptors: [device: iPhone9,1, os-version: 10.0], [device: iPhone9,3, os-version: 10.0], [device: iPhone10,4, os-version: 11.0], and [device: iPhone10,1, os-version: 11.0]
+App + On Demand Resources size: 5.9 MB compressed, 15.1 MB uncompressed
+App size: 5.9 MB compressed, 15.1 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-AC0BB6BC-9C87-4A1E-9656-2A1A8C0BD188.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 13.0]
+App + On Demand Resources size: 3.4 MB compressed, 8.2 MB uncompressed
+App size: 3.4 MB compressed, 8.2 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-B54B1F11-CEE9-4A92-80AD-3410AA050E9A.ipa
+Supported variant descriptors: [device: iPhone9,4, os-version: 12.2], [device: iPhone10,2, os-version: 12.2], [device: iPhone10,3, os-version: 12.2], [device: iPhone11,6, os-version: 12.2], [device: iPhone11,4, os-version: 12.2], [device: iPhone10,6, os-version: 12.2], [device: iPhone11,2, os-version: 12.2], [device: iPhone10,5, os-version: 12.2], and [device: iPhone9,2, os-version: 12.2]
+App + On Demand Resources size: 3.4 MB compressed, 8.2 MB uncompressed
+App size: 3.4 MB compressed, 8.2 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-D791F46A-FBAA-492F-822E-92143FB61B03.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 12.0] and [device: iPhone7,1, os-version: 12.0]
+App + On Demand Resources size: 5.8 MB compressed, 15 MB uncompressed
+App size: 5.8 MB compressed, 15 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-D8EE0821-020B-472C-91EC-DC5420B65D9D.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12.2]
+App + On Demand Resources size: 3.3 MB compressed, 8 MB uncompressed
+App size: 3.3 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-D94A8A43-E94A-4B1D-B8E2-FD1DC809F010.ipa
+Supported variant descriptors: [device: iPad4,2, os-version: 12.2], [device: iPad4,1, os-version: 12.2], [device: iPad4,6, os-version: 12.2], [device: iPad4,9, os-version: 12.2], [device: iPad5,2, os-version: 12.2], [device: iPad6,8, os-version: 12.2], [device: iPad6,11, os-version: 12.2], [device: iPad4,8, os-version: 12.2], [device: iPad7,5, os-version: 12.2], [device: iPad4,3, os-version: 12.2], [device: iPad5,4, os-version: 12.2], [device: iPad6,12, os-version: 12.2], [device: iPad5,3, os-version: 12.2], [device: iPad4,7, os-version: 12.2], [device: iPad4,4, os-version: 12.2], [device: iPad6,7, os-version: 12.2], [device: iPad5,1, os-version: 12.2], [device: iPad4,5, os-version: 12.2], and [device: iPad7,6, os-version: 12.2]
+App + On Demand Resources size: 3.2 MB compressed, 8 MB uncompressed
+App size: 3.2 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-F216F9C1-C1B3-42E6-BC66-7D8BFA64E212.ipa
+Supported variant descriptors: [device: iPad5,3, os-version: 12.0], [device: iPad7,6, os-version: 12.0], [device: iPad7,5, os-version: 12.0], [device: iPad6,11, os-version: 12.0], [device: iPad6,8, os-version: 12.0], [device: iPad6,12, os-version: 12.0], [device: iPad4,1, os-version: 12.0], [device: iPad4,6, os-version: 12.0], [device: iPad4,8, os-version: 12.0], [device: iPad5,2, os-version: 12.0], [device: iPad6,7, os-version: 12.0], [device: iPad4,2, os-version: 12.0], [device: iPad4,4, os-version: 12.0], [device: iPad4,9, os-version: 12.0], [device: iPad5,4, os-version: 12.0], [device: iPad4,7, os-version: 12.0], [device: iPad4,3, os-version: 12.0], [device: iPad4,5, os-version: 12.0], and [device: iPad5,1, os-version: 12.0]
+App + On Demand Resources size: 5.6 MB compressed, 14.8 MB uncompressed
+App size: 5.6 MB compressed, 14.8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-F49A9575-F7E9-4249-A357-D201B97C2C6F.ipa
+Supported variant descriptors: [device: iPad6,4, os-version: 12.2], [device: iPad11,1, os-version: 12.2], [device: iPad7,4, os-version: 12.2], [device: iPad11,4, os-version: 12.2], [device: iPad6,3, os-version: 12.2], [device: iPad7,1, os-version: 12.2], [device: iPad8,4, os-version: 12.2], [device: iPad11,3, os-version: 12.2], [device: iPad8,6, os-version: 12.2], [device: iPad8,7, os-version: 12.2], [device: iPad8,1, os-version: 12.2], [device: iPad8,5, os-version: 12.2], [device: iPad7,2, os-version: 12.2], [device: iPad8,2, os-version: 12.2], [device: iPad7,3, os-version: 12.2], [device: iPad11,2, os-version: 12.2], [device: iPad8,3, os-version: 12.2], and [device: iPad8,8, os-version: 12.2]
+App + On Demand Resources size: 3.2 MB compressed, 8 MB uncompressed
+App size: 3.2 MB compressed, 8 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure-FACCCA55-0E65-4A84-AFE9-07BA7C1F7D90.ipa
+Supported variant descriptors: [device: iPhone10,6, os-version: 11.0], [device: iPhone9,2, os-version: 10.0], [device: iPhone10,3, os-version: 11.0], [device: iPhone10,2, os-version: 11.0], [device: iPhone10,5, os-version: 11.0], and [device: iPhone9,4, os-version: 10.0]
+App + On Demand Resources size: 6.1 MB compressed, 15.3 MB uncompressed
+App size: 6.1 MB compressed, 15.3 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: BiAssure.ipa
+Supported variant descriptors: Universal
+App + On Demand Resources size: 13.3 MB compressed, 29.9 MB uncompressed
+App size: 13.3 MB compressed, 29.9 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed

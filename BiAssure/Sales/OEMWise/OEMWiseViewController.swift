@@ -78,6 +78,15 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if Reachability.isConnectedToNetwork() {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
+        
         
         if self.revealViewController() != nil {
             menuBarItem.target = self.revealViewController()
@@ -743,8 +752,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
            manager.responseSerializer = AFJSONResponseSerializer.init()
            
 
-           let url = "http://bi.servassure.net/api/"
-           manager .post("\(url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+           let baseurl = "http://bi.servassure.net/api/"
+           manager .post("\(baseurl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                if let jsonResponse = responseObject as? [String: AnyObject]
                {
                    print("JSON: \(jsonResponse)")
@@ -826,8 +835,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         
-         let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+         let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -929,8 +938,8 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")

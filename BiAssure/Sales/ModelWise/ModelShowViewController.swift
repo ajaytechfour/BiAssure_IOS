@@ -61,7 +61,13 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if Reachability.isConnectedToNetwork() {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -640,8 +646,8 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
         

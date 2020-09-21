@@ -24,6 +24,15 @@ class ChangePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Reachability.isConnectedToNetwork() {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
         hideKeyboardWhenTappedAround()
         btnSave_didshow.layer.cornerRadius = 10.0
         btnSave_didshow.clipsToBounds = true
@@ -104,9 +113,9 @@ class ChangePasswordViewController: UIViewController {
             
             
             
-            let url = "http://13.232.233.123/UserProfileAccess/api/change_password"
+            let baseurl = "http://13.232.233.123/UserProfileAccess/api/change_password"
             
-            manager.post(NSString.init(format: url as NSString) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            manager.post(NSString.init(format: baseurl as NSString) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
                 
                 if let jsonResponse = responseObject as? [String: AnyObject] {
                    

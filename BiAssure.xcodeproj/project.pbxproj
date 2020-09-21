@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05E400D1E6408EF683774B82 /* Pods_BiAssure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */; };
 		15615EA92513466100391C12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15615EA82513466100391C12 /* SWRevealViewController.m */; };
+		156A00E32518B43C00C1FCC5 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A00E22518B43C00C1FCC5 /* Reachability.swift */; };
 		158BD9782514B34F005ED1AE /* SSMaterialCalendarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158BD9772514B34E005ED1AE /* SSMaterialCalendarPicker.xib */; };
 		3935348422FBFE1D001F3EDB /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = 3935347C22FBFE1C001F3EDB /* ntc.js */; };
 		3935348522FBFE1D001F3EDB /* Luminosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347E22FBFE1D001F3EDB /* Luminosity.swift */; };
@@ -80,6 +81,7 @@
 		15615EA62513466000391C12 /* BiAssure-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BiAssure-Bridging-Header.h"; sourceTree = "<group>"; };
 		15615EA72513466000391C12 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = BiAssure/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
 		15615EA82513466100391C12 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = BiAssure/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
+		156A00E22518B43C00C1FCC5 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		158BD9772514B34E005ED1AE /* SSMaterialCalendarPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSMaterialCalendarPicker.xib; sourceTree = "<group>"; };
 		220AA5DB70666AFE8C71409A /* Pods-BiAssureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureTests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureTests/Pods-BiAssureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3935347C22FBFE1C001F3EDB /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				39FE1B0A22EACB95000357B0 /* ChangePasswordViewController.swift */,
+				156A00E22518B43C00C1FCC5 /* Reachability.swift */,
 			);
 			path = ChangePass;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				39FE1B1122EB0060000357B0 /* ForgetPasswordViewController.swift in Sources */,
 				5A349BD72327D17E0067AD34 /* SignupViewController.swift in Sources */,
 				5A34285722F0582000FC6A53 /* OEMWiseViewController.swift in Sources */,
+				156A00E32518B43C00C1FCC5 /* Reachability.swift in Sources */,
 				5A2ACF8022F5676F00D4678F /* ToyotaEWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

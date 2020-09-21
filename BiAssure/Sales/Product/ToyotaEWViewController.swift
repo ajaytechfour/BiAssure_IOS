@@ -114,7 +114,13 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if Reachability.isConnectedToNetwork() {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
         
         tblOEMShow.estimatedRowHeight = 361.0
         tblOEMShow.rowHeight = UITableView.automaticDimension
@@ -1274,8 +1280,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
      
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1357,8 +1363,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverview", parameters: dictPreRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1471,8 +1477,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             self.dictStartDateEndDate  = ["start_date" : strStartdate,"end_date" : strEnddate,"brand":self.apistr,"oem":self.brandname,"region":"all"]
         }
         
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1567,8 +1573,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             self.dictStartDateEndDate  = ["start_date" : strStartdate,"end_date" : strEnddate,"brand":self.apistr,"oem":self.brandname,"model":"all"]
         }
 
-         let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+         let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1667,8 +1673,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }
     
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
@@ -1768,8 +1774,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             
         }
         
-        let url = "http://bi.servassure.net/api/"
-        manager .post("\(url)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        let baseurl = "http://bi.servassure.net/api/"
+        manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             if let jsonResponse = responseObject as? [String: AnyObject]
             {
                 print("JSON: \(jsonResponse)")
