@@ -50,40 +50,6 @@ class DashBoardViewController: UIViewController {
         gradient1.cornerRadius = btnSales.layer.cornerRadius
     }
     
-    func showDashBoard()
-    {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-        let mainViewcontroller  = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        mainViewcontroller.rootViewController = navigationController
-        mainViewcontroller .setupWithPresentationStyle(style:LGSideMenuPresentationStyle.slideAbove, type: 290)
-        
-        let window = UIApplication.shared.delegate?.window as? UIWindow
-        
-        window?.rootViewController = mainViewcontroller
-        UIView .transition(with: (window)!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: nil, completion: nil)
-        
-    }
-    
-    
-    func showsClaimsDashboard()
-    {
-        
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let navigationController = mainStoryboard.instantiateViewController(withIdentifier: "ClaimsNavigationController") as! UINavigationController
-        
-        let mainViewcontroller  = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        
-        
-        mainViewcontroller.rootViewController = navigationController
-        mainViewcontroller .setupWithPresentationStyle(style:LGSideMenuPresentationStyle.slideAbove, type: 290)
-        
-        let window = UIApplication.shared.delegate?.window as? UIWindow
-        
-        window?.rootViewController = mainViewcontroller
-        UIView .transition(with: (window)!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: nil, completion: nil)
-    }
     
     
     @IBAction func btnSales_didSelect(_ sender:UIButton)
@@ -105,7 +71,19 @@ class DashBoardViewController: UIViewController {
     }
     @IBAction func btnClaim_didSelect(_ sender:UIButton)
     {
-        //showsClaimsDashboard()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                           let sw = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+
+                           self.view.window?.rootViewController = sw
+                           
+                          let navigationControllers = storyboard.instantiateViewController(withIdentifier: "NavigationController1") as! UINavigationController
+        
+        
+                           let destinationController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+
+                             destinationController.rootViewController =  navigationControllers
+                          sw.pushFrontViewController(navigationControllers, animated: true)
         
     }
     
