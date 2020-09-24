@@ -171,7 +171,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBAction func slidemenuAction(_ sender:UIButton)
     {
-        kMainViewController.showRightView(animated: true, completionHandler: nil)
+       
         
     }
     

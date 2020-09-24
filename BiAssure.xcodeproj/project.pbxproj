@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05E400D1E6408EF683774B82 /* Pods_BiAssure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */; };
+		1503D9B2251CA684003AD3E7 /* ClaimsToyotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1503D9B1251CA684003AD3E7 /* ClaimsToyotaViewController.swift */; };
 		15615EA92513466100391C12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15615EA82513466100391C12 /* SWRevealViewController.m */; };
 		156A00E32518B43C00C1FCC5 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A00E22518B43C00C1FCC5 /* Reachability.swift */; };
 		158BD9782514B34F005ED1AE /* SSMaterialCalendarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158BD9772514B34E005ED1AE /* SSMaterialCalendarPicker.xib */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		079710D0F45BC74A64793426 /* Pods-BiAssureUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureUITests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureUITests/Pods-BiAssureUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1503D9B1251CA684003AD3E7 /* ClaimsToyotaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimsToyotaViewController.swift; sourceTree = "<group>"; };
 		15615EA62513466000391C12 /* BiAssure-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BiAssure-Bridging-Header.h"; sourceTree = "<group>"; };
 		15615EA72513466000391C12 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = BiAssure/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
 		15615EA82513466100391C12 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = BiAssure/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
@@ -178,6 +180,7 @@
 		15EC52D82519F7750082E5A9 /* Claim Vc */ = {
 			isa = PBXGroup;
 			children = (
+				1503D9B1251CA684003AD3E7 /* ClaimsToyotaViewController.swift */,
 				15EC52D92519F7D00082E5A9 /* ClaimsSalesViewController.swift */,
 			);
 			path = "Claim Vc";
@@ -191,7 +194,7 @@
 			path = "helper class";
 			sourceTree = "<group>";
 		};
-		3935347D22FBFE1D001F3EDB /* Color  */ = {
+		3935347D22FBFE1D001F3EDB /* Custom color  */ = {
 			isa = PBXGroup;
 			children = (
 				3935347E22FBFE1D001F3EDB /* Luminosity.swift */,
@@ -201,15 +204,15 @@
 				3935348222FBFE1D001F3EDB /* Info.plist */,
 				3935348322FBFE1D001F3EDB /* RandomColor.h */,
 			);
-			path = "Color ";
+			path = "Custom color ";
 			sourceTree = "<group>";
 		};
-		39FD558122E9C6B0004FA8A1 /* Dash Board */ = {
+		39FD558122E9C6B0004FA8A1 /* Dash board */ = {
 			isa = PBXGroup;
 			children = (
 				39FD558222E9C6C5004FA8A1 /* DashBoardViewController.swift */,
 			);
-			path = "Dash Board";
+			path = "Dash board";
 			sourceTree = "<group>";
 		};
 		39FD558422E9D19F004FA8A1 /* Login */ = {
@@ -229,12 +232,12 @@
 			path = ChangePass;
 			sourceTree = "<group>";
 		};
-		39FE1B0722EACB11000357B0 /* Cus TextField */ = {
+		39FE1B0722EACB11000357B0 /* Cus Textfield */ = {
 			isa = PBXGroup;
 			children = (
 				39FE1B0822EACB7B000357B0 /* PaddingTextField.swift */,
 			);
-			path = "Cus TextField";
+			path = "Cus Textfield";
 			sourceTree = "<group>";
 		};
 		39FE1B0F22EB0052000357B0 /* Forget Pass */ = {
@@ -253,28 +256,28 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
-		5A2ACF8122F5677700D4678F /* RegionWise */ = {
+		5A2ACF8122F5677700D4678F /* Region */ = {
 			isa = PBXGroup;
 			children = (
 				5A2ACF8222F5677700D4678F /* RegionShowViewController.swift */,
 			);
-			path = RegionWise;
+			path = Region;
 			sourceTree = "<group>";
 		};
-		5A2ACF8322F5677700D4678F /* ModelWise */ = {
+		5A2ACF8322F5677700D4678F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				5A2ACF8422F5677700D4678F /* ModelShowViewController.swift */,
 			);
-			path = ModelWise;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		5A31109922F4104C00477AB0 /* RegionDetailView */ = {
+		5A31109922F4104C00477AB0 /* RegionDetails */ = {
 			isa = PBXGroup;
 			children = (
 				5A31109A22F4109700477AB0 /* RegionDetailViewControllerViewController.swift */,
 			);
-			path = RegionDetailView;
+			path = RegionDetails;
 			sourceTree = "<group>";
 		};
 		5A34284F22F056BF00FC6A53 /* Picker */ = {
@@ -286,33 +289,33 @@
 			path = Picker;
 			sourceTree = "<group>";
 		};
-		5A34285422F0582000FC6A53 /* Sales */ = {
+		5A34285422F0582000FC6A53 /* Sales Group */ = {
 			isa = PBXGroup;
 			children = (
-				5A2ACF8322F5677700D4678F /* ModelWise */,
-				5A2ACF8122F5677700D4678F /* RegionWise */,
+				5A2ACF8322F5677700D4678F /* Model */,
+				5A2ACF8122F5677700D4678F /* Region */,
 				5A2ACF7E22F5676F00D4678F /* Product */,
-				5A31109922F4104C00477AB0 /* RegionDetailView */,
+				5A31109922F4104C00477AB0 /* RegionDetails */,
 				5A6F3DC322F2DF0900043F12 /* Sales */,
-				5A34285522F0582000FC6A53 /* OEMWise */,
+				5A34285522F0582000FC6A53 /* OEM */,
 			);
-			path = Sales;
+			path = "Sales Group";
 			sourceTree = "<group>";
 		};
-		5A34285522F0582000FC6A53 /* OEMWise */ = {
+		5A34285522F0582000FC6A53 /* OEM */ = {
 			isa = PBXGroup;
 			children = (
 				5A34285622F0582000FC6A53 /* OEMWiseViewController.swift */,
 			);
-			path = OEMWise;
+			path = OEM;
 			sourceTree = "<group>";
 		};
-		5A349BD52327D1240067AD34 /* Sign up */ = {
+		5A349BD52327D1240067AD34 /* signup */ = {
 			isa = PBXGroup;
 			children = (
 				5A349BD62327D17E0067AD34 /* SignupViewController.swift */,
 			);
-			path = "Sign up";
+			path = signup;
 			sourceTree = "<group>";
 		};
 		5A6F3DC322F2DF0900043F12 /* Sales */ = {
@@ -350,16 +353,16 @@
 			isa = PBXGroup;
 			children = (
 				15EC52D82519F7750082E5A9 /* Claim Vc */,
-				5A349BD52327D1240067AD34 /* Sign up */,
-				3935347D22FBFE1D001F3EDB /* Color  */,
+				5A349BD52327D1240067AD34 /* signup */,
+				3935347D22FBFE1D001F3EDB /* Custom color  */,
 				3935347B22FBFE1C001F3EDB /* helper class */,
-				5A34285422F0582000FC6A53 /* Sales */,
+				5A34285422F0582000FC6A53 /* Sales Group */,
 				5A34284F22F056BF00FC6A53 /* Picker */,
 				39FE1B0F22EB0052000357B0 /* Forget Pass */,
 				39FE1B0622EACB11000357B0 /* ChangePass */,
-				39FE1B0722EACB11000357B0 /* Cus TextField */,
+				39FE1B0722EACB11000357B0 /* Cus Textfield */,
 				39FD558422E9D19F004FA8A1 /* Login */,
-				39FD558122E9C6B0004FA8A1 /* Dash Board */,
+				39FD558122E9C6B0004FA8A1 /* Dash board */,
 				5A8E6ED522E9C307001613DA /* Utilities */,
 				5A8E6ECE22E9A39C001613DA /* Side Menu */,
 				5A8E6EA022E98979001613DA /* AppDelegate.swift */,
@@ -662,6 +665,7 @@
 				39FE1B0922EACB7B000357B0 /* PaddingTextField.swift in Sources */,
 				15615EA92513466100391C12 /* SWRevealViewController.m in Sources */,
 				5A2ACF8622F5677700D4678F /* ModelShowViewController.swift in Sources */,
+				1503D9B2251CA684003AD3E7 /* ClaimsToyotaViewController.swift in Sources */,
 				39FD558622E9D1B4004FA8A1 /* LoginViewController.swift in Sources */,
 				5A8E6ED422E9A455001613DA /* RightViewController.swift in Sources */,
 				5A8E6EA122E98979001613DA /* AppDelegate.swift in Sources */,

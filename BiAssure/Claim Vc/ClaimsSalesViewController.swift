@@ -16,28 +16,28 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     var datePicker = SSMaterialCalendarPicker()
     
-    var strClaimsType = ""
-    var regionName = ""
+    var ClaimsType = ""
+    var regName = ""
     var strsetdate = ""
     
-    var pickerselectedIndex = 0
+    var pickerselectedInd = 0
     
     var _startDate = NSDate()
     var _endDate = NSDate()
     
-    var masterList = NSMutableArray()
-    var masterList1 = NSMutableArray()
-    var claim_approval_status = NSMutableArray()
-    var claim_nos = NSMutableArray()
-    var claim_lacs = NSMutableArray()
-    var AMC_approval_status = NSMutableArray()
-    var AMC_claim_nos = NSMutableArray()
-    var AMC_claim_lacs = NSMutableArray()
+    var List = NSMutableArray()
+    var List1 = NSMutableArray()
+    var claimapprstatus = NSMutableArray()
+    var claimnos = NSMutableArray()
+    var claimlac = NSMutableArray()
+    var AMCapprovalstatus = NSMutableArray()
+    var AMCclaimnos = NSMutableArray()
+    var AMCclaimlacs = NSMutableArray()
     var appDelegate :AppDelegate = AppDelegate()
-    var dictRegion = NSDictionary()
+    var Regiondictonery = NSDictionary()
     var picker = UIPickerView()
     
-    var sePicker = CustomPicker()
+    var custPicker = CustomPicker()
     
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
     @IBOutlet weak var tblSalesData: UITableView!
@@ -52,26 +52,26 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if self.revealViewController() != nil {
             menuBarItem.target = self.revealViewController()
             menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        
-        refreshMethod()
-        configureView()
-        style()
+        updatehMethod()
+        configView()
+        view()
         btnDaily.isSelected = true
         btnMonth.isSelected = false
         btnRange.isSelected = false
         lblLine1.isHidden = false
         lblLine2.isHidden = true
         lblLine3.isHidden = true
-        dictRegion = ["oem": "", "claim_type": "EW"]
-        WebserviceCallingForEWClaims()
-        dictRegion = ["oem": "", "claim_type": "AMC"]
-        WebserviceCallingForAMCClaims()
+        Regiondictonery = ["oem": "", "claim_type": "EW"]
+        APIForEWClaims()
+        Regiondictonery = ["oem": "", "claim_type": "AMC"]
+        APIForAMCClaims()
         
     }
     
@@ -100,10 +100,10 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         else
         {
             if section == 0{
-                return claim_approval_status.count
+                return claimapprstatus.count
             }
             else{
-                return AMC_approval_status.count
+                return AMCapprovalstatus.count
             }
         }
     }
@@ -114,23 +114,23 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         if tableView == tblSalesData{
-            let cell = tableView .dequeueReusableCell(withIdentifier: "SalesDataCell", for: indexPath)
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none
-            let lblName = cell .viewWithTag(2) as! UILabel
-            let btnOEMWise = cell .viewWithTag(3) as! UIButton
-            let tblValues = cell .viewWithTag(4) as! UITableView
-            let btnDate = cell .viewWithTag(5) as! UIButton
+            let tblcell = tableView .dequeueReusableCell(withIdentifier: "SalesDataCell", for: indexPath)
+            tblcell.selectionStyle = UITableViewCell.SelectionStyle.none
+            let lblName = tblcell .viewWithTag(2) as! UILabel
+            let btnOEMWise = tblcell .viewWithTag(3) as! UIButton
+            let tblValues = tblcell .viewWithTag(4) as! UITableView
+            let btnDate = tblcell .viewWithTag(5) as! UIButton
             tblValues.dataSource = self
             tblValues.delegate = self
             
             if indexPath.row == 0{
                 lblName.text = "EW"
-                strClaimsType = "EW"
+                ClaimsType = "EW"
                 btnDate.isHidden = false
             }
             else{
                 lblName.text = "AMC"
-                strClaimsType = "AMC"
+                ClaimsType = "AMC"
                 btnDate.isHidden = true
             }
             
@@ -141,17 +141,17 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
             }
             btnDate.setTitle(strsetdate, for: UIControl.State.normal)
             tblValues.reloadData()
-            return cell
+            return tblcell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            let icon = cell?.viewWithTag(6) as? UIImageView
-            let lblStages = cell?.viewWithTag(7) as? UILabel
-            let lblNosValue = cell?.viewWithTag(8) as? UILabel
-            let lblInLacsValue = cell?.viewWithTag(9) as? UILabel
+            let tblcell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+            let icon = tblcell?.viewWithTag(6) as? UIImageView
+            let lblStages = tblcell?.viewWithTag(7) as? UILabel
+            let lblNosValue = tblcell?.viewWithTag(8) as? UILabel
+            let lblInLacsValue = tblcell?.viewWithTag(9) as? UILabel
             
-            if (strClaimsType == "EW") {
-                lblStages?.text = "\(claim_approval_status[indexPath.row])"
+            if (ClaimsType == "EW") {
+                lblStages?.text = "\(claimapprstatus[indexPath.row])"
                 if (lblStages?.text == "") {
                     icon?.image = UIImage(named: "question")
                 } else if (lblStages?.text == "Approved") {
@@ -167,10 +167,10 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                 } else if (lblStages?.text == "Duplicate") {
                     icon?.image = UIImage(named: "Dupilcate")
                 }
-                lblNosValue?.text = "\(claim_nos[indexPath.row])"
-                lblInLacsValue?.text = String(format: "₹%.2f", ((claim_lacs[indexPath.row] as! NSString)).floatValue)
+                lblNosValue?.text = "\(claimnos[indexPath.row])"
+                lblInLacsValue?.text = String(format: "₹%.2f", ((claimlac[indexPath.row] as! NSString)).floatValue)
             } else {
-                lblStages?.text = "\(AMC_approval_status[indexPath.row])"
+                lblStages?.text = "\(AMCapprovalstatus[indexPath.row])"
                 if (lblStages?.text == "") {
                     icon?.image = UIImage(named: "question")
                 } else if (lblStages?.text == "Approved") {
@@ -186,11 +186,11 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                 } else if (lblStages?.text == "Duplicate") {
                     icon?.image = UIImage(named: "Dupilcate")
                 }
-                lblNosValue?.text = "\(AMC_claim_nos[indexPath.row])"
-                lblInLacsValue?.text = String(format: "₹%.2f", (AMC_claim_lacs[indexPath.row] as? NSNumber)!.floatValue)
+                lblNosValue?.text = "\(AMCclaimnos[indexPath.row])"
+                lblInLacsValue?.text = String(format: "₹%.2f", (AMCclaimlacs[indexPath.row] as? NSNumber)!.floatValue)
                 
             }
-            return cell!
+            return tblcell!
         }
     }
     
@@ -202,10 +202,10 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         if tableView == tblSalesData{
             if indexPath.row == 0{
                 
-                return (CGFloat((claim_approval_status.count * 52) + 100))
+                return (CGFloat((claimapprstatus.count * 52) + 100))
             }
             else{
-                return (CGFloat((AMC_approval_status.count * 52) + 100))
+                return (CGFloat((AMCapprovalstatus.count * 52) + 100))
                 
             }
         }
@@ -226,11 +226,11 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     {
         if pickerView.tag == 0
         {
-            return masterList.count
+            return List.count
         }
         else
         {
-            return masterList1.count
+            return List1.count
         }
     }
     
@@ -239,13 +239,13 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         if pickerView.tag == 0{
-            pickerselectedIndex = row
-            let textToDisplay: NSString = masterList.object(at: row)as! NSString
+            pickerselectedInd = row
+            let textToDisplay: NSString = List.object(at: row)as! NSString
             return textToDisplay.capitalized
         }
         else{
-            pickerselectedIndex = row
-            let textToDisplay: NSString = masterList1.object(at: row)as! NSString
+            pickerselectedInd = row
+            let textToDisplay: NSString = List1.object(at: row)as! NSString
             return textToDisplay.capitalized
         }
         
@@ -261,33 +261,33 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func btnDaily_didSelect(_ sender:UIButton)
     {
-        refreshMethod()
+        updatehMethod()
         btnDaily.isSelected = true
         btnMonth.isSelected = false
         btnRange.isSelected = false
         lblLine1.isHidden = false
         lblLine2.isHidden = true
         lblLine3.isHidden = true
-        sePicker.removePickerViewWithAnimaion(sourceView: self.view)
+        custPicker.removePickerViewWithAnimaion(sourceView: self.view)
         
-        dictRegion = ["oem": "", "claim_type": "EW"]
-        WebserviceCallingForEWClaims()
-        dictRegion = ["oem": "", "claim_type": "AMC"]
-        WebserviceCallingForAMCClaims()
+        Regiondictonery = ["oem": "", "claim_type": "EW"]
+        APIForEWClaims()
+        Regiondictonery = ["oem": "", "claim_type": "AMC"]
+        APIForAMCClaims()
     }
     
     
     
     @IBAction func btnMonth_didSelect(_ sender:UIButton)
     {
-        refreshMethod()
+        updatehMethod()
         btnDaily.isSelected = false
         btnMonth.isSelected = true
         btnRange.isSelected = false
         lblLine1.isHidden = true
         lblLine2.isHidden = false
         lblLine3.isHidden = true
-        sePicker.removePickerViewWithAnimaion(sourceView: self.view)
+        custPicker.removePickerViewWithAnimaion(sourceView: self.view)
         
         let gregorian:NSCalendar = NSCalendar.current as NSCalendar
         let arbitraryDate = NSDate.init()
@@ -295,10 +295,10 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         comp.day = 1
         let firstDayOfMonthDate = gregorian.date(from: comp as DateComponents)
         
-        dictRegion = ["oem": "", "claim_type": "EW","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
-        WebserviceCallingForEWClaims()
-        dictRegion = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
-        WebserviceCallingForAMCClaims()
+        Regiondictonery = ["oem": "", "claim_type": "EW","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
+        APIForEWClaims()
+        Regiondictonery = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
+        APIForAMCClaims()
     }
     
     
@@ -306,7 +306,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func btnRange_didSelect(_ sender:UIButton)
     {
-        refreshMethod()
+        updatehMethod()
         btnDaily.isSelected = false
         btnMonth.isSelected = false
         btnRange.isSelected = true
@@ -314,7 +314,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         lblLine2.isHidden = true
         lblLine3.isHidden = false
         
-        sePicker.showPickerViewWithAnimation(sourceView: self.view)
+        custPicker.showPickerViewWithAnimation(sourceView: self.view)
     }
     
     
@@ -331,10 +331,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
     
-    @IBAction func sidePaneltapped(_ sender: UIBarButtonItem) {
-        
-        
-    }
+    
     
     
     
@@ -352,7 +349,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func btnDate_didSelect(_ sender:UIButton)
     {
-        sePicker.showPickerViewWithAnimation(sourceView: self.view)
+        custPicker.showPickerViewWithAnimation(sourceView: self.view)
         
     }
     
@@ -363,28 +360,27 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         let buttonPosition = sender.convert(CGPoint.zero, to: self.tblSalesData)
         let indexPath = self.tblSalesData.indexPathForRow(at:buttonPosition)! as NSIndexPath
         let selectAction = RMAction(title: "Select", style: RMActionStyle.done, andHandler: { controller in
-            // let picker = UIPickerView() //=  (controller as? RMPickerViewController)!.picker
             let selectedRow :NSInteger = self.picker.selectedRow(inComponent: 0)
             var selectedRegion = ""
-            if (self.masterList.count != 0) || (self.masterList1.count != 0){
+            if (self.List.count != 0) || (self.List1.count != 0){
                 if indexPath.row == 0{
-                    selectedRegion = self.masterList.object(at: self.pickerselectedIndex) as! String
-                    self.strClaimsType = "EW"
+                    selectedRegion = self.List.object(at: self.pickerselectedInd) as! String
+                    self.ClaimsType = "EW"
                 }
                 else{
-                    selectedRegion = self.masterList1.object(at: selectedRow) as! String
-                    self.strClaimsType = "AMC"
+                    selectedRegion = self.List1.object(at: selectedRow) as! String
+                    self.ClaimsType = "AMC"
                 }
-                self.regionName = selectedRegion.capitalized
-                self.title = self.regionName
+                self.regName = selectedRegion.capitalized
+                self.title = self.regName
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //            let ClaimsToyotaViewController: ClaimsToyotaViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClaimsToyotaViewController") as! ClaimsToyotaViewController
-                //            ClaimsToyotaViewController.strNameShow = self.strClaimsType
-                //            ClaimsToyotaViewController.OEMName = self.regionName
-                //
-                //            ClaimsToyotaViewController.apistr = selectedRegion
-                //           // self.navigationController?.isNavigationBarHidden = true
-                //            self.navigationController!.pushViewController(ClaimsToyotaViewController, animated: true)
+                            let ClaimsToyotaViewController: ClaimsToyotaViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClaimsToyotaViewController") as! ClaimsToyotaViewController
+                            ClaimsToyotaViewController.strNameShow = self.ClaimsType
+                ClaimsToyotaViewController.OEMName = self.regName
+                
+                            ClaimsToyotaViewController.apistr = selectedRegion
+                           
+                            self.navigationController!.pushViewController(ClaimsToyotaViewController, animated: true)
             }
         })
         let cancelAction :RMAction = RMAction.init(title: "Cancel", style: RMActionStyle.cancel) { (controller) in
@@ -401,29 +397,29 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
-    func refreshMethod()
+    func updatehMethod()
     {
         let MyIp:NSIndexPath = NSIndexPath.init(row: 0, section: 0)
-        regionName = ""
-        masterList.removeAllObjects()
-        masterList1.removeAllObjects()
-        claim_approval_status.removeAllObjects()
-        claim_nos.removeAllObjects()
-        claim_lacs.removeAllObjects()
-        AMC_approval_status.removeAllObjects()
-        AMC_claim_lacs.removeAllObjects()
-        AMC_claim_nos.removeAllObjects()
+        regName = ""
+        List.removeAllObjects()
+        List1.removeAllObjects()
+        claimapprstatus.removeAllObjects()
+        claimnos.removeAllObjects()
+        claimlac.removeAllObjects()
+        AMCapprovalstatus.removeAllObjects()
+        AMCclaimlacs.removeAllObjects()
+        AMCclaimnos.removeAllObjects()
         tblSalesData.reloadData()
         tblSalesData.scrollToRow(at: MyIp as IndexPath, at: UITableView.ScrollPosition.top, animated: true)
     }
     
     
-    func configureView()
+    func configView()
     {
         
-        sePicker = (Bundle.main.loadNibNamed("CustomPicker", owner: self, options: nil)?[0] as? CustomPicker)!
+        custPicker = (Bundle.main.loadNibNamed("CustomPicker", owner: self, options: nil)?[0] as? CustomPicker)!
         weak var weakSelf = self
-        sePicker.addPicker(on: self.view) { (strt, end) in
+        custPicker.addPicker(on: self.view) { (strt, end) in
             weakSelf?.updateDate(startDate: strt! as NSDate, endDate: end! as NSDate)
         }
     }
@@ -431,7 +427,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
     
-    func style()
+    func view()
     {
         let view = UIView.init(frame: CGRect.init(x: -40, y: 0, width: 150, height: 33))
         
@@ -443,13 +439,13 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     func updateDate(startDate:NSDate,endDate:NSDate)->Void
     {
         if btnRange.isSelected == true{
-            dictRegion = ["oem": "", "claim_type": "EW","start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
-            WebserviceCallingForEWClaims()
-            dictRegion = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
-            WebserviceCallingForAMCClaims()
+            Regiondictonery = ["oem": "", "claim_type": "EW","start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
+            APIForEWClaims()
+            Regiondictonery = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
+            APIForAMCClaims()
         }
     }
-    func WebserviceCallingForEWClaims()
+    func APIForEWClaims()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
         let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
@@ -467,7 +463,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
         let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)ClaimApprovalSummary", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        manager .post("\(baseurl)ClaimApprovalSummary", parameters: Regiondictonery, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
@@ -479,13 +475,13 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                     if dataArray.count != 0 {
                         let Data = dataArray.object(at: 0)as! NSDictionary
                         let arrayproduct = info["oem"] as! NSArray
-                        self.masterList = arrayproduct.mutableCopy() as! NSMutableArray
+                        self.List = arrayproduct.mutableCopy() as! NSMutableArray
                         let arrayproductclaim = Data["claim_approval_status"] as! NSArray
-                        self.claim_approval_status = arrayproductclaim.mutableCopy() as! NSMutableArray
+                        self.claimapprstatus = arrayproductclaim.mutableCopy() as! NSMutableArray
                         let arrayproductclaimno = Data["total_claim_arr"] as! NSArray
-                        self.claim_nos = arrayproductclaimno.mutableCopy() as! NSMutableArray
+                        self.claimnos = arrayproductclaimno.mutableCopy() as! NSMutableArray
                         
-                        self.claim_lacs = NSMutableArray.init()
+                        self.claimlac = NSMutableArray.init()
                         let arrayproductclaimarr = Data["claim_amount_arr"]  as! NSArray
                         
                         let object = arrayproductclaimarr.mutableCopy() as! NSMutableArray
@@ -496,7 +492,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                             let value = num1.floatValue / 100000
                             let strvalues = String(format: "%.2f", value)
                             
-                            self.claim_lacs.add(strvalues)
+                            self.claimlac.add(strvalues)
                             
                         }
                         if self.btnRange.isSelected
@@ -547,7 +543,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     
-    func WebserviceCallingForAMCClaims()
+    func APIForAMCClaims()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
         let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
@@ -567,7 +563,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
         let baseurl = "http://bi.servassure.net/api/"
-        manager .post("\(baseurl)ClaimApprovalSummary", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+        manager .post("\(baseurl)ClaimApprovalSummary", parameters: Regiondictonery, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
             if let jsonResponse = responseObject as? [String: AnyObject] {
                 print("json response \(jsonResponse.description)")
@@ -578,14 +574,14 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                     if dataArray.count != 0 {
                         let Data = dataArray.object(at: 0)as! NSMutableDictionary
                         let arrayproduct = info["oem"] as! NSArray
-                        self.masterList = arrayproduct.mutableCopy() as! NSMutableArray
+                        self.List = arrayproduct.mutableCopy() as! NSMutableArray
                         let arrayproductsta = Data["claim_approval_status"] as! NSArray
-                        self.AMC_approval_status = arrayproductsta.mutableCopy() as! NSMutableArray
+                        self.AMCapprovalstatus = arrayproductsta.mutableCopy() as! NSMutableArray
                         let arrayproductno = Data["total_claim_arr"] as! NSArray
                         
-                        self.AMC_claim_nos = arrayproductno.mutableCopy() as! NSMutableArray
+                        self.AMCclaimnos = arrayproductno.mutableCopy() as! NSMutableArray
                         
-                        self.AMC_claim_lacs = NSMutableArray.init()
+                        self.AMCclaimlacs = NSMutableArray.init()
                         let arrayproductarr = Data["claim_amount_arr"] as! NSArray
                         
                         let object = arrayproductarr.mutableCopy() as! NSMutableArray
@@ -596,7 +592,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                             let value = num1.floatValue / 10000000
                             let strvalues = String(format: "%.2f", value)
                             
-                            self.AMC_claim_lacs.add(strvalues)
+                            self.AMCclaimlacs.add(strvalues)
                             
                         }
                         
