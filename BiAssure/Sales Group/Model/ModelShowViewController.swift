@@ -55,11 +55,21 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var lblStartDate: UILabel!
     @IBOutlet weak var lblEndDate: UILabel!
     
+    @IBOutlet weak var menuBarItem: UIBarButtonItem!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if self.revealViewController() != nil {
+                   menuBarItem.target = self.revealViewController()
+                   menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+                   self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+               }
+               
+        
         
         if Reachability.isConnectedToNetwork() {
             print("Internet connection OK")
@@ -72,7 +82,6 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewWillAppear(_ animated: Bool)
     {
-        style()
         configureView()
         
         lblStartDate.text = String(format: "\(strdate)")
@@ -167,19 +176,20 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     
-    
-    @IBAction func slidemenuAction(_ sender:UIButton)
-    {
-        kMainViewController.showRightView(animated: true, completionHandler: nil)
-        
+    @IBAction func sidepanel(_ sender: Any) {
+        if self.revealViewController() != nil {
+                               menuBarItem.target = self.revealViewController()
+                               menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+                               self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                           }
     }
     
+   
     
-    
-    @IBAction func btnLeft_didSelect(_ sender:UIButton)
-    {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func backBtnTapped(_ sender: Any) {
+         self.navigationController?.popViewController(animated: true)
     }
+    
     
     
     
@@ -196,39 +206,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     
-    
-    func style()
-    {
-        let view = UIView.init(frame: CGRect.init(x: -30, y: 0, width: 150, height: 33))
-        let imageView = UIImageView.init(frame: CGRect.init(x: -30, y: 5, width: 23, height: 20))
-        imageView.image = UIImage.init(named: "models-white-icon")
-        let lblTitle : UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 30))
-        
-        lblTitle.text = "Models"
-        lblTitle.textColor = UIColor.white
-        lblTitle.font = UIFont.systemFont(ofSize: 13)
-        view.addSubview(imageView)
-        view.addSubview(lblTitle)
-        self.navigationItem.titleView = view
-        
-        let backButton:UIButton =  UIButton(type:.custom)
-        backButton.frame =  CGRect.init(x: -180, y: 0, width: 180, height: 22)
-        backButton.setImage(UIImage.init(named: "arrow-left"), for: UIControl.State.normal)
-        backButton.addTarget(self, action: #selector(btnLeft_didSelect), for: UIControl.Event.touchUpInside)
-        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -30, bottom: 0, right: 0)
-        backButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -20, bottom: 0, right: 0)
-        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        backButton.setTitle(apistr, for: .normal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
-        
-        
-        let menuButton:UIButton =  UIButton(type:.custom)
-        menuButton.frame =  CGRect.init(x: 30, y: 0, width: 52, height: 40)
-        menuButton.setImage(UIImage.init(named: "right-menu-icon"), for: UIControl.State.normal)
-        menuButton.addTarget(self, action: #selector(slidemenuAction), for: UIControl.Event.touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
-        
-    }
+
     
     
     

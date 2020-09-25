@@ -138,7 +138,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     
     override func viewWillAppear(_ animated: Bool)
     {
-        style()
+      //  style()
         configureView()
         let strname:NSString = appDelegate.getbuttonName() as NSString
         if strname == "Month"
@@ -774,41 +774,41 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         }
     }
     
-    func style()
-    {
-        
-        let view = UIView.init(frame: CGRect.init(x: -10, y: 0, width: 150, height: 33))
-        let imageView = UIImageView.init(frame: CGRect.init(x: -25, y: 8, width: 24, height: 15))
-        imageView.image = UIImage.init(named: "car-icon")
-        let lblTitle : UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 2, width: 200, height: 30))
-        
-        lblTitle.text = Region
-        lblTitle.textColor = UIColor.white
-        lblTitle.font = UIFont.systemFont(ofSize: 13)
-        
-        view.addSubview(imageView)
-        view.addSubview(lblTitle)
-        self.navigationItem.titleView = view
-        
-        let backButton:UIButton =  UIButton(type:.custom)
-        backButton.frame =  CGRect.init(x: -30, y: 0, width: 130, height: 40)
-        backButton.setImage(UIImage.init(named: "arrow-left"), for: UIControl.State.normal)
-        backButton.addTarget(self, action: #selector(btnDashboard_didSelect), for: UIControl.Event.touchUpInside)
-        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -20, bottom: 0, right: 0)
-        backButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -18, bottom: 0, right: 0)
-        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        backButton.titleLabel?.numberOfLines = 2
-        backButton.setTitle(brandname, for: .normal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
-        
-        
-        let menuButton:UIButton =  UIButton(type:.custom)
-        menuButton.frame =  CGRect.init(x: 0, y: 0, width: 52, height: 40)
-        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
-        menuButton.setImage(UIImage.init(named: "right-menu-icon"), for: UIControl.State.normal)
-        menuButton.addTarget(self, action: #selector(slidemenuAction), for: UIControl.Event.touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
-    }
+//    func style()
+//    {
+//
+//        let view = UIView.init(frame: CGRect.init(x: -10, y: 0, width: 150, height: 33))
+//        let imageView = UIImageView.init(frame: CGRect.init(x: -25, y: 8, width: 24, height: 15))
+//        imageView.image = UIImage.init(named: "car-icon")
+//        let lblTitle : UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 2, width: 200, height: 30))
+//
+//        lblTitle.text = Region
+//        lblTitle.textColor = UIColor.white
+//        lblTitle.font = UIFont.systemFont(ofSize: 13)
+//
+//        view.addSubview(imageView)
+//        view.addSubview(lblTitle)
+//        self.navigationItem.titleView = view
+//
+//        let backButton:UIButton =  UIButton(type:.custom)
+//        backButton.frame =  CGRect.init(x: -30, y: 0, width: 130, height: 40)
+//        backButton.setImage(UIImage.init(named: "arrow-left"), for: UIControl.State.normal)
+//        backButton.addTarget(self, action: #selector(btnDashboard_didSelect), for: UIControl.Event.touchUpInside)
+//        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -20, bottom: 0, right: 0)
+//        backButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -18, bottom: 0, right: 0)
+//        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+//        backButton.titleLabel?.numberOfLines = 2
+//        backButton.setTitle(brandname, for: .normal)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
+//
+//
+//        let menuButton:UIButton =  UIButton(type:.custom)
+//        menuButton.frame =  CGRect.init(x: 0, y: 0, width: 52, height: 40)
+//        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
+//        menuButton.setImage(UIImage.init(named: "right-menu-icon"), for: UIControl.State.normal)
+//        menuButton.addTarget(self, action: #selector(slidemenuAction), for: UIControl.Event.touchUpInside)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
+//    }
     
     func updateDate(startDate:NSDate,endDate:NSDate)->Void
     {

@@ -1,9 +1,11 @@
 //
-//  ClaimsSalesViewController.swift
+//  ClaimsRegionWiseViewController.swift
 //  BiAssure
 //
-//  Created by Pulkit on 24/09/20.
+//  Created by Pulkit on 25/09/20.
 //  Copyright © 2020 Techfour. All rights reserved.
+
+
 
 import UIKit
 import SVProgressHUD
@@ -13,13 +15,12 @@ import AFNetworking
 import RMPickerViewController
 
 
-class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate {
+class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SSMaterialCalendarPickerDelegate {
     
     var datePicker = SSMaterialCalendarPicker()
     var appDelegate: AppDelegate = AppDelegate()
     
     var selectedIndex = 0
-    var pickerselectedIndex = 0
     
     var regionName = ""
     var strsetdate = ""
@@ -48,7 +49,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     var dictRegion = NSDictionary()
     
     var sePicker = CustomPicker()
-    var menubtn = UIButton()
+    
     
     @IBOutlet weak var tblToyotaData: UITableView!
     @IBOutlet weak var btnDaily: UIButton!
@@ -60,17 +61,17 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var lblLine3: UILabel!
     @IBOutlet weak var navbar: UINavigationBar!
     
-    
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if self.revealViewController() != nil {
             menuBarItem.target = self.revealViewController()
             menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
         
         
         refreshMethod()
@@ -81,18 +82,14 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         lblLine1.isHidden = false
         lblLine2.isHidden = true
         lblLine3.isHidden = true
-        dictRegion = ["oem": apistr, "claim_type": strNameShow]
+        dictRegion = ["oem": apistr, "claim_type": strNameShow,"region":strRegion]
         WebserviceCallingForEWClaims()
-        dictRegion = ["oem": apistr]
-        APIForClaimsNonsurveyorSummary()
-        APIForClaimSurveyorSummary()
-        
-        menubtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-              self.revealViewController().revealToggle(self)
-        self.revealViewController().panGestureRecognizer()
-        
+        dictRegion = ["oem": apistr,"region":strRegion]
+        webserviceForClaimsNonsurveyorSummary()
+        webserviceForClaimSurveyorSummary()
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -130,19 +127,17 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             if indexPath.row == 0{
                 let cell = tableView .dequeueReusableCell(withIdentifier: "DataCell0", for: indexPath)
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none
-                let lblName = cell .viewWithTag(2) as! UILabel
-                let btnallRegion = cell .viewWithTag(3) as! UIButton
+                
                 let btnDate = cell .viewWithTag(4) as! UIButton
                 viewStages = cell .viewWithTag(5) as! UITableView
                 selectedIndex = 0
                 
                 
-                lblName.text = strNameShow
                 viewStages.dataSource = self
                 viewStages.delegate = self
                 
                 
-                btnallRegion.addTarget(self, action: #selector(btnAllRegion_didSelect), for: UIControl.Event.touchUpInside)
+                
                 btnDate.addTarget(self, action: #selector(btnDate_didSelect), for: UIControl.Event.touchUpInside)
                 btnDate.setTitle(strsetdate, for: UIControl.State.normal)
                 viewStages.reloadData()
@@ -153,7 +148,6 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none
                 let lblsurveyor = cell .viewWithTag(11) as! UILabel
                 NonSurTable = cell .viewWithTag(13) as! UITableView
-                lblsurveyor.text = strNameShow
                 NonSurTable.dataSource = self
                 NonSurTable.delegate = self
                 
@@ -182,7 +176,6 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             let lblStages = cell .viewWithTag(21) as! UILabel
             let lblNumbers = cell .viewWithTag(22) as! UILabel
             let lblValues = cell .viewWithTag(23) as! UILabel
-            
             lblStages.text = String(format: "\(claim_approval_status.object(at: indexPath.row))", 0)
             if (lblStages.text == "") {
                 icon.image = UIImage(named: "question")
@@ -200,7 +193,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
                 icon.image = UIImage(named: "Dupilcate")
             }
             lblNumbers.text = String(format: "\(claim_nos.object(at: indexPath.row))", 0)
-            lblValues.text = String(format: "₹\(claim_lacs.object(at: indexPath.row))", 0)
+            lblValues.text = String(format: "\(claim_lacs.object(at: indexPath.row))", 0)
             return cell
         }
             
@@ -213,7 +206,6 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             let lblNonSur = cell?.viewWithTag(17) as! UILabel
             let img1 = cell?.viewWithTag(13) as! UIImageView
             let img2 = cell?.viewWithTag(14) as! UIImageView
-            
             if (selectedIndex == 1) {
                 let dict:NSDictionary = NonsurveyorSummary.object(at: indexPath.row) as! NSDictionary
                 if dict.object(forKey: "_id") as! NSString == "Zeroto30Minutes"
@@ -247,12 +239,11 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
                     img2.isHidden = true
                     lblNonSur.text = ""
                 }
-                
-                let number:Int = dict.object(forKey: "total_claim")as! Int
-                lblNumbers.text = String(format: "\(number)" as String)
+                let number:Int = dict.object(forKey: "total_claim") as! Int
+                lblNumbers.text = String(format: "\(number)")
                 let num1:NSNumber = dict.object(forKey: "total_claim_amount") as! NSNumber
                 let value:Float = (num1).floatValue/100000
-                let strValues = String(format: "₹%.2f",value)
+                let strValues = String(format: "%.2f",value)
                 lblValues.text = strValues
             }
             else {
@@ -293,10 +284,11 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 let num1:NSNumber = dict.object(forKey: "total_claim_amount") as! NSNumber
                 let value:Float = (num1).floatValue/100000
-                let strValues = String(format: "₹%.2f",value)
+                let strValues = String(format: "%.2f",value)
                 lblValues.text = strValues
                 
             }
+            
             return cell!
         }
     }
@@ -305,9 +297,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     {
         if tableView == tblToyotaData{
             if indexPath.row == 0{
-                
                 return (CGFloat((claim_approval_status.count * 52) + 100))
-                
                 
             }
             else{
@@ -323,25 +313,12 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             }
         }
         else{
-            return 52.0
+            return 56.0
         }
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return RegionList.count
-    }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        let textToDisplay: NSString = RegionList.object(at: row) as! NSString
-        pickerselectedIndex = row
-        return textToDisplay.capitalized
-        
-    }
     
     
     func rangeSelected(withStart startDate: Date!, andEnd endDate: Date!) {
@@ -349,6 +326,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         _endDate = endDate! as NSDate
         strsetdate = String(format: "\(Utilities.sharedUtilities.getDuration(date: startDate! as NSDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate! as NSDate))", 0)
     }
+    
     
     func configureView()
     {
@@ -363,7 +341,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
-
+    
     
     func refreshMethod()
     {
@@ -386,11 +364,11 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         strsetdate = String(format: "\(Utilities.sharedUtilities.getDuration(date: startDate))-\(Utilities.sharedUtilities.getDuration(date: endDate))", 0)
         
         if btnRange.isSelected == true{
-            dictRegion = ["oem": apistr, "claim_type": strNameShow,"start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
+            dictRegion = ["oem": apistr, "claim_type": strNameShow,"start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"region":strRegion]
             WebserviceCallingForEWClaims()
-            dictRegion = ["oem": apistr,"start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate)]
-            APIForClaimsNonsurveyorSummary()
-            APIForClaimSurveyorSummary()
+            dictRegion = ["oem": apistr,"start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"region":strRegion]
+            webserviceForClaimsNonsurveyorSummary()
+            webserviceForClaimSurveyorSummary()
         }
     }
     
@@ -406,12 +384,11 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBAction func slidemenuAction(_ sender:UIBarButtonItem)
     {
-      if self.revealViewController() != nil {
-                 menuBarItem.target = self.revealViewController()
-                 menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-                 self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-             }
-        
+        if self.revealViewController() != nil {
+            menuBarItem.target = self.revealViewController()
+            menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     
@@ -425,11 +402,11 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         lblLine2.isHidden = true
         lblLine3.isHidden = true
         sePicker.removePickerViewWithAnimaion(sourceView: self.view)
-        dictRegion = ["oem":apistr, "claim_type":strNameShow]
+        dictRegion = ["oem":apistr, "claim_type":strNameShow,"region":strRegion]
         WebserviceCallingForEWClaims()
-        dictRegion = ["oem": apistr]
-        APIForClaimsNonsurveyorSummary()
-        APIForClaimSurveyorSummary()
+        dictRegion = ["oem": apistr,"region":strRegion]
+        webserviceForClaimsNonsurveyorSummary()
+        webserviceForClaimSurveyorSummary()
     }
     
     
@@ -450,11 +427,11 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         comp.day = 1
         let firstDayOfMonthDate = gregorian.date(from: comp as DateComponents)
         
-        dictRegion = ["oem": apistr, "claim_type": strNameShow,"start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
+        dictRegion = ["oem": apistr, "claim_type": strNameShow,"start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"region":strRegion]
         WebserviceCallingForEWClaims()
-        dictRegion = ["oem":apistr,"start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
-        APIForClaimsNonsurveyorSummary()
-        APIForClaimSurveyorSummary()
+        dictRegion = ["oem":apistr,"start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"region":strRegion]
+        webserviceForClaimsNonsurveyorSummary()
+        webserviceForClaimSurveyorSummary()
     }
     
     
@@ -473,7 +450,8 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
-    @IBAction func backbtnTapped(_ sender: Any) {
+    
+    @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -481,46 +459,14 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
-    @IBAction func btnAllRegion_didSelect(_ sender:UIButton)
-    {
-        let selectAction :RMAction = RMAction.init(title: "Select", style: RMActionStyle.done) { (controller) in
-            
-            if (self.RegionList.count != 0) {
-                
-                let selectedRegion = self.RegionList.object(at: self.pickerselectedIndex)
-                self.regionName = (selectedRegion as AnyObject).capitalized
-                self.title = self.regionName
-                
-                            let regionwiseVC: ClaimsRegionWiseViewController = self.storyboard!.instantiateViewController(withIdentifier: "regionwiseVC") as! ClaimsRegionWiseViewController
-                            regionwiseVC.strNameShow = self.strNameShow
-                            regionwiseVC.NameRegion = self.regionName
-                            regionwiseVC.OEMName = self.OEMName
-                            regionwiseVC.apistr = self.apistr
-                            regionwiseVC.strRegion = selectedRegion as! String
-                
-                                self.navigationController?.pushViewController(regionwiseVC, animated: true)
-            }
-            }!
-        let cancelAction :RMAction = RMAction.init(title: "Cancel", style: RMActionStyle.cancel) { (controller) in
-            print("Row selection was canceled")
-            }!
-        
-        let pickerController : RMPickerViewController = RMPickerViewController.init(style: RMActionControllerStyle.white, select: selectAction as? RMAction<UIPickerView>, andCancel: cancelAction as? RMAction<UIPickerView>)!
-        pickerController.picker.tag = 1
-        pickerController.picker.delegate = self
-        pickerController.picker.dataSource = self
-        pickerController.title = "All Regions"
-        pickerController.message = "Select a Regions of your choice"
-        self.present(pickerController, animated: true, completion: nil)
-        
-    }
+    
     
     
     @IBAction func btnDate_didSelect(_ sender:UIButton)
     {
-        
         sePicker.showPickerViewWithAnimation(sourceView: self.view)
     }
+    
     
     
     func WebserviceCallingForEWClaims()
@@ -549,7 +495,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             
             SVProgressHUD.dismiss()
             if let jsonResponse = responseObject as? [String: AnyObject] {
-                
+    
                 print("json response \(jsonResponse.description)")
                 let info : NSDictionary = jsonResponse as NSDictionary
                 if info["success"]as! Int == 1
@@ -583,7 +529,8 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
                     }
                     let dataArray = info["data"] as! NSArray
                     if dataArray.count != 0{
-                    
+                        
+                        
                         let Datas =  dataArray.object(at: 0) as! NSDictionary
                         let Data = Datas.mutableCopy() as! NSMutableDictionary
                         
@@ -600,6 +547,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         let objects =  Data["claim_amount_arr"] as! NSArray
                         let object = objects.mutableCopy() as! NSMutableArray
+                        //f (info["data"]? as AnyObject).count() != 0 {
                         
                         for num1 in object {
                             guard let num1 = num1 as? NSNumber else {
@@ -633,7 +581,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
-    func APIForClaimsNonsurveyorSummary()
+    func webserviceForClaimsNonsurveyorSummary()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
         let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
@@ -658,13 +606,13 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             
             SVProgressHUD.dismiss()
             if let jsonResponse = responseObject as? [String: AnyObject] {
+                // here read response
                 print("json response \(jsonResponse.description)")
                 let info : NSDictionary = jsonResponse as NSDictionary
                 if info["success"]as! Int == 1
                 {
                     let dataArray = info["data"] as! NSArray
                     if dataArray.count != 0 {
-                        
                         self.NonsurveyorSummary  = dataArray.mutableCopy() as! NSMutableArray
                         
                     }
@@ -688,7 +636,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    func APIForClaimSurveyorSummary()
+    func webserviceForClaimSurveyorSummary()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
         let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
@@ -714,7 +662,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             
             SVProgressHUD.dismiss()
             if let jsonResponse = responseObject as? [String: AnyObject] {
-                
+                // here read response
                 print("json response \(jsonResponse.description)")
                 let info : NSDictionary = jsonResponse as NSDictionary
                 if info["success"]as! Int == 1
@@ -745,4 +693,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
     }
+    
+    
+    
 }
