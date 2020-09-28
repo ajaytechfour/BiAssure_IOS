@@ -12,6 +12,7 @@
 		152E452B251DA5D7005736DB /* ClaimsRegionWiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152E452A251DA5D7005736DB /* ClaimsRegionWiseViewController.swift */; };
 		15615EA92513466100391C12 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15615EA82513466100391C12 /* SWRevealViewController.m */; };
 		156A00E32518B43C00C1FCC5 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A00E22518B43C00C1FCC5 /* Reachability.swift */; };
+		158B17E82521B4BE0050149B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 158B17E72521B4BE0050149B /* GoogleService-Info.plist */; };
 		158BD9782514B34F005ED1AE /* SSMaterialCalendarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158BD9772514B34E005ED1AE /* SSMaterialCalendarPicker.xib */; };
 		15EC52DA2519F7D00082E5A9 /* ClaimsSalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EC52D92519F7D00082E5A9 /* ClaimsSalesViewController.swift */; };
 		15EC52DC251A0BCA0082E5A9 /* NavigationController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EC52DB251A0BCA0082E5A9 /* NavigationController1.swift */; };
@@ -88,6 +89,7 @@
 		15615EA72513466000391C12 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = BiAssure/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
 		15615EA82513466100391C12 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = BiAssure/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
 		156A00E22518B43C00C1FCC5 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		158B17E72521B4BE0050149B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		158BD9772514B34E005ED1AE /* SSMaterialCalendarPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSMaterialCalendarPicker.xib; sourceTree = "<group>"; };
 		15EC52D92519F7D00082E5A9 /* ClaimsSalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimsSalesViewController.swift; sourceTree = "<group>"; };
 		15EC52DB251A0BCA0082E5A9 /* NavigationController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController1.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				158BD9772514B34E005ED1AE /* SSMaterialCalendarPicker.xib */,
+				158B17E72521B4BE0050149B /* GoogleService-Info.plist */,
 				5A8E6E9F22E98979001613DA /* BiAssure */,
 				5A8E6EB422E98987001613DA /* BiAssureTests */,
 				5A8E6EBF22E98987001613DA /* BiAssureUITests */,
@@ -441,6 +444,7 @@
 				5A8E6E9B22E98979001613DA /* Resources */,
 				96A8B98C47425972B1C6024E /* [CP] Embed Pods Frameworks */,
 				B64FB3A623FEB2060035C7C7 /* Embed Frameworks */,
+				158B17EB2521B4FD0050149B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -544,6 +548,7 @@
 				5A34285322F056BF00FC6A53 /* CustomPicker.xib in Resources */,
 				158BD9782514B34F005ED1AE /* SSMaterialCalendarPicker.xib in Resources */,
 				5A8E6EA622E98979001613DA /* Main.storyboard in Resources */,
+				158B17E82521B4BE0050149B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +590,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		158B17EB2521B4FD0050149B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(SRCROOT)/${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		96A8B98C47425972B1C6024E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
