@@ -11,6 +11,8 @@ import KSToastView
 import AFNetworking
 import SVProgressHUD
 
+
+
 class LoginViewController: UIViewController,UITextFieldDelegate {
 
   
@@ -129,72 +131,70 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnLogin_didSelect(_ sender:UIButton)
     {
-        if self.validateFields(){
-            let timeStamp = NSDate().timeIntervalSince1970
-            
-            
-            let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
-            
-            
-            let serializerRequest = AFHTTPRequestSerializer()
-            serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
-            
-            manager.requestSerializer = serializerRequest
-            manager.requestSerializer.timeoutInterval = 90.0
-            
-            let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtUsername.text!) as NSString
-            
-            serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
-            serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
-            
-            let serializerResponse = AFJSONResponseSerializer()
-            
-            manager.responseSerializer = serializerResponse
-
-            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
-          
-            SVProgressHUD.show()
-            
-            manager.post(NSString.init(format: "\(Base_Url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
-                SVProgressHUD.dismiss()
-                if let jsonResponse = responseObject as? [String: AnyObject] {
-                    // here read response
-                    print("json response \(jsonResponse.description)")
-                    let info : NSDictionary = jsonResponse as NSDictionary
-                    if info["success"]as! Int == 1
-                    {
-                       
-                        self.appDelegate.storeSessionId(session_id: info["token"]as! String)
-                        
-                        self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
-                        
-                        self.showDashBoard()
-                    }
-                   
-                    else
-                    {
-                        KSToastView.ks_showToast(info["message"]as! String)
-                    }
-                    
-                }
-                
-            })
-            { (task: URLSessionDataTask?, error: Error) in
-                print("POST fails with error \(error)")
-                SVProgressHUD.dismiss()
-                KSToastView.ks_showToast(error.localizedDescription)
-            }
-            
-        }
+//        if self.validateFields(){
+//            let timeStamp = NSDate().timeIntervalSince1970
+//
+//
+//            let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+//
+//
+//            let serializerRequest = AFHTTPRequestSerializer()
+//            serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+//            serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
+//
+//            manager.requestSerializer = serializerRequest
+//            manager.requestSerializer.timeoutInterval = 90.0
+//
+//            let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtUsername.text!) as NSString
+//
+//            serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
+//            serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
+//
+//            let serializerResponse = AFJSONResponseSerializer()
+//
+//            manager.responseSerializer = serializerResponse
+//
+//            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
+//
+//            SVProgressHUD.show()
+//
+//            manager.post(NSString.init(format: "\(Base_Url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+//                SVProgressHUD.dismiss()
+//                if let jsonResponse = responseObject as? [String: AnyObject] {
+//                    // here read response
+//                    print("json response \(jsonResponse.description)")
+//                    let info : NSDictionary = jsonResponse as NSDictionary
+//                    if info["success"]as! Int == 1
+//                    {
+//
+//                        self.appDelegate.storeSessionId(session_id: info["token"]as! String)
+//
+//                        self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
+//
+//                        self.showDashBoard()
+//                    }
+//
+//                    else
+//                    {
+//                        KSToastView.ks_showToast(info["message"]as! String)
+//                    }
+//
+//                }
+//
+//            })
+//            { (task: URLSessionDataTask?, error: Error) in
+//                print("POST fails with error \(error)")
+//                SVProgressHUD.dismiss()
+//                KSToastView.ks_showToast(error.localizedDescription)
+//            }
+//
+//        }
     }
     
     
     
     
-    /*MARK: -GRADIENT
-     */
-
+    //GRADIENT
     
     func gradientAdd(gradientView:UIButton) {
         gradient.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]
@@ -204,17 +204,5 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
       gradient.cornerRadius = gradientView.layer.cornerRadius
         gradientView.layer.insertSublayer(gradient, at: 1)
     }
-    
-    //gradient.cornerRadius = view.layer.cornerRadius
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
