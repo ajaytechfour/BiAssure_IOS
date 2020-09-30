@@ -20,6 +20,7 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
         nameLable.text = "\(appdelegate.getUserName())"
     }
     
+    //Mark TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return menuArray.count
@@ -68,7 +69,7 @@ class RightViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 }
     }
 
-    
+    //Mark Action
     @IBAction func btnLogout_didSelect(_ sender:UIButton)
     {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

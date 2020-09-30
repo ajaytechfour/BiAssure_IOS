@@ -10,7 +10,7 @@ import UIKit
 import KSToastView
 
 class SignupViewController: UIViewController {
-    
+    //Mark Outlet
     @IBOutlet weak var txtEmailid: UITextField!
     @IBOutlet weak var txtusername: UITextField!
     @IBOutlet weak var btnSubmit: UIButton!
@@ -44,7 +44,7 @@ class SignupViewController: UIViewController {
         gradientbutton.cornerRadius = btnSubmit.layer.cornerRadius
         
     }
-    
+    //Mark Action
     @IBAction func btnLeft_didSelect(_ sender:UIBarButtonItem)
     {
         self.navigationController?.popViewController(animated: true)

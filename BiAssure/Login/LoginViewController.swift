@@ -9,6 +9,8 @@
 import UIKit
 import KSToastView
 import AFNetworking
+import FirebaseCrashlytics
+
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
@@ -42,17 +44,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         btnForgetPassword.isHidden = false
         gradientAdd(gradientView:btnLogin)
         
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
         
     }
-    
-    
+
     override func viewWillAppear(_ animated: Bool)
     {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -70,11 +64,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
-    
-    
-    
-    
+  
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
@@ -87,7 +77,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.performSegue(withIdentifier: "dashboardsegue", sender: self)
     }
     
-    
+    //MARK ValidateFunction
     func validateFields() -> Bool
     {
         if txtUsername.text!.count > 1
@@ -108,7 +98,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     
-    
+    //Mark Action
     @IBAction func btnSingup_didSelect(_ sender:UIButton)
     {
         self.performSegue(withIdentifier: "Signupsegue", sender: self)
@@ -122,65 +112,73 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnLogin_didSelect(_ sender:UIButton)
     {
+    
         if self.validateFields(){
-            let timeStamp = NSDate().timeIntervalSince1970
-            
-            
-            let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
-            
-            
-            let serializerRequest = AFHTTPRequestSerializer()
-            serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
-            
-            manager.requestSerializer = serializerRequest
-            manager.requestSerializer.timeoutInterval = 90.0
-            
-            let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtUsername.text!) as NSString
-            
-            serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
-            serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
-            
-            let serializerResponse = AFJSONResponseSerializer()
-            
-            manager.responseSerializer = serializerResponse
-            
-            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
-            
-            
-           let baseurl = "http://bi.servassure.net/api/"
-            manager.post(NSString.init(format: "\(baseurl)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
-                if let jsonResponse = responseObject as? [String: AnyObject] {
-                    
-                    print("json response \(jsonResponse.description)")
-                    let info : NSDictionary = jsonResponse as NSDictionary
-                    if info["success"]as! Int == 1
-                    {
-                        
-                        self.appDelegate.storeSessionId(session_id: info["token"]as! String)
-                        
-                        self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
-                        
-                        self.showDashBoard()
-                    }
-                        
-                    else
-                    {
-                        KSToastView.ks_showToast(info["message"]as! String)
-                    }
-                    
-                }
-                
-            })
-            { (task: URLSessionDataTask?, error: Error) in
-                print("POST fails with error \(error)")
-                KSToastView.ks_showToast(error.localizedDescription)
-            }
-            
+            LoginApi()
         }
     }
     
     
+    //MarkLoginAPI
+    
+    func LoginApi() {
+        let timeStamp = NSDate().timeIntervalSince1970
+
+
+        let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+
+
+        let serializerRequest = AFHTTPRequestSerializer()
+        serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
+
+        manager.requestSerializer = serializerRequest
+        manager.requestSerializer.timeoutInterval = 90.0
+
+        let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtUsername.text!) as NSString
+
+        serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
+        serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
+
+        let serializerResponse = AFJSONResponseSerializer()
+
+        manager.responseSerializer = serializerResponse
+
+        let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
+
+
+       let baseurl = "http://bi.servassure.net/api/"
+        manager.post(NSString.init(format: "\(baseurl)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            if let jsonResponse = responseObject as? [String: AnyObject] {
+
+                print("json response \(jsonResponse.description)")
+                let info : NSDictionary = jsonResponse as NSDictionary
+                if info["success"]as! Int == 1
+                {
+
+                    self.appDelegate.storeSessionId(session_id: info["token"]as! String)
+
+                    self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
+
+                    self.showDashBoard()
+                }
+
+                else
+                {
+                    KSToastView.ks_showToast(info["message"]as! String)
+                }
+
+            }
+
+        })
+        { (task: URLSessionDataTask?, error: Error) in
+            print("POST fails with error \(error)")
+            KSToastView.ks_showToast(error.localizedDescription)
+        }
+
+    }
+    
+    //Mark Gradient
     func gradientAdd(gradientView:UIButton) {
         gradient.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)

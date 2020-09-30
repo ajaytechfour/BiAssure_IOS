@@ -14,13 +14,11 @@ import RMPickerViewController
 
 
 class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate {
-    
+    //Mark Variable
     var datePicker = SSMaterialCalendarPicker()
     var appDelegate: AppDelegate = AppDelegate()
-    
     var selectedIndex = 0
     var pickerselectedIndex = 0
-    
     var regionName = ""
     var strsetdate = ""
     var NameRegion = ""
@@ -28,28 +26,21 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     var strNameShow = ""
     var strRegion = ""
     var OEMName = ""
-    
-    
     var _startDate = NSDate()
     var _endDate = NSDate()
-    
     var viewStages = UITableView()
     var NonSurTable = UITableView()
     var SurTable = UITableView()
-    
-    
     var RegionList = NSMutableArray()
     var claim_approval_status = NSMutableArray()
     var claim_nos = NSMutableArray()
     var claim_lacs = NSMutableArray()
     var NonsurveyorSummary = NSMutableArray()
     var surveyorSummary = NSMutableArray()
-    
     var dictRegion = NSDictionary()
-    
     var sePicker = CustomPicker()
     var menubtn = UIButton()
-    
+    //Mark Outlet
     @IBOutlet weak var tblToyotaData: UITableView!
     @IBOutlet weak var btnDaily: UIButton!
     @IBOutlet weak var btnMonth: UIButton!
@@ -59,8 +50,6 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var lblLine2: UILabel!
     @IBOutlet weak var lblLine3: UILabel!
     @IBOutlet weak var navbar: UINavigationBar!
-    
-    
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
     
     
@@ -98,7 +87,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
     {
         
     }
-    
+    //Mark TableView
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -414,7 +403,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    
+    //Mark Action
     @IBAction func btnDaily_didSelect(_ sender:UIButton)
     {
         refreshMethod()
@@ -456,10 +445,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         APIForClaimsNonsurveyorSummary()
         APIForClaimSurveyorSummary()
     }
-    
-    
-    
-    
+
     @IBAction func btnRange_didSelect(_ sender:UIButton)
     {
         refreshMethod()
@@ -522,7 +508,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         sePicker.showPickerViewWithAnimation(sourceView: self.view)
     }
     
-    
+    //Mark WebServices
     func WebserviceCallingForEWClaims()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -627,12 +613,8 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
             SVProgressHUD.dismiss()
             KSToastView.ks_showToast(error.localizedDescription)
         }
-        
-        
     }
-    
-    
-    
+    //Mark WebServices
     func APIForClaimsNonsurveyorSummary()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -687,7 +669,7 @@ class ClaimsToyotaViewController: UIViewController,UITableViewDelegate,UITableVi
         }
         
     }
-    
+    //Mark WebServices
     func APIForClaimSurveyorSummary()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)

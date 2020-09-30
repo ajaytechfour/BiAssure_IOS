@@ -13,18 +13,14 @@ import RMPickerViewController
 import AFNetworking
 
 class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate {
-    
+    //Mark Variable
     var datePicker = SSMaterialCalendarPicker()
-    
     var ClaimsType = ""
     var regName = ""
     var strsetdate = ""
-    
     var pickerselectedInd = 0
-    
     var _startDate = NSDate()
     var _endDate = NSDate()
-    
     var List = NSMutableArray()
     var List1 = NSMutableArray()
     var claimapprstatus = NSMutableArray()
@@ -36,9 +32,8 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     var appDelegate :AppDelegate = AppDelegate()
     var Regiondictonery = NSDictionary()
     var picker = UIPickerView()
-    
     var custPicker = CustomPicker()
-    
+    //Mark Outlet
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
     @IBOutlet weak var tblSalesData: UITableView!
     @IBOutlet weak var btnDaily: UIButton!
@@ -258,7 +253,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
-    
+    //Mark Action
     @IBAction func btnDaily_didSelect(_ sender:UIButton)
     {
         updatehMethod()
@@ -300,10 +295,6 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         Regiondictonery = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
         APIForAMCClaims()
     }
-    
-    
-    
-    
     @IBAction func btnRange_didSelect(_ sender:UIButton)
     {
         updatehMethod()
@@ -328,14 +319,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     @IBAction func slidemenuAction(_ sender:UIBarButtonItem)
     {
         if self.revealViewController() != nil {
@@ -344,17 +328,13 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-    
-    
-    
+
     @IBAction func btnDate_didSelect(_ sender:UIButton)
     {
         custPicker.showPickerViewWithAnimation(sourceView: self.view)
         
     }
-    
-    
-    
+
     @IBAction func btnOEMWise_didSelect(_ sender:UIButton)
     {
         let buttonPosition = sender.convert(CGPoint.zero, to: self.tblSalesData)
@@ -445,6 +425,8 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
             APIForAMCClaims()
         }
     }
+    
+    //Mark WebServices
     func APIForEWClaims()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -542,7 +524,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
-    
+    //Mark WebServices
     func APIForAMCClaims()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)

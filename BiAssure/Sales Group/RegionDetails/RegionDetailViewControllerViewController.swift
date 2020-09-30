@@ -15,13 +15,7 @@ import RMPickerViewController
 
 class RegionDetailViewControllerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate,SSMaterialCalendarPickerDelegate {
     
-    var adtBarChartView : BarChartView!
-    var pieChartOEMDetail : PieChartView!
-    var horiBarChartview : HorizontalBarChartView!
-    var viewModel : UIView!
-    var btnallCampaings : UIButton!
-    var btncalender : UIButton!
-    var strsetdate = ""
+    //Mark Outlet
     @IBOutlet var btnDaily : UIButton!
     @IBOutlet var btnMonth : UIButton!
     @IBOutlet var btnRange : UIButton!
@@ -29,8 +23,16 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
     @IBOutlet var lblLine2 : UILabel!
     @IBOutlet var lblLine3 : UILabel!
     @IBOutlet var tblOEMShow : UITableView!
-    var strDateRange = ""
     @IBOutlet var tblChartData : UITableView!
+    //Mark Variable
+    var strDateRange = ""
+    var adtBarChartView : BarChartView!
+    var pieChartOEMDetail : PieChartView!
+    var horiBarChartview : HorizontalBarChartView!
+    var viewModel : UIView!
+    var btnallCampaings : UIButton!
+    var btncalender : UIButton!
+    var strsetdate = ""
     var showTodayDate = NSArray()
     var showPreviousDate = NSArray()
     var StrCurrentDate = ""
@@ -41,28 +43,23 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
     var arrPerRevenue = NSMutableArray()
     var arrPerSales = NSMutableArray()
     var dailytblIndexpath = NSIndexPath()
-    
     var strcurrent_day_month = ""
     var first_day_month = ""
     var prestrcurrent_day_month = ""
     var prefirst_day_month = ""
-    
     var strStartdate = ""
     var strEnddate = ""
     var prestartdate = ""
     var preenddate = ""
-    
     var salseAVG = ""
     var RevenueAVG = ""
     var refreshControl : UIRefreshControl!
-    
     var arrbarChartSales = NSMutableArray()
     var arrbarPerSales = NSMutableArray()
     var arrHbarChartSales = NSMutableArray()
     var arrHbarPerSales = NSMutableArray()
     var arrRegionRev = NSMutableArray()
     var arrModelRev = NSMutableArray()
-    
     var Region = ""
     var apistr = ""
     var strRegionModel = ""
@@ -84,15 +81,6 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
     var selectedIndex = -1
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
-        
         startDate = NSDate.init()
         endDate = NSDate.init()
         self.style()
@@ -232,6 +220,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
     }
+    //Mark Action
     @IBAction func btnLeft_didSelect(_ sender:UIButton)
     {
         self.navigationController?.popViewController(animated: true)
@@ -254,7 +243,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         
     }
     
-    
+    //Mark TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -1097,7 +1086,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
         l.yEntrySpace = 0.0
         l.yOffset = 0.0
     }
-    
+    //Mark WebServices
     func CurentDateWebserviceCallingMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1198,7 +1187,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
-    
+    //Mark WebServices
     func PreviousDateWebserviceCallingMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1295,6 +1284,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func ChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1376,6 +1366,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func ModelChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1457,6 +1448,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func SlabsChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1543,6 +1535,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func PlansChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)

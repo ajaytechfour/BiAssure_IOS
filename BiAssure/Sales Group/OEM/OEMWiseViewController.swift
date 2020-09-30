@@ -14,26 +14,26 @@ import AFNetworking
 import KSToastView
 
 class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate {
-    var selectedIndex = 0
-    var datePicker : SSMaterialCalendarPicker!
-    var viewModel : UIView!
+    //Mark Oulet
     @IBOutlet var btnDaily : UIButton!
     @IBOutlet var btnMonth : UIButton!
     @IBOutlet var btnRange : UIButton!
     @IBOutlet var tabView : UIView!
     @IBOutlet var tblDailySales : UITableView!
-    var btnallCampaings : UIButton!
-    var btncalender : UIButton!
-    var strsetdate = ""
     @IBOutlet var lblLine1 : UILabel!
     @IBOutlet var lblLine2 : UILabel!
     @IBOutlet var lblLine3 : UILabel!
-    
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
+    //Mark Variable
+    var btnallCampaings : UIButton!
+    var btncalender : UIButton!
+    var strsetdate = ""
     var adtBarChartView : BarChartView!
     var pieChartabs : PieChartView!
+    var selectedIndex = 0
+    var datePicker : SSMaterialCalendarPicker!
+    var viewModel : UIView!
     var tblPieChartData : UITableView!
-    
     var showTodayDate = NSArray()
     var showPreviousDate = NSArray()
     var StrCurrentDate = ""
@@ -44,21 +44,17 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     var arrPerRevenue = NSMutableArray()
     var arrPerSales = NSMutableArray()
     var dailytblIndexpath : NSIndexPath!
-    
     var strcurrent_day_month = ""
     var first_day_month = ""
     var prestrcurrent_day_month = ""
     var prefirst_day_month = ""
-    
     var strStartdate = ""
     var strEnddate = ""
     var prestartdate = ""
     var preenddate = ""
-    
     var salseAVG = ""
     var RevenueAVG = ""
     var refreshControl : UIRefreshControl!
-    
     var Brands = ""
     var targetView : UIView!
     var masterList = NSMutableArray()
@@ -72,22 +68,10 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     var revenue = Float()
     var prerevenue = Float()
     var rowvalue = 0
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
-        
-        
-        
+       
         if self.revealViewController() != nil {
             menuBarItem.target = self.revealViewController()
           menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
@@ -129,6 +113,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
+    //Mark Action
     @IBAction func btnBackClicked(_ sender: UIBarButtonItem) {
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -340,7 +325,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         }
     }
     
-    
+    //Mark TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -733,7 +718,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         l.yEntrySpace = 0.0
         l.yOffset = 0.0
     }
-    
+    //Mark Webservices
      func CurentDateWebserviceCallingMethod()
        {
            let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -816,7 +801,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                KSToastView.ks_showToast(error.localizedDescription)
            }
     }
-    
+    //Mark Webservices
     func PreviousDateWebserviceCallingMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -921,6 +906,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark Webservices
     func ChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)

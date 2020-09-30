@@ -16,35 +16,27 @@ import RMPickerViewController
 class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate,ChartViewDelegate {
     
     
-    
+    //Mark Variable
     var strRegionname = ""
     var apistr = ""
     var strCome = ""
     var strOEMname = ""
     var strdate = ""
     var regionName = ""
-    
     var selectedIndex = 0
-    
     var _startDate = NSDate()
     var _endDate = NSDate()
-    
     var masterList = NSMutableArray()
     var arrRegionSales = NSMutableArray()
     var arrRegionPerSales = NSMutableArray()
     var arrRegionRevenue = NSMutableArray()
-    
     var datePicker = SSMaterialCalendarPicker()
     var adtBarChartView = BarChartView()
     var pieChartOEM = PieChartView()
     var sePicker = CustomPicker()
     var appDele :AppDelegate = AppDelegate()
-    
     var dictStartDateEndDate = NSDictionary()
-    
-    
-    
-    
+    //Mark Outlet
     @IBOutlet weak var tblModelShow: UITableView!
     @IBOutlet weak var tblTabularDataShow: UITableView!
     @IBOutlet weak var btnGraphical: UIButton!
@@ -54,10 +46,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var lblLine2: UILabel!
     @IBOutlet weak var lblStartDate: UILabel!
     @IBOutlet weak var lblEndDate: UILabel!
-    
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,16 +57,6 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
                    menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
                    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
                }
-               
-        
-        
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -103,11 +82,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         tblTabularDataShow.isHidden = true
         
     }
-    
-    
-    
-    
-    
+    //Mark Action
     @IBAction func btnAllModels_didSelect(_ sender:UIButton)
     {
         let selectAction = RMAction(title: "Select anyone", style: RMActionStyle.done, andHandler: { controller in
@@ -141,16 +116,11 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         pickerController.message = "Select a Region of your choice"
         self.present(pickerController, animated: true, completion: nil)
     }
-    
-    
-    
+
     @IBAction func btnDatePickerShow(_ sender:UIButton)
     {
         sePicker.showPickerViewWithAnimation(sourceView: self.view)
     }
-    
-    
-    
     @IBAction func btnGraphical_didSelect(_ sender:UIButton)
     {
         btnTabular.isSelected = false
@@ -161,9 +131,6 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         tblTabularDataShow.isHidden = true
         tblModelShow.reloadData()
     }
-    
-    
-    
     @IBAction func btnTabular_didSelect(_ sender:UIButton)
     {
         btnTabular.isSelected = true
@@ -175,24 +142,17 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
         tblTabularDataShow.reloadData()
     }
     
-    
     @IBAction func sidepanel(_ sender: Any) {
         if self.revealViewController() != nil {
                                menuBarItem.target = self.revealViewController()
                                menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
                                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-                           }
+            }
     }
-    
-   
-    
+
     @IBAction func backBtnTapped(_ sender: Any) {
          self.navigationController?.popViewController(animated: true)
     }
-    
-    
-    
-    
     
     func configureView()
     {
@@ -203,13 +163,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
             weakSelf?.updateDate(startDate: strt! as NSDate, endDate: end! as NSDate)
         }
     }
-    
-    
-    
-
-    
-    
-    
+   
     func updateDate(startDate:NSDate,endDate:NSDate)->Void
     {
         strdate = String(format: "\(Utilities.sharedUtilities.getDuration(date: startDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate))")
@@ -604,7 +558,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     
     
-    
+    //Mark WebServices
     func ChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -694,7 +648,5 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
-    
-    
     
 }

@@ -10,28 +10,14 @@ import KSToastView
 import AFNetworking
 
 class ChangePasswordViewController: UIViewController {
-    
-    
-    
+    //Mark Outlet
     @IBOutlet weak var txtusername: UITextField!
     @IBOutlet weak var txtOldpassword: UITextField!
     @IBOutlet weak var txtNewpassword: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var btnSave_didshow: UIButton!
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
         
         hideKeyboardWhenTappedAround()
         btnSave_didshow.layer.cornerRadius = 10.0
@@ -52,33 +38,22 @@ class ChangePasswordViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
     func style()
     {
         let view : UIView = UIView.init(frame: CGRect.init(x: -10, y: 0, width: 150, height: 33))
-        //        let imageView : UIImageView = UIImageView.init(frame: CGRect.init(x: -30, y: 0, width: 25, height: 25))
-        //        imageView.image = UIImage.init(named: "dashboard-icon")
+    
         
         let lblTitle : UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 200, height: 30))
         
         lblTitle.text = "Change Password"
         lblTitle.textColor = UIColor.white
-        // view.addSubview(imageView)
+
         view.addSubview(lblTitle)
         navBar.topItem?.titleView = view
         
         
     }
-    
-    
-    
-    
-    
-    
-    
+    //Mark Action
     @IBAction func slidemenuAction(_ sender:UIBarButtonItem)
     {
         kMainViewController.showRightView(animated: true, completionHandler: nil)
@@ -87,69 +62,60 @@ class ChangePasswordViewController: UIViewController {
     @IBAction func btnSave_didSelect(_ sender:UIButton)
     {
         if self.validateFields(){
-            let timeStamp = NSDate().timeIntervalSince1970
-            
-            
-            let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
-            
-            
-            let serializerRequest = AFHTTPRequestSerializer()
-            serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
-            
-            manager.requestSerializer = serializerRequest
-            manager.requestSerializer.timeoutInterval = 90.0
-            
-            
-            let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtusername.text!) as NSString
-            
-            serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
-            serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
-            
-            let serializerResponse = AFJSONResponseSerializer()
-            
-            manager.responseSerializer = serializerResponse
-            let parameters = ["user_name" :txtusername.text!,"user_password":txtOldpassword.text!,"new_password":txtNewpassword.text!]
-            
-            
-            
-            let baseurl = "http://13.232.233.123/UserProfileAccess/api/change_password"
-            
-            manager.post(NSString.init(format: baseurl as NSString) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
-                
-                if let jsonResponse = responseObject as? [String: AnyObject] {
-                   
-                    print("json response \(jsonResponse.description)")
-                    let info : NSDictionary = jsonResponse as NSDictionary
-                    if info["Status"]as! String == "1"
-                    {
-                        
-                        self.showalert(message: info["message"]as! String)
-                        
-                        
-                        
-                    }
-                        
-                    else
-                    {
-                        
-                        KSToastView.ks_showToast(info["message"]as! String)
-                    }
-                    
-                }
-                
-            })
-            { (task: URLSessionDataTask?, error: Error) in
-                print("POST fails with error \(error)")
-                KSToastView.ks_showToast(error.localizedDescription)
-            }
-            
+            changepassAPI()
         }
     }
     
-    
-    
-    
+    //MarkChangepassAPI
+    func changepassAPI() {
+        let timeStamp = NSDate().timeIntervalSince1970
+        let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+        let serializerRequest = AFHTTPRequestSerializer()
+        serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
+        
+        manager.requestSerializer = serializerRequest
+        manager.requestSerializer.timeoutInterval = 90.0
+        let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtusername.text!) as NSString
+        
+        serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
+        serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
+        
+        let serializerResponse = AFJSONResponseSerializer()
+        
+        manager.responseSerializer = serializerResponse
+        let parameters = ["user_name" :txtusername.text!,"user_password":txtOldpassword.text!,"new_password":txtNewpassword.text!]
+        let baseurl = "http://13.232.233.123/UserProfileAccess/api/change_password"
+        
+        manager.post(NSString.init(format: baseurl as NSString) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+            
+            if let jsonResponse = responseObject as? [String: AnyObject] {
+               
+                print("json response \(jsonResponse.description)")
+                let info : NSDictionary = jsonResponse as NSDictionary
+                if info["Status"]as! String == "1"
+                {
+                    
+                    self.showalert(message: info["message"]as! String)
+                    
+                }
+                    
+                else
+                {
+                    
+                    KSToastView.ks_showToast(info["message"]as! String)
+                }
+                
+            }
+            
+        })
+        { (task: URLSessionDataTask?, error: Error) in
+            print("POST fails with error \(error)")
+            KSToastView.ks_showToast(error.localizedDescription)
+        }
+        
+    }
+ //Mark ValidateField
     func validateFields() -> Bool
     {
         if txtusername.text!.count > 1
@@ -187,7 +153,7 @@ class ChangePasswordViewController: UIViewController {
         
     }
     
-    
+    //Mark Gradient
     func gradientAdd(button:UIButton) {
         
         let gradient: CAGradientLayer = CAGradientLayer()
@@ -200,7 +166,5 @@ class ChangePasswordViewController: UIViewController {
         button.layer.insertSublayer(gradient, at: 1)
         
     }
-    
-    
     
 }

@@ -15,25 +15,25 @@ import RMPickerViewController
 
 class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate,UITableViewDataSource,UITableViewDelegate,ChartViewDelegate {
      
-     var selectedIndex = 0
-     var datePicker : SSMaterialCalendarPicker!
-     var viewModel : UIView!
+     //Mark Outlet
      @IBOutlet var btnDaily : UIButton!
      @IBOutlet var btnMonth : UIButton!
      @IBOutlet var btnRange : UIButton!
      @IBOutlet var tabView : UIView!
      @IBOutlet var tblDailySales : UITableView!
-     var btnallCampaings : UIButton!
-     var btncalender : UIButton!
-     var strsetdate = ""
      @IBOutlet var lblLine1 : UILabel!
      @IBOutlet var lblLine2 : UILabel!
      @IBOutlet var lblLine3 : UILabel!
-     
+     //Mark Variable
+     var btnallCampaings : UIButton!
+     var btncalender : UIButton!
+     var strsetdate = ""
+     var selectedIndex = 0
+     var datePicker : SSMaterialCalendarPicker!
+     var viewModel : UIView!
      var adtBarChartView : BarChartView!
      var pieChartabs : PieChartView!
      var tblPieChartData : UITableView!
-     
      var showTodayDate = NSArray()
      var showPreviousDate = NSArray()
      var StrCurrentDate = ""
@@ -44,17 +44,14 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
      var arrPerRevenue = NSMutableArray()
      var arrPerSales = NSMutableArray()
      var dailytblIndexpath : NSIndexPath!
-     
      var strcurrent_day_month = ""
      var first_day_month = ""
      var prestrcurrent_day_month = ""
      var prefirst_day_month = ""
-     
      var strStartdate = ""
      var strEnddate = ""
      var prestartdate = ""
      var preenddate = ""
-     
      var salseAVG = ""
      var RevenueAVG = ""
      var refreshControl : UIRefreshControl!
@@ -74,20 +71,9 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
      
      override func viewDidLoad() {
           super.viewDidLoad()
-          
-          
-          if Reachability.isConnectedToNetwork() {
-              print("Internet connection OK")
-          } else {
-              print("Internet connection FAILED")
-              let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-              alert.show()
-          }
-          
-          
+     
           startDate = NSDate.init()
           endDate = NSDate.init()
-          
           refreshControl = UIRefreshControl.init()
           refreshControl.backgroundColor = UIColor.purple
           refreshControl.tintColor = UIColor.white
@@ -96,7 +82,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           self.configureView()
           
      }
-     
+     //Mark Action
      @IBAction func slidemenuAction(_ sender: UIBarButtonItem)
      {
           kMainViewController .showRightView(animated: true, completionHandler: nil)
@@ -192,18 +178,12 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
      func style ()
      {
           let view = UIView.init(frame: CGRect(x: -10, y: 0, width: 150, height: 33))
-          //        let imageView = UIImageView.init(frame: CGRect(x: -30, y: 5, width: 20, height: 20))
-          //        imageView.image = UIImage.init(named: "dashboard-icon")
-          
           let lblTitle = UILabel.init(frame: CGRect(x: 35, y: 3, width: 200, height: 30))
           lblTitle.text = BrandsName
           lblTitle.textColor = UIColor.white
           lblTitle.font = UIFont.systemFont(ofSize: 13)
-          
-          //view .addSubview(imageView)
           view.addSubview(lblTitle)
           self.navigationItem.titleView = view
-          
           let backButton  = UIButton.init(type: .custom)
           backButton.frame = CGRect(x: 0, y: 0, width: 130, height: 22)
           backButton .setImage(UIImage.init(named: "arrow-left"), for: .normal)
@@ -214,14 +194,6 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           backButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
           self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
           
-          //        let menuButton  = UIButton.init(type: .custom)
-          //        menuButton.frame = CGRect(x: 0, y: 0, width: 52, height: 40)
-          //        menuButton .setImage(UIImage.init(named: "right-menu-icon"), for: .normal)
-          //
-          //        menuButton.addTarget(self, action: #selector(slidemenuAction(_:)), for: .touchUpInside)
-          //        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
-          //
-          //        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
      }
      
      func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -347,7 +319,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           }
           
      }
-     
+     //Mark TableView
      func numberOfSections(in tableView: UITableView) -> Int {
           return 1
      }
@@ -782,7 +754,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           l.yEntrySpace = 0.0
           l.yOffset = 0.0
      }
-     
+     //Mark WebServices
      func CurentDateWebserviceCallingMethod()
      {
           let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -799,11 +771,6 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
           serializerRequest.setValue(token, forHTTPHeaderField: "x-access-token")
           serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
           manager.responseSerializer = AFJSONResponseSerializer.init()
-          
-          
-          
-          
-          
           
             let baseurl = "http://bi.servassure.net/api/"
           manager .post("\(baseurl)SalesOverview", parameters: dictRegion, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
@@ -869,7 +836,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                KSToastView.ks_showToast(error.localizedDescription)
           }
      }
-     
+     //Mark WebServices
      func PreviousDateWebserviceCallingMethod()
      {
           let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -965,6 +932,7 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                KSToastView.ks_showToast(error.localizedDescription)
           }
      }
+     //Mark WebServices
      func ChartDataShowMethod()
      {
           let timestamp = NSInteger(NSDate().timeIntervalSince1970)

@@ -16,12 +16,10 @@ import RMPickerViewController
 
 
 class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SSMaterialCalendarPickerDelegate {
-    
+    //Mark Variable
     var datePicker = SSMaterialCalendarPicker()
     var appDelegate: AppDelegate = AppDelegate()
-    
     var selectedIndex = 0
-    
     var regionName = ""
     var strsetdate = ""
     var NameRegion = ""
@@ -29,28 +27,20 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
     var strNameShow = ""
     var strRegion = ""
     var OEMName = ""
-    
-    
     var _startDate = NSDate()
     var _endDate = NSDate()
-    
     var viewStages = UITableView()
     var NonSurTable = UITableView()
     var SurTable = UITableView()
-    
-    
     var RegionList = NSMutableArray()
     var claim_approval_status = NSMutableArray()
     var claim_nos = NSMutableArray()
     var claim_lacs = NSMutableArray()
     var NonsurveyorSummary = NSMutableArray()
     var surveyorSummary = NSMutableArray()
-    
     var dictRegion = NSDictionary()
-    
     var sePicker = CustomPicker()
-    
-    
+    //Mark Outlet
     @IBOutlet weak var tblToyotaData: UITableView!
     @IBOutlet weak var btnDaily: UIButton!
     @IBOutlet weak var btnMonth: UIButton!
@@ -60,7 +50,6 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
     @IBOutlet weak var lblLine2: UILabel!
     @IBOutlet weak var lblLine3: UILabel!
     @IBOutlet weak var navbar: UINavigationBar!
-    
     @IBOutlet weak var menuBarItem: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -71,9 +60,6 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
             menuBarItem.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-        
-        
         refreshMethod()
         configureView()
         btnDaily.isSelected = true
@@ -96,6 +82,7 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
         
     }
     
+    //Mark TableView
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -317,10 +304,6 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
         }
     }
     
-    
-    
-    
-    
     func rangeSelected(withStart startDate: Date!, andEnd endDate: Date!) {
         _startDate = startDate! as NSDate
         _endDate = endDate! as NSDate
@@ -337,12 +320,7 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
             weakSelf?.updateData(startDate: strt! as NSDate, endDate: end! as NSDate)
         }
     }
-    
-    
-    
-    
-    
-    
+ 
     func refreshMethod()
     {
         let MyIp:NSIndexPath = NSIndexPath.init(row: 0, section: 0)
@@ -381,7 +359,7 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
         strsetdate = String(format: "\(Utilities.sharedUtilities.getDuration(date: startDate))-\(Utilities.sharedUtilities.getDuration(date: endDate))", 0)
     }
     
-    
+    //Mark Action
     @IBAction func slidemenuAction(_ sender:UIBarButtonItem)
     {
         if self.revealViewController() != nil {
@@ -456,19 +434,13 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
     }
     
     
-    
-    
-    
-    
-    
-    
     @IBAction func btnDate_didSelect(_ sender:UIButton)
     {
         sePicker.showPickerViewWithAnimation(sourceView: self.view)
     }
     
     
-    
+    //Mark WebServices
     func WebserviceCallingForEWClaims()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -578,9 +550,7 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
         
         
     }
-    
-    
-    
+    //Mark WebServices
     func webserviceForClaimsNonsurveyorSummary()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -635,7 +605,7 @@ class ClaimsRegionWiseViewController: UIViewController,UITableViewDelegate,UITab
         }
         
     }
-    
+    //Mark WebServices
     func webserviceForClaimSurveyorSummary()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)

@@ -131,7 +131,7 @@ public func randomColor(hue: Hue = .random, luminosity: Luminosity = .random) ->
     }
     
     func pickBrightness(color: ColorDefinition, saturationValue: Int, luminosity: Luminosity) -> Int {
-        var color = color
+        let color = color
  
         func getMinimumBrightness(saturationValue: Int) -> Int {
             let lowerBounds = color.lowerBounds;

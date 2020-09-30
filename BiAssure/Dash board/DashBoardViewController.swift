@@ -1,14 +1,11 @@
 //
 //  DashBoardViewController.swift
 //  BiAssure
-//
 //  Created by Pulkit on 02/09/20.
 //  Copyright © 2020 Tech Four. All rights reserved.
 
 import UIKit
 import LGSideMenuController
-
-
 
 class DashBoardViewController: UIViewController {
     
@@ -34,8 +31,6 @@ class DashBoardViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    
-    
     override func viewWillDisappear(_ animated: Bool){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
@@ -51,7 +46,7 @@ class DashBoardViewController: UIViewController {
     }
     
     
-    
+    //Mark Action
     @IBAction func btnSales_didSelect(_ sender:UIButton)
     {
        let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -86,7 +81,7 @@ class DashBoardViewController: UIViewController {
                           sw.pushFrontViewController(navigationControllers, animated: true)
         
     }
-    
+    //Mark Gradient
     func gradientAdd(button:UIButton) {
         
         gradient.colors = [UIColor(red: 237.0/255.0, green: 86.0/255.0, blue: 38.0/255.0, alpha: 1.0).cgColor,UIColor(red: 233.0/255.0, green: 22.0/255.0, blue: 85.0/255.0, alpha: 1.0).cgColor]

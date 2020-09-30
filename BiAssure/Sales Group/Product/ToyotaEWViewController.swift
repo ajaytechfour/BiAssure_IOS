@@ -14,10 +14,7 @@ import AFNetworking
 
 class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,ChartViewDelegate,UITableViewDelegate,UITableViewDataSource
 {
-    
-    
-    
-    
+    //Mark Variable
     var strsetdate = ""
     var strDateRange = ""
     var StrCurrentDate = ""
@@ -37,15 +34,10 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     var apistr = ""
     var brandname = ""
     var strSalesOrRevenue = ""
-    
-    
     var selectedIndex = 0
-    
     var dailytblIndexpath = IndexPath()
-    
     var _startDate = NSDate()
     var _endDate = NSDate()
-    
     var arrRevenue = NSMutableArray()
     var arrSales = NSMutableArray()
     var arrPerRevenue = NSMutableArray()
@@ -66,11 +58,8 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     var masterList3 = NSMutableArray()
     var arrRegionRevPercentage = NSMutableArray()
     var arrModelRevPercentage = NSMutableArray()
-    
-    
     var showTodayDate = NSArray()
     var showPreviousDate = NSArray()
-    
     var datePicker = SSMaterialCalendarPicker()
     var adtBarChartView = BarChartView()
     var pieChartOEM = PieChartView()
@@ -78,26 +67,15 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     var sePicker = CustomPicker()
     var refreshControl = UIRefreshControl()
     var appDelegate :AppDelegate = AppDelegate()
-    
     var dictRegion = NSDictionary()
     var dictPreRegion = NSDictionary()
-    
     var dictStartDateEndDate = NSMutableDictionary()
-    
     var Slabs = Bool()
-    
     var viewModel = UIView()
-    
     var btnallCampaings = UIButton()
     var btncalender = UIButton()
-    
     var tblChartData = UITableView()
-    
-    
-    
-    
-    
-    
+    //Mark Outlet
     @IBOutlet weak var tblOEMShow: UITableView!
     @IBOutlet weak var btnDaily: UIButton!
     @IBOutlet weak var btnMonth: UIButton!
@@ -107,20 +85,9 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     @IBOutlet weak var lblLine3: UILabel!
     @IBOutlet weak var campiagnDateLable: UILabel!
     @IBOutlet weak var tableBHeightConstraints: NSLayoutConstraint!
-    
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
         
         tblOEMShow.estimatedRowHeight = 361.0
         tblOEMShow.rowHeight = UITableView.automaticDimension
@@ -129,7 +96,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         refreshControl.backgroundColor = UIColor.purple
         refreshControl.tintColor = UIColor.white
         refreshControl.addTarget(self, action: #selector(refreshTable), for: UIControl.Event.valueChanged)
-        
         tblOEMShow.addSubview(refreshControl)
         tblOEMShow.setNeedsLayout()
         tblOEMShow.layoutIfNeeded()
@@ -197,15 +163,11 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     override func viewDidDisappear(_ animated: Bool) {
         sePicker.removePickerViewWithAnimaion(sourceView: self.view)
     }
-    
-    
-    
+    //MarkTableView
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if tableView == tblOEMShow
@@ -236,9 +198,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             }
         }
     }
-    
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         if tableView == tblOEMShow
@@ -721,10 +681,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         _endDate = endDate! as NSDate
         strsetdate = String(format: "\(  Utilities.sharedUtilities.getDuration(date: startDate! as NSDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate! as NSDate)  )")
     }
-    
-    
-    
-    
     func refreshMethod()
     {
         let MyIp:NSIndexPath = NSIndexPath.init(row: 0, section: 0)
@@ -773,43 +729,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             weakSelf?.updateDate(startDate: strt! as NSDate, endDate: end! as NSDate)
         }
     }
-    
-//    func style()
-//    {
-//
-//        let view = UIView.init(frame: CGRect.init(x: -10, y: 0, width: 150, height: 33))
-//        let imageView = UIImageView.init(frame: CGRect.init(x: -25, y: 8, width: 24, height: 15))
-//        imageView.image = UIImage.init(named: "car-icon")
-//        let lblTitle : UILabel = UILabel.init(frame: CGRect.init(x: 0, y: 2, width: 200, height: 30))
-//
-//        lblTitle.text = Region
-//        lblTitle.textColor = UIColor.white
-//        lblTitle.font = UIFont.systemFont(ofSize: 13)
-//
-//        view.addSubview(imageView)
-//        view.addSubview(lblTitle)
-//        self.navigationItem.titleView = view
-//
-//        let backButton:UIButton =  UIButton(type:.custom)
-//        backButton.frame =  CGRect.init(x: -30, y: 0, width: 130, height: 40)
-//        backButton.setImage(UIImage.init(named: "arrow-left"), for: UIControl.State.normal)
-//        backButton.addTarget(self, action: #selector(btnDashboard_didSelect), for: UIControl.Event.touchUpInside)
-//        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -20, bottom: 0, right: 0)
-//        backButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -18, bottom: 0, right: 0)
-//        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-//        backButton.titleLabel?.numberOfLines = 2
-//        backButton.setTitle(brandname, for: .normal)
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
-//
-//
-//        let menuButton:UIButton =  UIButton(type:.custom)
-//        menuButton.frame =  CGRect.init(x: 0, y: 0, width: 52, height: 40)
-//        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
-//        menuButton.setImage(UIImage.init(named: "right-menu-icon"), for: UIControl.State.normal)
-//        menuButton.addTarget(self, action: #selector(slidemenuAction), for: UIControl.Event.touchUpInside)
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: menuButton)
-//    }
-    
     func updateDate(startDate:NSDate,endDate:NSDate)->Void
     {
         strsetdate = String(format: "\(Utilities.sharedUtilities.getDuration(date: startDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate))")
@@ -1143,8 +1062,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         horiGraph.animate(yAxisDuration: 2)
     }
     
-    
-    
+    //Mark Action
     @IBAction func btnDashboard_didSelect(_ sender:UIButton)
     {
         self.navigationController?.popViewController(animated: true)
@@ -1262,7 +1180,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
     }
     
-    
+    //Mark WebServices
     func CurentDateWebserviceCallingMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1345,7 +1263,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
-    
+    //Mark WebServices
     func PreviousDateWebserviceCallingMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1443,6 +1361,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func ChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1557,9 +1476,6 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
         
-        
-        
-        
         if btnDaily.isSelected
         {
             self.dictStartDateEndDate  = ["start_date" :Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" :Utilities.sharedUtilities.overViewDate(date: NSDate.init()) ,"brand":self.apistr,"oem":self.brandname,"model":"all"]
@@ -1638,6 +1554,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func SlabsChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -1739,6 +1656,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
             KSToastView.ks_showToast(error.localizedDescription)
         }
     }
+    //Mark WebServices
     func PlansChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)

@@ -15,36 +15,27 @@ import RMPickerViewController
 
 class RegionShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,SSMaterialCalendarPickerDelegate,ChartViewDelegate
 {
-    
-    
+    //Mark Variable
     var strRegionname = ""
     var apistr = ""
     var strCome = ""
     var strOEMname = ""
     var strdate = ""
     var regionName = ""
-    
     var selectedIndex = 0
-    
     var _startDate = NSDate()
     var _endDate = NSDate()
-    
     var masterList = NSMutableArray()
     var arrRegionSales = NSMutableArray()
     var arrRegionPerSales = NSMutableArray()
     var arrRegionRevenue = NSMutableArray()
-    
     var datePicker = SSMaterialCalendarPicker()
     var adtBarChartView = BarChartView()
     var pieChartOEM = PieChartView()
     var sePicker = CustomPicker()
     var appDele :AppDelegate = AppDelegate()
-    
     var dictStartDateEndDate = NSDictionary()
-    
-    
-    
-    
+    //Mark Outlet
     @IBOutlet weak var tblModelShow: UITableView!
     @IBOutlet weak var tblTabularDataShow: UITableView!
     @IBOutlet weak var btnGraphical: UIButton!
@@ -54,20 +45,9 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var lblLine2: UILabel!
     @IBOutlet weak var lblStartDate: UILabel!
     @IBOutlet weak var lblEndDate: UILabel!
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Reachability.isConnectedToNetwork() {
-            print("Internet connection OK")
-        } else {
-            print("Internet connection FAILED")
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -95,12 +75,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         
         tblModelShow.reloadData()
     }
-    
-    
-    
-    
-    
-    
+    //Mark Action
     @IBAction func btnAllModels_didSelect(_ sender:UIButton)
     {
         let selectAction = RMAction(title: "Select anyone", style: RMActionStyle.done, andHandler: { controller in
@@ -133,15 +108,11 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         pickerController.message = "Select a Region of your choice"
         self.present(pickerController, animated: true, completion: nil)
     }
-    
-    
-    
+
     @IBAction func btnDatePickerShow(_ sender:UIButton)
     {
         sePicker.showPickerViewWithAnimation(sourceView: self.view)
     }
-    
-    
     
     @IBAction func btnGraphical_didSelect(_ sender:UIButton)
     {
@@ -153,9 +124,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         tblTabularDataShow.isHidden = true
         tblModelShow.reloadData()
     }
-    
-    
-    
+  
     @IBAction func btnTabular_didSelect(_ sender:UIButton)
     {
         btnTabular.isSelected = true
@@ -166,25 +135,17 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         tblTabularDataShow.isHidden = false
         tblTabularDataShow.reloadData()
     }
-    
-    
-    
+ 
     @IBAction func slidemenuAction(_ sender:UIButton)
     {
        
         
     }
-    
-    
-    
+
     @IBAction func btnLeft_didSelect(_ sender:UIButton)
     {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
-    
-    
     func configureView()
     {
         
@@ -194,10 +155,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             weakSelf?.updateDate(startDate: strt! as NSDate, endDate: end! as NSDate)
         }
     }
-    
-    
-    
-    
+   
     func style()
     {
         let view = UIView.init(frame: CGRect.init(x: -30, y: 0, width: 150, height: 33))
@@ -246,12 +204,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         
         ChartDataShowMethod()
     }
-    
-    
-    
-    
-    
-    
+ 
     func configureBarChartGraph(barChartView:BarChartView,arrchart:NSArray)->Void
     {
         let xVals = NSMutableArray.init()
@@ -330,8 +283,6 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         }
         
     }
-    
-    
     func setupBarLineChartView(chartView:BarLineChartViewBase)->Void
     {
         chartView.chartDescription?.enabled = false
@@ -345,8 +296,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         chartView.rightAxis.enabled = false
         
     }
-    
-    
+
     func configurePieChart(pieChart:PieChartView,arrchart:NSArray)->Void
     {
         
@@ -424,23 +374,16 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         l.yEntrySpace = 0.0
         l.yOffset = 0.0
     }
-    
-    
-    
+    //Mark TableView
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return 2
     }
-    
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         if tableView == tblModelShow
@@ -570,10 +513,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             }
         }
     }
-    
-    
-    
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if tableView == tblModelShow
@@ -585,9 +525,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
             
         }
     }
-    
-    
-    
+  
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
@@ -598,19 +536,12 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
     {
         return masterList.count
     }
-    
-    
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         return String(format: "\(masterList.object(at: row))"as String)
     }
-    
-    
-    
-    
-    
-    
+  
     func rangeSelected(withStart startDate: Date!, andEnd endDate: Date!)
     {
         _startDate = startDate! as NSDate
@@ -618,11 +549,8 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         strdate = String(format: "\(  Utilities.sharedUtilities.getDuration(date: startDate! as NSDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate! as NSDate)  )")
         
     }
-    
-    
-    
-    
-    
+ 
+    //Mark WebServices
     func ChartDataShowMethod()
     {
         let timestamp = NSInteger(NSDate().timeIntervalSince1970)
@@ -639,10 +567,7 @@ class RegionShowViewController: UIViewController,UITableViewDelegate,UITableView
         serializerRequest.setValue(token, forHTTPHeaderField: "x-access-token")
         serializerRequest.setValue("\(timestamp)", forHTTPHeaderField: "timestamp")
         manager.responseSerializer = AFJSONResponseSerializer.init()
-        
-       
-        
-        
+     
         let baseurl = "http://bi.servassure.net/api/"
         manager .post("\(baseurl)SalesOverviewOEMLevel2", parameters: dictStartDateEndDate, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
             
