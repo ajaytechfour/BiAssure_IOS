@@ -64,7 +64,7 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
     var arrHbarPerSales = NSMutableArray()
     var arrRegionRev = NSMutableArray()
     var arrModelRev = NSMutableArray()
-    
+    var appConstants : AppConstants = AppConstants()
     var Region = ""
     var apistr = ""
     var strRegionModel = ""
@@ -1192,6 +1192,23 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
                     
                     self.PreviousDateWebserviceCallingMethod()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1290,6 +1307,22 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
                     self.SlabsChartDataShowMethod()
                     self.PlansChartDataShowMethod()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1372,6 +1405,23 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1454,6 +1504,22 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
                 self.tblChartData.reloadData()
                 SVProgressHUD.dismiss()
             }
+            
+            else if info["success"]as! Int == 402
+        {
+            
+            self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+        }
+            //405
+        else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+        {
+            self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+           
+        }
+            
+            
             else
             {
                 KSToastView .ks_showToast(jsonResponse["message"])
@@ -1541,6 +1607,23 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1628,6 +1711,23 @@ class RegionDetailViewControllerViewController: UIViewController,UITableViewDele
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])

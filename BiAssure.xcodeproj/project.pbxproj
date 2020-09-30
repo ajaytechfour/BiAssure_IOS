@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05E400D1E6408EF683774B82 /* Pods_BiAssure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */; };
 		153C8E4124BC2C9A001F7040 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 153C8E4024BC2C99001F7040 /* GoogleService-Info.plist */; };
+		154E5BF825245AF000066B61 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E5BF725245AF000066B61 /* AppConstant.swift */; };
 		3935348422FBFE1D001F3EDB /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = 3935347C22FBFE1C001F3EDB /* ntc.js */; };
 		3935348522FBFE1D001F3EDB /* Luminosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347E22FBFE1D001F3EDB /* Luminosity.swift */; };
 		3935348622FBFE1D001F3EDB /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3935347F22FBFE1D001F3EDB /* RandomColor.swift */; };
@@ -94,6 +95,7 @@
 		00B1A95FAE01EC2620585082 /* Pods_BiAssure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BiAssure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		079710D0F45BC74A64793426 /* Pods-BiAssureUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureUITests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureUITests/Pods-BiAssureUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		153C8E4024BC2C99001F7040 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		154E5BF725245AF000066B61 /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		220AA5DB70666AFE8C71409A /* Pods-BiAssureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BiAssureTests.debug.xcconfig"; path = "Target Support Files/Pods-BiAssureTests/Pods-BiAssureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3935347C22FBFE1C001F3EDB /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
 		3935347E22FBFE1D001F3EDB /* Luminosity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Luminosity.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 		5A8E6ED522E9C307001613DA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				154E5BF725245AF000066B61 /* AppConstant.swift */,
 				5A8E6ED622E9C31A001613DA /* Utilities.swift */,
 			);
 			path = Utilities;
@@ -740,6 +743,7 @@
 				3935348722FBFE1D001F3EDB /* ColorDefinition.swift in Sources */,
 				B64FB3A123FEA9DA0035C7C7 /* VideoViewController.swift in Sources */,
 				B64FB39E23FEA9BB0035C7C7 /* AAPLGameViewController.m in Sources */,
+				154E5BF825245AF000066B61 /* AppConstant.swift in Sources */,
 				39FD783722EF0E9B00A9DF3E /* ClaimsToyotaViewController.swift in Sources */,
 				39FE1B0922EACB7B000357B0 /* PaddingTextField.swift in Sources */,
 				B64FB39F23FEA9BB0035C7C7 /* CustomFrameSizeViewController.m in Sources */,

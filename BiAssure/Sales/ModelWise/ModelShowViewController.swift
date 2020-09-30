@@ -43,7 +43,7 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     var appDelegate :AppDelegate = AppDelegate()
     
     var dictStartDateEndDate = NSDictionary()
-    
+    var appConstants : AppConstants = AppConstants()
     
     /*MARK: -IBOUTLETS
      */
@@ -237,11 +237,54 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
     {
         strdate = String(format: "\(Utilities.sharedUtilities.getDuration(date: startDate)) - \(Utilities.sharedUtilities.getDuration(date: endDate))")
         
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
+        
+        
+        
+        
         if strCome == "OEM"{
-            dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr,"oem":strOEMname, "model": "all"]
+            dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr,"oem":strOEMname, "model": "all",
+                                    "device_info":[
+                                        "app_version" :appversion,
+                                        "device_id" : imeinumber,
+                                        "device_name" : devicename,
+                                        "ip_address" : ipaddress!,
+                                        "os_version_name" : OSversionName,
+                                        "os_type" : OStype,
+                                        "network_type" : networkType,
+                                        "os_version_code" : OSversion,
+                                        "channel" : "M",
+                                        "language" : "EN",
+                                        "screen_name" : "ModelShowScreen"]
+            
+            
+            ]
         }
         else{
-            dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr, "model": strRegionname,"oem":strOEMname]
+            dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: startDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: endDate),"brand": apistr, "model": strRegionname,"oem":strOEMname,
+            
+                                    "device_info":[
+                                        "app_version" :appversion,
+                                        "device_id" : imeinumber,
+                                        "device_name" : devicename,
+                                        "ip_address" : ipaddress!,
+                                        "os_version_name" : OSversionName,
+                                        "os_type" : OStype,
+                                        "network_type" : networkType,
+                                        "os_version_code" : OSversion,
+                                        "channel" : "M",
+                                        "language" : "EN",
+                                        "screen_name" : "LoginScreen"]
+            
+            ]
         }
         
         ChartDataShowMethod()
@@ -706,6 +749,22 @@ class ModelShowViewController: UIViewController,UITableViewDelegate,UITableViewD
                     self.tblTabularDataShow.reloadData()
                     
                 }
+                
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
                     
                 else
                 {

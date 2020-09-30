@@ -72,7 +72,10 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     var revenue = Float()
     var prerevenue = Float()
     var rowvalue = 0
-
+     var appConstants : AppConstants = AppConstants()
+     
+     
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         startDate = NSDate.init()
@@ -273,6 +276,17 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     
     @IBAction func btnDaily_didSelect(_ sender: UIButton)
     {
+     
+     
+     let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+     let OStype = appConstants.OSType
+     let OSversion = appConstants.osversion
+     let devicename = appConstants.devicename
+     let imeinumber = appConstants.imeinumber
+     let OSversionName = appConstants.OSversionName
+     let ipaddress = appConstants.getWiFiAddress()
+     let networkType = appConstants.getNetworkType()
+     
         btnDaily.isSelected = true
         btnMonth.isSelected = false
         btnRange.isSelected = false
@@ -284,10 +298,51 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         dailytblIndexpath = nil
         self.refreshMethod()
         
-        dictRegion = ["report_type":"tdy","brand":"all","oem":BrandsName]
-        dictPreRegion = ["report_type":"ydy","brand":"all","oem":BrandsName]
+        dictRegion = ["report_type":"tdy","brand":"all","oem":BrandsName,
+                      "device_info":[
+                         "app_version" :appversion,
+                         "device_id" : imeinumber,
+                         "device_name" : devicename,
+                         "ip_address" : ipaddress!,
+                         "os_version_name" : OSversionName,
+                         "os_type" : OStype,
+                         "network_type" : networkType,
+                         "os_version_code" : OSversion,
+                         "channel" : "M",
+                         "language" : "EN",
+                         "screen_name" : "SalesScreen"]
         
-        dictStartDateEndDate = ["start_date":Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"brand":"all","oem":BrandsName]
+        ]
+        dictPreRegion = ["report_type":"ydy","brand":"all","oem":BrandsName,
+                         "device_info":[
+                            "app_version" :appversion,
+                            "device_id" : imeinumber,
+                            "device_name" : devicename,
+                            "ip_address" : ipaddress!,
+                            "os_version_name" : OSversionName,
+                            "os_type" : OStype,
+                            "network_type" : networkType,
+                            "os_version_code" : OSversion,
+                            "channel" : "M",
+                            "language" : "EN",
+                            "screen_name" : "SalesScreen"]
+        ]
+        
+        dictStartDateEndDate = ["start_date":Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"brand":"all","oem":BrandsName,
+                                "device_info":[
+                                   "app_version" :appversion,
+                                   "device_id" : imeinumber,
+                                   "device_name" : devicename,
+                                   "ip_address" : ipaddress!,
+                                   "os_version_name" : OSversionName,
+                                   "os_type" : OStype,
+                                   "network_type" : networkType,
+                                   "os_version_code" : OSversion,
+                                   "channel" : "M",
+                                   "language" : "EN",
+                                   "screen_name" : "SalesScreen"]
+        
+        ]
         appDelegate.storebuttonName(button: "Daily")
         
         self.CurentDateWebserviceCallingMethod()
@@ -295,6 +350,17 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     
     @IBAction func btnMonth_didSelect(_ sender:UIButton)
     {
+     
+     
+     let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+     let OStype = appConstants.OSType
+     let OSversion = appConstants.osversion
+     let devicename = appConstants.devicename
+     let imeinumber = appConstants.imeinumber
+     let OSversionName = appConstants.OSversionName
+     let ipaddress = appConstants.getWiFiAddress()
+     let networkType = appConstants.getNetworkType()
+     
         btnDaily.isSelected = false
         btnMonth.isSelected = true
         btnRange.isSelected = false
@@ -306,8 +372,37 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         dailytblIndexpath = nil
         self.refreshMethod()
         
-        dictRegion = ["report_type":"cmth","brand":"all","oem":BrandsName]
-        dictPreRegion = ["report_type":"pmth","brand":"all","oem":BrandsName]
+        dictRegion = ["report_type":"cmth","brand":"all","oem":BrandsName,
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "SalesScreen"]
+    
+        
+        
+        ]
+        dictPreRegion = ["report_type":"pmth","brand":"all","oem":BrandsName,
+                         "device_info":[
+                            "app_version" :appversion,
+                            "device_id" : imeinumber,
+                            "device_name" : devicename,
+                            "ip_address" : ipaddress!,
+                            "os_version_name" : OSversionName,
+                            "os_type" : OStype,
+                            "network_type" : networkType,
+                            "os_version_code" : OSversion,
+                            "channel" : "M",
+                            "language" : "EN",
+                            "screen_name" : "SalesScreen"]
+      ]
         
         appDelegate.storebuttonName(button: "Month")
         
@@ -863,6 +958,23 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                     
                     self.PreviousDateWebserviceCallingMethod()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -936,6 +1048,23 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                             self.RevenueAVG = NSString(format: "%f", AVGRev/newPrerevenue) as String
                         }
                     }
+                     if info["success"]as! Int == 402
+                {
+                    
+                    self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+                }
+                    //405
+                 if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+                {
+                    self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+                   
+                }
+                    
+                    
+                    
+                    
                     
                     if self.btnMonth.isSelected
                     {
@@ -1046,6 +1175,24 @@ class SalesViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                     self.tblPieChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])

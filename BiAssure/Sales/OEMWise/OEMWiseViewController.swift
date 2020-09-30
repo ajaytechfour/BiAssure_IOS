@@ -73,7 +73,7 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     var prerevenue = Float()
     var rowvalue = 0
     
-
+    var appConstants : AppConstants = AppConstants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -230,6 +230,16 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     
     @IBAction func btnDaily_didSelect(_ sender: UIButton)
     {
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
+        
         btnDaily.isSelected = true
         btnMonth.isSelected = false
         btnRange.isSelected = false
@@ -241,10 +251,54 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         dailytblIndexpath = nil
         self.refreshMethod()
         
-        dictRegion = ["report_type":"tdy"]
-        dictPreRegion = ["report_type":"ydy"]
+        dictRegion = ["report_type":"tdy",
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "OEMWiseScreen"]
         
-        dictStartDateEndDate = ["start_date":Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
+        
+        ]
+        dictPreRegion = ["report_type":"ydy",
+                         "device_info":[
+                             "app_version" :appversion,
+                             "device_id" : imeinumber,
+                             "device_name" : devicename,
+                             "ip_address" : ipaddress!,
+                             "os_version_name" : OSversionName,
+                             "os_type" : OStype,
+                             "network_type" : networkType,
+                             "os_version_code" : OSversion,
+                             "channel" : "M",
+                             "language" : "EN",
+                             "screen_name" : "OEMWiseScreen"]
+        
+        ]
+        
+        dictStartDateEndDate = ["start_date":Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),
+        
+                                "device_info":[
+                                    "app_version" :appversion,
+                                    "device_id" : imeinumber,
+                                    "device_name" : devicename,
+                                    "ip_address" : ipaddress!,
+                                    "os_version_name" : OSversionName,
+                                    "os_type" : OStype,
+                                    "network_type" : networkType,
+                                    "os_version_code" : OSversion,
+                                    "channel" : "M",
+                                    "language" : "EN",
+                                    "screen_name" : "OEMWiseScreen"]
+        
+        ]
         appDelegate.storebuttonName(button: "Daily")
         
         self.CurentDateWebserviceCallingMethod()
@@ -252,6 +306,16 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     
     @IBAction func btnMonth_didSelect(_ sender:UIButton)
     {
+        
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
         btnDaily.isSelected = false
         btnMonth.isSelected = true
         btnRange.isSelected = false
@@ -263,8 +327,30 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         dailytblIndexpath = nil
         self.refreshMethod()
         
-        dictRegion = ["report_type":"cmth"]
-        dictPreRegion = ["report_type":"pmth"]
+        dictRegion = ["report_type":"cmth","device_info":[
+                        "app_version" :appversion,
+                        "device_id" : imeinumber,
+                        "device_name" : devicename,
+                        "ip_address" : ipaddress!,
+                        "os_version_name" : OSversionName,
+                        "os_type" : OStype,
+                        "network_type" : networkType,
+                        "os_version_code" : OSversion,
+                        "channel" : "M",
+                        "language" : "EN",
+                        "screen_name" : "OEMWiseScreen"]]
+        dictPreRegion = ["report_type":"pmth","device_info":[
+                            "app_version" :appversion,
+                            "device_id" : imeinumber,
+                            "device_name" : devicename,
+                            "ip_address" : ipaddress!,
+                            "os_version_name" : OSversionName,
+                            "os_type" : OStype,
+                            "network_type" : networkType,
+                            "os_version_code" : OSversion,
+                            "channel" : "M",
+                            "language" : "EN",
+                            "screen_name" : "OEMWiseScreen"]]
         
        // dictStartDateEndDate = ["start_date":Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
         appDelegate.storebuttonName(button: "Month")
@@ -806,6 +892,21 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     
                     self.PreviousDateWebserviceCallingMethod()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
                 else
                 {
                    KSToastView .ks_showToast(jsonResponse["message"])
@@ -888,6 +989,24 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                             self.RevenueAVG = NSString(format: "%f", AVGRevResult) as String
                         }
                     }
+                     if info["success"]as! Int == 402
+                {
+                    
+                    self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+                }
+                    //405
+                 if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+                {
+                    self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+                   
+                }
+                    
+                    
+                    
+                    
+                    
                     
                     if self.btnMonth.isSelected
                     {
@@ -996,6 +1115,24 @@ class OEMWiseViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                     self.tblPieChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])

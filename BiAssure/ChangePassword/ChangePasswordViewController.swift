@@ -21,7 +21,7 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var txtNewpassword: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var btnSave_didshow: UIButton!
-
+    var appConstants : AppConstants = AppConstants()
     
     
     /*MARK: -INBUILT FUNCTIONS
@@ -106,8 +106,38 @@ class ChangePasswordViewController: UIViewController {
             let serializerResponse = AFJSONResponseSerializer()
             
             manager.responseSerializer = serializerResponse
+            
+            let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+            let OStype = appConstants.OSType
+            let OSversion = appConstants.osversion
+            let devicename = appConstants.devicename
+            let imeinumber = appConstants.imeinumber
+            let OSversionName = appConstants.OSversionName
+            let ipaddress = appConstants.getWiFiAddress()
+            let networkType = appConstants.getNetworkType()
+            
+            
+            
             //            manager.requestSerializer .timeoutInterval = 500.0
-            let parameters = ["user_name" :txtusername.text!,"user_password":txtOldpassword.text!,"new_password":txtNewpassword.text!]
+            let parameters = ["user_name" :txtusername.text!,"user_password":txtOldpassword.text!,"new_password":txtNewpassword.text!,
+                              "device_info":[
+                                  "app_version" :appversion,
+                                  "device_id" : imeinumber,
+                                  "device_name" : devicename,
+                                  "ip_address" : ipaddress!,
+                                  "os_version_name" : OSversionName,
+                                  "os_type" : OStype,
+                                  "network_type" : networkType,
+                                  "os_version_code" : OSversion,
+                                  "channel" : "M",
+                                  "language" : "EN",
+                                  "screen_name" : "ChangePasswordScreen"],
+                              
+                              
+            
+            
+            
+            ] as [String : Any]
             
             SVProgressHUD.show()
             
@@ -129,6 +159,24 @@ class ChangePasswordViewController: UIViewController {
                         
                         
                     }
+                    
+                    
+                    else if info["Status"]as! Int == 402
+                {
+                    
+                    self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+                }
+                    //405
+                else if info["Status"]as! Int == 405 || info["Status"]as! Int == 406  || info["Status"]as! Int == 403
+                {
+                    self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+                   
+                }
+                     
+                    
+                    
                         
                     else
                     {

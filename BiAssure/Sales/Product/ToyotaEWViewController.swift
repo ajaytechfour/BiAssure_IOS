@@ -95,7 +95,7 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
 
     var tblChartData = UITableView()
 
-   
+    var appConstants : AppConstants = AppConstants()
     
     
     /*MARK: -IBOUTLETS
@@ -1168,6 +1168,16 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     
     @IBAction func btnDaily_didSelect(_ sender:UIButton)
     {
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
+        
         refreshMethod()
         btnDaily.isSelected = true
         btnMonth.isSelected = false
@@ -1179,9 +1189,50 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         
         refreshMethod()
         
-        dictRegion = ["report_type": "tdy", "oem": brandname,"brand" :apistr]
-        dictPreRegion = ["report_type": "ydy", "oem": brandname,"brand" :apistr]
-        dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()), "brand": apistr, "oem": brandname]
+        dictRegion = ["report_type": "tdy", "oem": brandname,"brand" :apistr,
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "ToyotaEWScreen"]
+        
+        ]
+        dictPreRegion = ["report_type": "ydy", "oem": brandname,"brand" :apistr,
+                         "device_info":[
+                             "app_version" :appversion,
+                             "device_id" : imeinumber,
+                             "device_name" : devicename,
+                             "ip_address" : ipaddress!,
+                             "os_version_name" : OSversionName,
+                             "os_type" : OStype,
+                             "network_type" : networkType,
+                             "os_version_code" : OSversion,
+                             "channel" : "M",
+                             "language" : "EN",
+                             "screen_name" : "ToyotaEWScreen"]
+        ]
+        dictStartDateEndDate = ["start_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()), "brand": apistr, "oem": brandname,
+                                "device_info":[
+                                    "app_version" :appversion,
+                                    "device_id" : imeinumber,
+                                    "device_name" : devicename,
+                                    "ip_address" : ipaddress!,
+                                    "os_version_name" : OSversionName,
+                                    "os_type" : OStype,
+                                    "network_type" : networkType,
+                                    "os_version_code" : OSversion,
+                                    "channel" : "M",
+                                    "language" : "EN",
+                                    "screen_name" : "ToyotaEWScreen"]
+        
+        ]
 
         appDelegate.storebuttonName(button: "Daily")
         CurentDateWebserviceCallingMethod()
@@ -1191,6 +1242,16 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
     
     @IBAction func btnMonth_didSelect(_ sender:UIButton)
     {
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
+        
         refreshMethod()
         btnDaily.isSelected = false
         btnMonth.isSelected = true
@@ -1201,8 +1262,36 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
         sePicker.removePickerViewWithAnimaion(sourceView: self.view)
         
         
-        dictRegion = ["report_type": "cmth", "oem": brandname,"brand" :apistr]
-        dictPreRegion = ["report_type": "pmth", "oem": brandname,"brand" :apistr]
+        dictRegion = ["report_type": "cmth", "oem": brandname,"brand" :apistr,
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "ToyotaEWScreen"]
+        
+        ]
+        dictPreRegion = ["report_type": "pmth", "oem": brandname,"brand" :apistr,
+                         "device_info":[
+                             "app_version" :appversion,
+                             "device_id" : imeinumber,
+                             "device_name" : devicename,
+                             "ip_address" : ipaddress!,
+                             "os_version_name" : OSversionName,
+                             "os_type" : OStype,
+                             "network_type" : networkType,
+                             "os_version_code" : OSversion,
+                             "channel" : "M",
+                             "language" : "EN",
+                             "screen_name" : "ToyotaEWScreen"]
+        
+        ]
          appDelegate.storebuttonName(button: "Month")
         CurentDateWebserviceCallingMethod()
     }
@@ -1341,6 +1430,23 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     
                     self.PreviousDateWebserviceCallingMethod()
                 }
+                
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1441,6 +1547,22 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.SlabsChartDataShowMethod()
                     self.PlansChartDataShowMethod()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1538,6 +1660,22 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1635,6 +1773,22 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1738,6 +1892,22 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])
@@ -1841,6 +2011,22 @@ class ToyotaEWViewController: UIViewController,SSMaterialCalendarPickerDelegate,
                     self.tblChartData.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                else if info["success"]as! Int == 402
+            {
+                
+                self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+            }
+                //405
+            else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+            {
+                self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+               
+            }
+                
+                
+                
                 else
                 {
                     KSToastView .ks_showToast(jsonResponse["message"])

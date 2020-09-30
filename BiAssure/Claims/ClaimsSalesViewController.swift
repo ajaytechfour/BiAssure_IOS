@@ -18,7 +18,7 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     /*MARK: -DECLARATION OF VARIABLES
      */
     var datePicker = SSMaterialCalendarPicker()
-
+    var appConstants : AppConstants = AppConstants()
     var strClaimsType = ""
     var regionName = ""
     var strsetdate = ""
@@ -68,9 +68,19 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         lblLine1.isHidden = false
         lblLine2.isHidden = true
         lblLine3.isHidden = true
-        dictRegion = ["oem": "", "claim_type": "EW"]
+        
+        
+        
+        
+        dictRegion = ["oem": "", "claim_type": "EW"
+                      
+        
+        ]
         WebserviceCallingForEWClaims()
-        dictRegion = ["oem": "", "claim_type": "AMC"]
+        dictRegion = ["oem": "", "claim_type": "AMC"
+                    
+        
+        ]
         WebserviceCallingForAMCClaims()
 
     }
@@ -272,6 +282,17 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func btnDaily_didSelect(_ sender:UIButton)
     {
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
+        
+        
         refreshMethod()
         btnDaily.isSelected = true
         btnMonth.isSelected = false
@@ -281,9 +302,33 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         lblLine3.isHidden = true
         sePicker.removePickerViewWithAnimaion(sourceView: self.view)
        
-        dictRegion = ["oem": "", "claim_type": "EW"]
+        dictRegion = ["oem": "", "claim_type": "EW","device_info":[
+                        "app_version" :appversion,
+                        "device_id" : imeinumber,
+                        "device_name" : devicename,
+                        "ip_address" : ipaddress!,
+                        "os_version_name" : OSversionName,
+                        "os_type" : OStype,
+                        "network_type" : networkType,
+                        "os_version_code" : OSversion,
+                        "channel" : "M",
+                        "language" : "EN",
+                        "screen_name" : "ClaimsToyotaScreen"]]
         WebserviceCallingForEWClaims()
-        dictRegion = ["oem": "", "claim_type": "AMC"]
+        dictRegion = ["oem": "", "claim_type": "AMC",
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "ClaimsToyotaScreen"]
+        ]
         WebserviceCallingForAMCClaims()
     }
     
@@ -291,6 +336,16 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func btnMonth_didSelect(_ sender:UIButton)
     {
+        let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        let OStype = appConstants.OSType
+        let OSversion = appConstants.osversion
+        let devicename = appConstants.devicename
+        let imeinumber = appConstants.imeinumber
+        let OSversionName = appConstants.OSversionName
+        let ipaddress = appConstants.getWiFiAddress()
+        let networkType = appConstants.getNetworkType()
+        
+        
         refreshMethod()
         btnDaily.isSelected = false
         btnMonth.isSelected = true
@@ -306,9 +361,38 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
         comp.day = 1
         let firstDayOfMonthDate = gregorian.date(from: comp as DateComponents)
         
-        dictRegion = ["oem": "", "claim_type": "EW","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
+        dictRegion = ["oem": "", "claim_type": "EW","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "ClaimsToyotaScreen"]
+        
+        ]
         WebserviceCallingForEWClaims()
-        dictRegion = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init())]
+        dictRegion = ["oem": "", "claim_type": "AMC","start_date" : Utilities.sharedUtilities.overViewDate(date: firstDayOfMonthDate! as NSDate),"end_date" : Utilities.sharedUtilities.overViewDate(date: NSDate.init()),
+                      "device_info":[
+                          "app_version" :appversion,
+                          "device_id" : imeinumber,
+                          "device_name" : devicename,
+                          "ip_address" : ipaddress!,
+                          "os_version_name" : OSversionName,
+                          "os_type" : OStype,
+                          "network_type" : networkType,
+                          "os_version_code" : OSversion,
+                          "channel" : "M",
+                          "language" : "EN",
+                          "screen_name" : "ClaimsToyotaScreen"]
+        
+        
+        ]
         WebserviceCallingForAMCClaims()
     }
     
@@ -550,6 +634,21 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                     }
                     self.tblSalesData.reloadData()
                 }
+                
+                
+               else if info["responseCode"]as! Int == 402
+           {
+               
+               self.appConstants.showAppStoreAlert(title: "", message: info["responseMessage"] as! String, controller: self)
+
+
+           }
+               //405
+           else if info["responseCode"]as! Int == 405 || info["responseCode"]as! Int == 406  || info["responseCode"]as! Int == 403
+           {
+               self.appConstants.showLogoutAlert(title: "", message: info["responseMessage"] as! String, controller: self)
+              
+           }
                     
                 else
                 {
@@ -629,7 +728,22 @@ class ClaimsSalesViewController: UIViewController,UITableViewDelegate,UITableVie
                     }
                     self.tblSalesData.reloadData()
                 }
-                    
+                
+               else if info["success"]as! Int == 402
+           {
+               
+               self.appConstants.showAppStoreAlert(title: "", message: info["message"] as! String, controller: self)
+
+
+           }
+               //405
+           else if info["success"]as! Int == 405 || info["success"]as! Int == 406  || info["success"]as! Int == 403
+           {
+               self.appConstants.showLogoutAlert(title: "", message: info["message"] as! String, controller: self)
+              
+           }
+                
+                
                 else
                 {
                     

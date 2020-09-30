@@ -10,7 +10,7 @@ import UIKit
 import KSToastView
 import AFNetworking
 import SVProgressHUD
-
+import FirebaseCrashlytics
 
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
@@ -27,7 +27,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var appDelegate:AppDelegate = AppDelegate()
     var gradient: CAGradientLayer = CAGradientLayer()
-
+    var appConstants : AppConstants = AppConstants()
     
     /*MARK: -INBUILT FUNCTIONS
      */
@@ -131,64 +131,117 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnLogin_didSelect(_ sender:UIButton)
     {
-//        if self.validateFields(){
-//            let timeStamp = NSDate().timeIntervalSince1970
-//
-//
-//            let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
-//
-//
-//            let serializerRequest = AFHTTPRequestSerializer()
-//            serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-//            serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
-//
-//            manager.requestSerializer = serializerRequest
-//            manager.requestSerializer.timeoutInterval = 90.0
-//
-//            let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtUsername.text!) as NSString
-//
-//            serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
-//            serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
-//
-//            let serializerResponse = AFJSONResponseSerializer()
-//
-//            manager.responseSerializer = serializerResponse
-//
-//            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!]
-//
-//            SVProgressHUD.show()
-//
-//            manager.post(NSString.init(format: "\(Base_Url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
-//                SVProgressHUD.dismiss()
-//                if let jsonResponse = responseObject as? [String: AnyObject] {
-//                    // here read response
-//                    print("json response \(jsonResponse.description)")
-//                    let info : NSDictionary = jsonResponse as NSDictionary
-//                    if info["success"]as! Int == 1
-//                    {
-//
-//                        self.appDelegate.storeSessionId(session_id: info["token"]as! String)
-//
-//                        self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
-//
-//                        self.showDashBoard()
-//                    }
-//
-//                    else
-//                    {
-//                        KSToastView.ks_showToast(info["message"]as! String)
-//                    }
-//
-//                }
-//
-//            })
-//            { (task: URLSessionDataTask?, error: Error) in
-//                print("POST fails with error \(error)")
-//                SVProgressHUD.dismiss()
-//                KSToastView.ks_showToast(error.localizedDescription)
-//            }
-//
-//        }
+       
+        
+        if self.validateFields(){
+            let timeStamp = NSDate().timeIntervalSince1970
+
+
+            let manager = AFHTTPSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+
+
+            let serializerRequest = AFHTTPRequestSerializer()
+            serializerRequest.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            serializerRequest.setValue("iOS", forHTTPHeaderField: "os")
+
+            manager.requestSerializer = serializerRequest
+            manager.requestSerializer.timeoutInterval = 90.0
+
+            let token:NSString = Utilities.sharedUtilities.convertToken(timestamp: NSInteger(timeStamp), username: txtUsername.text!) as NSString
+
+            serializerRequest.setValue(token as String, forHTTPHeaderField: "token")
+            serializerRequest.setValue("%ld", forHTTPHeaderField: "timestamp")
+
+            let serializerResponse = AFJSONResponseSerializer()
+
+            manager.responseSerializer = serializerResponse
+            
+            
+            let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+            let OStype = appConstants.OSType
+            let OSversion = appConstants.osversion
+            let devicename = appConstants.devicename
+            let imeinumber = appConstants.imeinumber
+            let OSversionName = appConstants.OSversionName
+            let ipaddress = appConstants.getWiFiAddress()
+            let networkType = appConstants.getNetworkType()
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            let parameters = ["username" :txtUsername.text!,"password":txtPassword.text!,
+                              "device_info":[
+                                  "app_version" :appversion,
+                                  "device_id" : imeinumber,
+                                  "device_name" : devicename,
+                                  "ip_address" : ipaddress!,
+                                  "os_version_name" : OSversionName,
+                                  "os_type" : OStype,
+                                  "network_type" : networkType,
+                                  "os_version_code" : OSversion,
+                                  "channel" : "M",
+                                  "language" : "EN",
+                                  "screen_name" : "LoginScreen"]
+            
+            
+            ] as [String : Any]
+
+            SVProgressHUD.show()
+
+            manager.post(NSString.init(format: "\(Base_Url)login" as NSString, 0) as String, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask!, responseObject: Any!) in
+                SVProgressHUD.dismiss()
+                if let jsonResponse = responseObject as? [String: AnyObject] {
+                    // here read response
+                    print("json response \(jsonResponse.description)")
+                    let info : NSDictionary = jsonResponse as NSDictionary
+                    if info["success"]as! Int == 1
+                    {
+
+                        self.appDelegate.storeSessionId(session_id: info["token"]as! String)
+
+                        self.appDelegate.storeUserName(user_name: self.txtUsername.text!)
+
+                        self.showDashBoard()
+                    }
+                    
+                   else if info["responseCode"]as! Int == 402
+               {
+                   
+                   self.appConstants.showAppStoreAlert(title: "", message: info["responseMessage"] as! String, controller: self)
+
+
+               }
+                   //405
+               else if info["responseCode"]as! Int == 405 || info["responseCode"]as! Int == 406  || info["responseCode"]as! Int == 403
+               {
+                   self.appConstants.showLogoutAlert(title: "", message: info["responseMessage"] as! String, controller: self)
+                  
+               }
+              
+                   
+                    
+
+                    else
+                    {
+                        KSToastView.ks_showToast(info["message"]as! String)
+                    }
+
+                }
+
+            })
+            { (task: URLSessionDataTask?, error: Error) in
+                print("POST fails with error \(error)")
+                SVProgressHUD.dismiss()
+                KSToastView.ks_showToast(error.localizedDescription)
+            }
+
+        }
     }
     
     

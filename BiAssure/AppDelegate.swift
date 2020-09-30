@@ -78,5 +78,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UserDefaults.standard.value(forKey: "buttontap") as? String ?? ""
         
     }
+    func getNewToken() -> String
+    {
+        return UserDefaults.standard.value(forKey: "newToken") as? String ?? ""
+        
+    }
+    func getToken() -> String
+    {
+        return UserDefaults.standard.value(forKey: "token") as? String ?? ""
+        
+    }
+    func saveToken(Token:String)
+    {
+        UserDefaults.standard.set(Token, forKey: "token")
+        UserDefaults.standard.synchronize()
+    }
 }
 
